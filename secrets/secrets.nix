@@ -1,9 +1,9 @@
 let
-  user1 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL0idNvgGiucWgup/mP78zyC23uFjYq0evcWdjGQUaBH";
-  users = [user1];
+  tht = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO1TqzsM18I70A0XhmBjYhryhkRFdGl6ofup92N3XNyC";
+  users = [tht];
 
-  system1 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPJDyIr/FSz1cJdcoW69R+NrWzwGK/+3gJpqD1t8L2zE";
-  systems = [system1];
+  ikaros = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICGFH9s1KhZjTIlxtFcqVwOS1xiNshJHyMTbUBxh0K9i";
+  systems = [ikaros];
 in {
-  "secret1.age".publicKeys = [user1 system1];
+  "cloudflare_stuff.age".publicKeys = users ++ systems;
 }

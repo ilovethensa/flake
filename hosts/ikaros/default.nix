@@ -5,7 +5,7 @@
     #../../nix/configs/boot.nix
     ./hardware-configuration.nix
     #./services/arr.nix
-    #./services/caddy.nix
+    ./services/caddy.nix
     #./services/jellyseerr.nix
     #./services/cron.nix
     #./services/unmanic.nix

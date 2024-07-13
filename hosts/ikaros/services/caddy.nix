@@ -1,14 +1,10 @@
-{config, lib, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   # Secrets
-  sops.secrets.cloudflare_key = {};
-  sops.secrets.cloudflare_email = {};
-  sops.templates."ddns_env".content = ''
-    CLOUDFLARE_API_TOKEN="${config.sops.placeholder.cloudflare_key}"
-  '';
-  sops.templates."acme_env".content = ''
-    CLOUDFLARE_DNS_API_TOKEN="${config.sops.placeholder.cloudflare_key}"
-    CLOUDFLARE_API_TOKEN="${config.sops.placeholder.cloudflare_key}"
-  '';
+  age.secrets.clooudflare_stuff.file = ../../../secrets/cloudflare_stuff.age;
 
   services.caddy = {
     enable = true;
@@ -46,7 +42,7 @@
 
   services.cloudflare-dyndns = {
     enable = true;
-    apiTokenFile = config.sops.templates."ddns_env".path;
+    apiTokenFile = config.age.secrets.clooudflare_stuff.path;
     domains = [
       "mc.theholytachanka.com"
       "vpn.theholytachanka.com"
@@ -62,7 +58,7 @@
     acceptTerms = true;
     defaults.email = lib.mkForce "me@theholytachanka.com";
     defaults.dnsProvider = "cloudflare";
-    defaults.environmentFile = config.sops.templates."acme_env".path;
+    defaults.environmentFile = config.age.secrets.clooudflare_stuff.path;
     certs = {
       "mc.theholytachanka.com" = {};
       "vpn.theholytachanka.com" = {};
