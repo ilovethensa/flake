@@ -33,6 +33,7 @@
         impermanence.nixosModules.impermanence
         comin.nixosModules.comin
         agenix.nixosModules.default
+        nixarr.nixosModules.default
         ./hosts/ikaros
       ];
     };
