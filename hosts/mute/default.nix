@@ -3,16 +3,8 @@
   imports = [
     ./hardware-configuration.nix
     ../../profiles/laptop
+    ../../nix/configs/users/tht.nix
   ];
-
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    users = {
-      # Import your home-manager configuration
-      tht = import ../../home/tht/home.nix;
-    };
-  };
 
   networking.hostName = "mute"; # Define hostname
 
