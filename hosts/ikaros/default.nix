@@ -5,7 +5,7 @@
     ./hardware-configuration.nix
     ./services/arr.nix
     ./services/caddy.nix
-    #./services/jellyseerr.nix
+    ./services/jellyseerr.nix
     #./services/cron.nix
     ./services/unmanic.nix
     ./services/rimgo.nix
