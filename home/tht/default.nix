@@ -12,13 +12,13 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
     #inputs.nix-colors.homeManagerModules.default
-    #./apps/vscode
+    ./apps/vscode
     #./apps/firefox
-    #../common/fish
+    ../common/fish
     #./apps/yt-dlp
     #./apps/neovim
     #./apps/newsboat
-    #./desktops/hyprland
+    ./desktops/hyprland
     #spicetify-nix.homeManagerModule
     #inputs.nixvim.homeManagerModules.nixvim
     #inputs.sops-nix.homeManagerModules.sops
@@ -39,7 +39,7 @@
     username = "tht";
     homeDirectory = "/home/tht";
   };
-/* 
+ 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
@@ -68,7 +68,7 @@
             HostName 192.168.1.102
       '';
     };
-  }; */
+  }; 
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
