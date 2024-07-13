@@ -1,7 +1,8 @@
 {...}: {
   services.openssh = {
     enable = true;
-    ports = [
+    /*
+       ports = [
       22
     ];
     banner = ''
@@ -42,10 +43,12 @@
       ];
       X11Forwarding = false;
     };
+    */
   };
   # Timeout TTY after 1 hour
-  programs.bash.interactiveShellInit = "if [[ $(tty) =~ /dev\\/tty[1-6] ]]; then TMOUT=3600; fi";
-/*   services.fail2ban = {
+  #programs.bash.interactiveShellInit = "if [[ $(tty) =~ /dev\\/tty[1-6] ]]; then TMOUT=3600; fi";
+  /*
+     services.fail2ban = {
     enable = false;
     # Ban IP after 5 failures
     maxretry = 5;
@@ -56,7 +59,8 @@
       maxtime = "168h"; # Do not ban for more than 1 week
       overalljails = true; # Calculate the bantime based on all the violations
     };
-  }; */
+  };
+  */
   networking.firewall.allowedTCPPorts = [
     22
   ];
