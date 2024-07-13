@@ -3,7 +3,7 @@
   imports = [
     ../../profiles/server
     ./hardware-configuration.nix
-    ./services/arr.nix
+    #./services/arr.nix
     ./services/caddy.nix
     ./services/jellyseerr.nix
     #./services/cron.nix
