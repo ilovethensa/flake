@@ -4,7 +4,7 @@
     remotes = [
       {
         name = "origin";
-        url = "https://github.com/ilovethensa/dots";
+        url = "https://github.com/ilovethensa/flake";
         poller.period = 60;
         branches.main.name = "master";
       }
