@@ -1,6 +1,6 @@
 {...}: {
   imports = [
     ../common
-    ../../nix/configs/sound.nix
+   ../../nix/configs/sound.nix
   ];
 }

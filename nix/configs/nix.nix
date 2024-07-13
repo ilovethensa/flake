@@ -1,10 +1,4 @@
-{
-  lib,
-  config,
-  inputs,
-  outputs,
-  ...
-}: {
+{...}: {
   #programs.nh = {
   #  enable = true;
   #  clean.enable = true;
@@ -28,11 +22,13 @@
     #nixPath = ["/etc/nix/path"];
     #registry = (lib.mapAttrs (_: flake: {inherit flake;})) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
   };
-/*   environment.etc =
-    lib.mapAttrs'
-    (name: value: {
-      name = "nix/path/${name}";
-      value.source = value.flake;
-    })
-    config.nix.registry; */
+  /*
+   environment.etc =
+  lib.mapAttrs'
+  (name: value: {
+    name = "nix/path/${name}";
+    value.source = value.flake;
+  })
+  config.nix.registry;
+  */
 }

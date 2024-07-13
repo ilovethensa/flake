@@ -6,10 +6,10 @@
     ../../nix/configs/users/tht
   ];
 
-  meta = {
-    hyprland = true;
-    intel = true;
-  };
+  #meta = {
+  #  hyprland = true;
+  #  intel = true;
+  #};
 
   networking.hostName = "mute"; # Define hostname
 

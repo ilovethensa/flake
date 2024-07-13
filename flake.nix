@@ -43,6 +43,10 @@
       system = "x86_64-linux";
       specialArgs = attrs;
       modules = [
+        impermanence.nixosModules.impermanence
+        comin.nixosModules.comin
+        agenix.nixosModules.default
+        home-manager.nixosModules.home-manager
         ./hosts/mute
       ];
     };
