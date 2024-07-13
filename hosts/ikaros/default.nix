@@ -1,9 +1,13 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   # Import modules and configuration pieces
   imports = [
     ../../profiles/server
     ./hardware-configuration.nix
-    #./services/arr.nix
+    ./services/arr.nix
     ./services/caddy.nix
     ./services/jellyseerr.nix
     #./services/cron.nix
@@ -22,6 +26,21 @@
     git
     btop
   ];
+  environment.etc = {
+    "ssh/sshd_config".text =
+      lib.mkForce ''
+      '';
+  };
+  services.cockpit = {
+    enable = true;
+    port = 9090;
+    openFirewall = true;
+    settings = {
+      WebService = {
+        AllowUnencrypted = true;
+      };
+    };
+  };
   #networking.wireguard.enable = true;
   # Persistence configuration
   environment.persistence."/nix/persist" = {

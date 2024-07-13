@@ -12,6 +12,7 @@
     agenix.url = "github:ryantm/agenix";
     comin.url = "github:nlewo/comin";
     simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
+    vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
   outputs = {
     self,
@@ -24,6 +25,7 @@
     comin,
     simple-nixos-mailserver,
     home-manager,
+    vscode-server,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -36,6 +38,7 @@
         comin.nixosModules.comin
         agenix.nixosModules.default
         #nixarr.nixosModules.default
+        vscode-server.nixosModules.default
         ./hosts/ikaros
       ];
     };
