@@ -16,7 +16,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = {
+  outputs = inputs @ {
     self,
     nixpkgs,
     nixpkgs-unstable,
@@ -28,10 +28,9 @@
     simple-nixos-mailserver,
     home-manager,
     ...
-  } @ attrs: {
+  }: {
     nixosConfigurations.ikaros = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = attrs;
       modules = [
         impermanence.nixosModules.impermanence
         comin.nixosModules.comin
@@ -41,7 +40,6 @@
     };
     nixosConfigurations.mute = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = attrs;
       modules = [
         impermanence.nixosModules.impermanence
         comin.nixosModules.comin
