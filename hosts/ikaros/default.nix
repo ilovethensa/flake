@@ -56,7 +56,7 @@
     directories = [
       "/var/lib"
       "/etc/jellyfin"
-      #"/home"
+      "/home"
       {
         directory = "/root";
         user = "root";

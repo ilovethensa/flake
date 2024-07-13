@@ -9,7 +9,7 @@
       openFirewall = true;
     };
     transmission = {
-      enable = true;
+      enable = false;
       peerPort = 32456;
       #flood.enable = true;
       openFirewall = true;
@@ -34,4 +34,4 @@
   networking.firewall.allowedTCPPorts = [
     3119 # Peer port
   ];
-} 
+}

@@ -37,7 +37,7 @@
         impermanence.nixosModules.impermanence
         comin.nixosModules.comin
         agenix.nixosModules.default
-        #nixarr.nixosModules.default
+        nixarr.nixosModules.default
         vscode-server.nixosModules.default
         ./hosts/ikaros
       ];
