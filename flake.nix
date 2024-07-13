@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     impermanence.url = "github:nix-community/impermanence";
@@ -15,6 +16,7 @@
   outputs = {
     self,
     nixpkgs,
+    nixpkgs-stable,
     impermanence,
     nixarr,
     nix-gaming,
@@ -26,7 +28,7 @@
   } @ inputs: let
     inherit (self) outputs;
   in {
-    nixosConfigurations.ikaros = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.ikaros = nixpkgs-stable.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {inherit inputs outputs;};
       modules = [
