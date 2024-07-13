@@ -1,11 +1,5 @@
 {pkgs, ...}: {
   programs.fish.enable = true;
-  home-manager = {
-    users = {
-      # Import your home-manager configuration
-      tht = import .../../../../../home/tht;
-    };
-  };
   users = {
     defaultUserShell = pkgs.fish;
     mutableUsers = false;

@@ -6,7 +6,12 @@
     ../../nix/configs/users/tht.nix
     ../../nix/configs/desktop/hyprland.nix
   ];
-
+  home-manager = {
+    users = {
+      # Import your home-manager configuration
+      tht = import .../../../../../home/tht;
+    };
+  };
   networking.hostName = "mute"; # Define hostname
 
   environment.systemPackages = with pkgs; [
