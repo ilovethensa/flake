@@ -11,6 +11,7 @@
     ./services/rimgo.nix
     ./services/libreddit.nix
     #./services/mail.nix
+    ../../nix/configs/users/tht.nix
   ];
 
   # Networking and system configurations
