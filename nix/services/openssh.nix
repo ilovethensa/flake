@@ -46,7 +46,7 @@
   # Timeout TTY after 1 hour
   programs.bash.interactiveShellInit = "if [[ $(tty) =~ /dev\\/tty[1-6] ]]; then TMOUT=3600; fi";
   services.fail2ban = {
-    enable = true;
+    enable = false;
     # Ban IP after 5 failures
     maxretry = 5;
     bantime = "24h"; # Ban IPs for one day on the first ban
