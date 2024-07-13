@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   # Import modules and configuration pieces
   imports = [
     ../../profiles/server
@@ -11,7 +7,7 @@
     ./services/caddy.nix
     ./services/jellyseerr.nix
     #./services/cron.nix
-    ./services/unmanic.nix
+    #./services/unmanic.nix
     ./services/rimgo.nix
     ./services/libreddit.nix
     #./services/mail.nix
@@ -26,11 +22,6 @@
     git
     btop
   ];
-  environment.etc = {
-    "ssh/sshd_config".text =
-      lib.mkForce ''
-      '';
-  };
   services.cockpit = {
     enable = true;
     port = 9090;

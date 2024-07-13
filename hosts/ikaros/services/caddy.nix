@@ -4,7 +4,7 @@
   ...
 }: {
   # Secrets
-  age.secrets.clooudflare_stuff.file = ../../../secrets/cloudflare_stuff.age;
+  age.secrets.cloudflare_stuff.file = ../../../secrets/cloudflare_stuff.age;
 
   services.caddy = {
     enable = true;
@@ -42,7 +42,7 @@
 
   services.cloudflare-dyndns = {
     enable = true;
-    apiTokenFile = config.age.secrets.clooudflare_stuff.path;
+    apiTokenFile = config.age.secrets.cloudflare_stuff.path;
     domains = [
       "mc.theholytachanka.com"
       "vpn.theholytachanka.com"
@@ -58,7 +58,7 @@
     acceptTerms = true;
     defaults.email = lib.mkForce "me@theholytachanka.com";
     defaults.dnsProvider = "cloudflare";
-    defaults.environmentFile = config.age.secrets.clooudflare_stuff.path;
+    defaults.environmentFile = config.age.secrets.cloudflare_stuff.path;
     certs = {
       "mc.theholytachanka.com" = {};
       "vpn.theholytachanka.com" = {};
