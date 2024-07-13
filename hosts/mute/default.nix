@@ -4,6 +4,7 @@
     ./hardware-configuration.nix
     ../../profiles/laptop
     ../../nix/configs/users/tht.nix
+    ../../nix/configs/desktop/hyprland.nix
   ];
 
   networking.hostName = "mute"; # Define hostname

@@ -1,19 +1,6 @@
 {
-  lib,
-  config,
   ...
-}: let
-  service = "meta";
-  cfg = config.${service};
-in {
-  options.${service} = {
-    cinnamon = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-    };
-  };
-
-  config = lib.mkIf cfg.cinnamon {
+}:{
     # Enable the X11 windowing system.
     services.xserver.enable = true;
 
@@ -26,5 +13,4 @@ in {
       layout = "us";
       xkbVariant = "";
     };
-  };
 }
