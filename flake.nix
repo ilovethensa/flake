@@ -28,7 +28,7 @@
   } @ inputs: let
     inherit (self) outputs;
   in {
-    nixosConfigurations.ikaros = nixpkgs-stable.lib.nixosSystem {
+    nixosConfigurations.ikaros = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {inherit inputs outputs;};
       modules = [
