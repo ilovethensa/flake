@@ -18,6 +18,7 @@ in {
       hideMounts = true;
       directories = [
         "/var/log"
+        "/var/lib/comin/" # Else comin doesnt work
         "/var/lib/nixos"
         "/etc/NetworkManager/system-connections"
         "/var/lib/containers"
