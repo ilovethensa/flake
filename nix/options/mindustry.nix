@@ -22,16 +22,15 @@ in {
   };
 
   config = mkIf cfg.enable {
-    systemd.services.mindustry-server = {
+    systemd.services.mindustry = {
+      enable = true;
       description = "Mindustry server";
-      wantedBy = ["multi-user.target"];
-      after = ["network.target"];
       serviceConfig = {
         Type = "simple";
-        ExecStart = "${lib.getExe cfg.package} host";
-        Restart = "on-failure";
-        RestartSec = "2s";
+        ExecStart = "${pkgs.mindustry-server}/bin/mindustry-server host";
+        ExecStop = "pkill server-release.jar";
       };
+      wantedBy = ["network.target"];
     };
 
     networking.firewall = mkIf cfg.openFirewall {
