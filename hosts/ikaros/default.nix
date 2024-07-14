@@ -7,10 +7,10 @@
     ./services/caddy.nix
     ./services/jellyseerr.nix
     #./services/cron.nix
-    #./services/unmanic.nix
+    ./services/unmanic.nix
     ./services/rimgo.nix
     ./services/libreddit.nix
-    #./services/mail.nix
+    ./services/mail.nix
     ../../nix/configs/users/tht.nix
   ];
 
@@ -34,31 +34,6 @@
   };
   meta.intel = true;
   programs.fish.enable = true;
-  users = {
-    defaultUserShell = pkgs.fish;
-    mutableUsers = false;
-    users = {
-      root = {
-        openssh.authorizedKeys.keys = [
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO1TqzsM18I70A0XhmBjYhryhkRFdGl6ofup92N3XNyC tht" # content of authorized_keys file
-          # note: ssh-copy-id will add user@your-machine after the public key
-          # but we can remove the "@your-machine" part
-        ];
-        initialHashedPassword = "$6$dO.lQ2bJZ5PBNhju$WXDIMEWtKFSTw94iRX7Pi2HwsN6hw2q4k3D6UxJXUdMm1VsrtrqpbC/4iyiOBhU.fxWKkugP30s.RuK6IYbWN.";
-      };
-      tht = {
-        isNormalUser = true;
-        extraGroups = ["wheel" "render" "video" "docker" "adbusers" "gamemode"]; # Enable ‘sudo’ for the user.
-        openssh.authorizedKeys.keys = [
-          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO1TqzsM18I70A0XhmBjYhryhkRFdGl6ofup92N3XNyC tht" # content of authorized_keys file
-          # note: ssh-copy-id will add user@your-machine after the public key
-          # but we can remove the "@your-machine" part
-        ];
-
-        initialHashedPassword = "$6$dO.lQ2bJZ5PBNhju$WXDIMEWtKFSTw94iRX7Pi2HwsN6hw2q4k3D6UxJXUdMm1VsrtrqpbC/4iyiOBhU.fxWKkugP30s.RuK6IYbWN.";
-      };
-    };
-  };
   #networking.wireguard.enable = true;
   # Persistence configuration
   environment.persistence."/nix/persist" = {
