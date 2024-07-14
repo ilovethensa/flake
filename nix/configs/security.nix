@@ -3,6 +3,8 @@
   config,
   ...
 }: {
+  # Only allow members of the wheel group to execute sudo
+  security.sudo.execWheelOnly = true;
   # Prevent replacing the running kernel w/o reboot
   security.protectKernelImage = true;
 
