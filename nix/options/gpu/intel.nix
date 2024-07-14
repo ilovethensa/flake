@@ -21,6 +21,7 @@ in {
     hardware.graphics = {
       # hardware.opengl in 24.05
       enable = true;
+      enable32Bit = true;
       extraPackages = with pkgs; [
         intel-media-driver # For Broadwell (2014) or newer processors. LIBVA_DRIVER_NAME=iHD
         vpl-gpu-rt # or intel-media-sdk for QSV
