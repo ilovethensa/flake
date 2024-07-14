@@ -9,7 +9,7 @@
       openFirewall = true;
     };
     transmission = {
-      enable = false;
+      enable = true;
       peerPort = 32456;
       #flood.enable = true;
       openFirewall = true;
