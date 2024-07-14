@@ -4,13 +4,13 @@
     ../../profiles/server
     ./hardware-configuration.nix
     ./services/arr.nix
-    #./services/caddy.nix
-    #./services/jellyseerr.nix
+    ./services/caddy.nix
+    ./services/jellyseerr.nix
     #./services/cron.nix
-    #./services/unmanic.nix
-    #./services/rimgo.nix
-    #./services/libreddit.nix
-    ./services/mail.nix
+    ./services/unmanic.nix
+    ./services/rimgo.nix
+    ./services/libreddit.nix
+    #./services/mail.nix
     ../../nix/configs/users/tht.nix
   ];
 
