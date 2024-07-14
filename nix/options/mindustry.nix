@@ -26,8 +26,8 @@ in {
       description = "Mindustry server";
       wantedBy = ["multi-user.target"];
       after = ["network.target"];
-      Type = "simple";
       serviceConfig = {
+        Type = "simple";
         ExecStart = "${lib.getExe cfg.package} host";
         Restart = "on-failure";
         RestartSec = "2s";
