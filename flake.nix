@@ -12,6 +12,7 @@
     agenix.url = "github:ryantm/agenix";
     comin.url = "github:nlewo/comin";
     simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
+    nixvim.url = "github:nix-community/nixvim";
   };
   outputs = {
     self,
@@ -24,6 +25,7 @@
     comin,
     simple-nixos-mailserver,
     home-manager,
+    nixvim,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -48,6 +50,9 @@
         comin.nixosModules.comin
         home-manager.nixosModules.home-manager
         ./hosts/mute
+        {
+          home-manager.extraSpecialArgs = {inherit inputs outputs;};
+        }
       ];
     };
   };

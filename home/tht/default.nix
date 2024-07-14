@@ -1,6 +1,10 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   # You can import other home-manager modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
@@ -16,11 +20,10 @@
     #./apps/firefox
     ../common/fish
     #./apps/yt-dlp
-    #./apps/neovim
+    ./apps/neovim
     #./apps/newsboat
     ./desktops/hyprland
     #spicetify-nix.homeManagerModule
-    #inputs.nixvim.homeManagerModules.nixvim
   ];
 
   nixpkgs = {
@@ -38,7 +41,7 @@
     username = "tht";
     homeDirectory = "/home/tht";
   };
- 
+
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
@@ -67,7 +70,7 @@
             HostName 192.168.1.102
       '';
     };
-  }; 
+  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
