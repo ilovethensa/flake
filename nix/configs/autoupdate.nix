@@ -5,7 +5,6 @@
       {
         name = "origin";
         url = "https://github.com/ilovethensa/flake";
-        poller.period = 60;
         branches.main.name = "main";
       }
     ];
