@@ -27,7 +27,7 @@
     enable = true;
     # this is the url of the vhost, not necessarily the same as the fqdn of
     # the mailserver
-    hostName = "mail.example.com";
+    hostName = "webmail.example.com";
     extraConfig = ''
       # starttls needed for authentication, so the fqdn required to match
       # the certificate
@@ -41,7 +41,7 @@
 
   services.cloudflare-dyndns.domains = [
     "mx.pwned.page"
-    "mail.pwned.page"
+    "webmail.pwned.page"
   ];
   security.acme = {
     acceptTerms = true;
