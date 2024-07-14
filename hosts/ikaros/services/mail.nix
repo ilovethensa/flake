@@ -18,8 +18,6 @@
     # down nginx and opens port 80.
     certificateScheme = "acme";
   };
-  security.acme.acceptTerms = true;
-  security.acme.defaults.email = "security@example.com";
   services.caddy = {
     enable = true;
     virtualHosts = {
