@@ -7,7 +7,7 @@
   age.secrets.cloudflare_stuff.file = ../../../secrets/cloudflare_stuff.age;
   mailserver = {
     enable = true;
-    fqdn = "mail.pwned.page";
+    fqdn = "mx.pwned.page";
     domains = ["pwned.page"];
 
     # A list of all login accounts. To create the password hashes, use
@@ -23,18 +23,24 @@
     # down nginx and opens port 80.
     certificateScheme = "acme-nginx";
   };
-  /*
-     services.caddy = {
+  services.roundcube = {
     enable = true;
-    virtualHosts = {
-      "mail.pwned.page".extraConfig = ''
-        reverse_proxy http://localhost:8080
-      '';
-    };
+    # this is the url of the vhost, not necessarily the same as the fqdn of
+    # the mailserver
+    hostName = "mail.example.com";
+    extraConfig = ''
+      # starttls needed for authentication, so the fqdn required to match
+      # the certificate
+      $config['smtp_server'] = "tls://${config.mailserver.fqdn}";
+      $config['smtp_user'] = "%u";
+      $config['smtp_pass'] = "%p";
+    '';
   };
-  */
+
+  services.nginx.enable = true;
 
   services.cloudflare-dyndns.domains = [
+    "mx.pwned.page"
     "mail.pwned.page"
   ];
   security.acme = {
@@ -52,6 +58,7 @@
       "watch.theholytachanka.com" = {};
       "request.theholytachanka.com" = {};
       "mail.pwned.page" = {};
+      "mx.pwned.page" = {};
     };
   };
   networking.firewall = {
