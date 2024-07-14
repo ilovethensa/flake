@@ -24,4 +24,7 @@
       "n8n.theholytachanka.com" = {};
     };
   };
+  networking.firewall.allowedTCPPorts = [
+    5678
+  ];
 }
