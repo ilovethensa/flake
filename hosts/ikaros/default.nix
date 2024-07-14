@@ -40,7 +40,6 @@
     directories = [
       "/var/lib"
       "/var/tmp" # Fix for pulling containers
-      "/var/log"
       "/etc/jellyfin"
       "/home"
       {
