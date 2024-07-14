@@ -6,4 +6,5 @@ let
   systems = [ikaros];
 in {
   "cloudflare_stuff.age".publicKeys = users ++ systems;
+  "pass.age".publicKeys = users ++ systems;
 }

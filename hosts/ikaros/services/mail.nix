@@ -1,4 +1,5 @@
 {config, ...}: {
+  age.secrets.pass.file = ../../../secrets/pass.age;
   sops.secrets.email_pass = {};
   mailserver = {
     enable = true;
@@ -9,7 +10,7 @@
     # nix-shell -p mkpasswd --run 'mkpasswd -sm bcrypt'
     loginAccounts = {
       "tht@pwned.page" = {
-        hashedPasswordFile = config.sops.secrets.email_pass.path;
+        hashedPasswordFile = config.age.secrets.pass.path;
         aliases = ["postmaster@pwned.page"];
       };
     };
