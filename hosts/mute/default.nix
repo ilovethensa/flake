@@ -10,7 +10,7 @@
   home-manager = {
     users = {
       # Import your home-manager configuration
-      tht = import .../../../../../home/tht;
+      tht = import ../../home/tht;
     };
   };
   networking.hostName = "mute"; # Define hostname
