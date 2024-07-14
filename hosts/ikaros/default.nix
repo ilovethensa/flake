@@ -39,6 +39,7 @@
     hideMounts = true;
     directories = [
       "/var/lib"
+      "/var/tmp" # Fix for pulling containers
       "/etc/jellyfin"
       "/home"
       {
