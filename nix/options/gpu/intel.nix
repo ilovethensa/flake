@@ -24,7 +24,7 @@ in {
       enable32Bit = true;
       extraPackages = with pkgs; [
         intel-media-driver # For Broadwell (2014) or newer processors. LIBVA_DRIVER_NAME=iHD
-        vpl-gpu-rt # or intel-media-sdk for QSV
+        #vpl-gpu-rt # or intel-media-sdk for QSV
         intel-vaapi-driver # previously vaapiIntel
         vaapiVdpau
         libvdpau-va-gl
