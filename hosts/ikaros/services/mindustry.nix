@@ -1,6 +1,20 @@
-{...}: {
-  services.mindustry-server = {
+{pkgs, ...}: {
+  systemd.services.mindustry = {
     enable = true;
-    openFirewall = true;
+    description = "Mindustry server";
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = "${pkgs.mindustry-server}/bin/mindustry-server host";
+      ExecStop = "pkill server-release.jar";
+    };
+    wantedBy = ["network.target"];
+  };
+  networking.firewall = {
+    allowedTCPPorts = [
+      6567
+    ];
+    allowedUDPPorts = [
+      6567
+    ];
   };
 }
