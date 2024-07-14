@@ -21,7 +21,6 @@
     ./desktops/hyprland
     #spicetify-nix.homeManagerModule
     #inputs.nixvim.homeManagerModules.nixvim
-    #inputs.sops-nix.homeManagerModules.sops
   ];
 
   nixpkgs = {

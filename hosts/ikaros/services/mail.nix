@@ -1,6 +1,5 @@
 {config, ...}: {
   age.secrets.pass.file = ../../../secrets/pass.age;
-  sops.secrets.email_pass = {};
   mailserver = {
     enable = true;
     fqdn = "mail.pwned.page";

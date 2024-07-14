@@ -35,7 +35,6 @@ in {
     statix
     deadnix
     just
-    sops
   ];
   programs.fish = {
     enable = true;
