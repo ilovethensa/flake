@@ -38,6 +38,9 @@
       3366
     ];
   };
+  environment.persistence."/nix/persist".directories = [
+    "/var/lib/waydroid"
+  ];
   # System state version
   system.stateVersion = "23.05";
 }
