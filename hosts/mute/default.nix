@@ -27,7 +27,9 @@
     brave
     rage
     flare-signal
+    wl-clipboard
   ];
+  virtualisation.waydroid.enable = true;
   networking.firewall = {
     allowedTCPPorts = [
       3366
