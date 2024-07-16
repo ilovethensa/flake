@@ -10,7 +10,6 @@ services.tor = {
     enable = true;
     role = "relay";  # Set the relay role (e.g., "relay", "bridge")
   };
-
   # Configure Tor settings
   settings = {
     Nickname = "tht";  
@@ -33,7 +32,7 @@ services.tor = {
     NumCPUs = 2;   
 
     # Network settings
-    ORPort = [443];
+    #ORPort = [443];
   };
 };
 
