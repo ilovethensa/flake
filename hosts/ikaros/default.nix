@@ -11,6 +11,7 @@
     ./services/libreddit.nix
     #./services/n8n.nix
     ./services/mindustry.nix
+    ./services/snowflake.nix
     ../../nix/configs/users/tht.nix
   ];
 
