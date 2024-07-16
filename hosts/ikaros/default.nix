@@ -12,6 +12,7 @@
     #./services/n8n.nix
     ./services/mindustry.nix
     ./services/snowflake.nix
+    ./services/tor.nix
     ../../nix/configs/users/tht.nix
   ];
 
