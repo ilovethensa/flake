@@ -9,7 +9,7 @@
     ./services/unmanic.nix
     ./services/rimgo.nix
     ./services/libreddit.nix
-    ./services/n8n.nix
+    #./services/n8n.nix
     ./services/mindustry.nix
     ../../nix/configs/users/tht.nix
   ];
