@@ -13,6 +13,7 @@
     ./services/mindustry.nix
     ./services/snowflake.nix
     ./services/tor.nix
+    ./services/bitmagnet.nix
     ../../nix/configs/users/tht.nix
   ];
 
