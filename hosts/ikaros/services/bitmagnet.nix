@@ -9,7 +9,7 @@
         "3334:3334/udp"
       ];
       environment = {
-        POSTGRES_HOST = "localhost";
+        POSTGRES_HOST = "192.168.1.111";
         POSTGRES_PASSWORD = "postgres";
       };
       cmd = [
@@ -27,6 +27,9 @@
       volumes = [
         "/mnt/data/postgres:/var/lib/postgresql/data"
       ];
+      ports = [
+        "5432:5432"
+      ];
       environment = {
         POSTGRES_PASSWORD = "postgres";
         POSTGRES_DB = "bitmagnet";
@@ -34,4 +37,7 @@
       };
     };
   };
+  networking.firewall.allowedTCPPorts = [
+    5432
+  ];
 }
