@@ -22,8 +22,9 @@
     #./apps/yt-dlp
     ./apps/neovim
     #./apps/newsboat
-    ./desktops/hyprland
+    ./desktops/sway
     #spicetify-nix.homeManagerModule
+    #inputs.stylix.homeManagerModules.stylix
   ];
 
   nixpkgs = {
@@ -70,6 +71,14 @@
             HostName 192.168.1.102
       '';
     };
+  };
+  stylix = {
+    enable = true;
+    image = pkgs.fetchurl {
+      url = "https://www.pixelstalk.net/wp-content/uploads/2016/05/Epic-Anime-Awesome-Wallpapers.jpg";
+      sha256 = "enQo3wqhgf0FEPHj2coOCvo7DuZv+x5rL/WIo4qPI50=";
+    };
+    polarity = "dark";
   };
 
   # Nicely reload system units when changing configs

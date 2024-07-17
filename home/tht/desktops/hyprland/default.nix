@@ -6,6 +6,6 @@
     ./mako
     ./themes.nix
     ./rofi
-    ./../../apps/foot
+    ./foot
   ];
 }
