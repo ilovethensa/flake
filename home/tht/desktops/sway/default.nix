@@ -9,6 +9,9 @@
     ./wm.nix
     inputs.nix-colors.homeManagerModules.default
   ];
+  home.packages = with pkgs; [
+    nerd-fonts.override {fonts = ["FiraCode"];}
+  ];
   colorScheme = nix-colors.colorSchemes.dracula;
   qt = {
     enable = true;
