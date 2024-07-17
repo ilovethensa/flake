@@ -3,6 +3,11 @@
   programs.foot = {
     enable = true;
     settings = {
+      main = {
+        term = "xterm-256color";
+        font = "FiraCode Nerd Font:size=11";
+        dpi-aware = "yes";
+      };
       cursor = {
         color = "282a36 f8f8f2";
       };
