@@ -1,4 +1,4 @@
-{...}: {
+{config, ...}: {
   # Configure the foot terminal program
   programs.foot = {
     enable = true;
@@ -7,24 +7,24 @@
         color = "282a36 f8f8f2";
       };
       colors = {
-        background = "282828";
-        foreground = "ebdbb2";
-        regular0 = "282828";
-        regular1 = "cc241d";
-        regular2 = "98971a";
-        regular3 = "d79921";
-        regular4 = "458588";
-        regular5 = "b16286";
-        regular6 = "689d6a";
-        regular7 = "a89984";
-        bright0 = "928374";
-        bright1 = "fb4934";
-        bright2 = "b8bb26";
-        bright3 = "fabd2f";
-        bright4 = "83a598";
-        bright5 = "d3869b";
-        bright6 = "8ec07c";
-        bright7 = "ebdbb2";
+        foreground = "${config.colorScheme.palette.base05}"; # Text
+        background = "${config.colorScheme.palette.base00}"; # Base
+        regular0 = "${config.colorScheme.palette.base03}"; # Surface 1
+        regular1 = "${config.colorScheme.palette.base08}"; # red
+        regular2 = "${config.colorScheme.palette.base0B}"; # green
+        regular3 = "${config.colorScheme.palette.base0A}"; # yellow
+        regular4 = "${config.colorScheme.palette.base0D}"; # blue
+        regular5 = "${config.colorScheme.palette.base0F}"; # pink
+        regular6 = "${config.colorScheme.palette.base0C}"; # teal
+        regular7 = "${config.colorScheme.palette.base03}"; # Subtext 1
+        bright0 = "${config.colorScheme.palette.base04}"; # Surface 2
+        bright1 = "${config.colorScheme.palette.base08}"; # red
+        bright2 = "${config.colorScheme.palette.base0B}"; # green
+        bright3 = "${config.colorScheme.palette.base0A}"; # yellow
+        bright4 = "${config.colorScheme.palette.base0D}"; # blue
+        bright5 = "${config.colorScheme.palette.base0F}"; # pink
+        bright6 = "${config.colorScheme.palette.base0C}"; # teal
+        bright7 = "${config.colorScheme.palette.base02}"; # Subtext 0
       };
     };
   };
