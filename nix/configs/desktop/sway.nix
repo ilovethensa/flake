@@ -32,7 +32,9 @@
       sha256 = "enQo3wqhgf0FEPHj2coOCvo7DuZv+x5rL/WIo4qPI50=";
     };
     polarity = "dark";
-    base16Scheme = {
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+    /*
+       base16Scheme = {
       base00 = "282c34"; # ----
       base01 = "353b45"; # ---
       base02 = "3e4451"; # --
@@ -50,6 +52,7 @@
       base0E = "c678dd"; # purple
       base0F = "be5046"; # brown
     };
+    */
     cursor = {
       package = pkgs.vimix-cursors;
       name = "Vimix-cursors";
