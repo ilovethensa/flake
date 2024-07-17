@@ -32,7 +32,9 @@
       SafeLogging = 1;
       NumCPUs = 2;
 
+      Address = "91.139.255.24";
       AuthDirHasIPv6Connectivity = false;
+      IPv4Only = true;
 
       # Network settings
       ORPort = [456];
