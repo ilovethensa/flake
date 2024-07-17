@@ -51,7 +51,6 @@
         impermanence.nixosModules.impermanence
         comin.nixosModules.comin
         home-manager.nixosModules.home-manager
-        stylix.nixosModules.stylix
         ./hosts/mute
         {
           home-manager.extraSpecialArgs = {inherit inputs outputs;};
