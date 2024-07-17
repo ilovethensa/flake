@@ -10,7 +10,7 @@
     inputs.nix-colors.homeManagerModules.default
   ];
   home.packages = with pkgs; [
-    nerd-fonts.override {fonts = ["FiraCode"];}
+    (nerdfonts.override {fonts = ["FiraCode"];})
   ];
   colorScheme = nix-colors.colorSchemes.dracula;
   qt = {
