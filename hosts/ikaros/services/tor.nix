@@ -34,7 +34,7 @@
 
       Address = "91.139.255.24";
       AuthDirHasIPv6Connectivity = false;
-      IPv4Only = true;
+      ClientUseIPv6 = false;
 
       # Network settings
       ORPort = [456];
