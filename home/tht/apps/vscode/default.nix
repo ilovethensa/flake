@@ -34,7 +34,7 @@
     userSettings = {
       #"workbench.colorTheme" = "Catppuccin Mocha";
       #"workbench.iconTheme" = "catppuccin-mocha";
-      "workbench.colorTheme" = "Gruvbox Dark Hard";
+      #"workbench.colorTheme" = "Gruvbox Dark Hard";
       "workbench.iconTheme" = "vscode-icons";
       "files.autoSave" = "afterDelay";
       "editor.bracketPairColorization.independentColorPoolPerBracketType" = true;
