@@ -9,7 +9,7 @@
         "3334:3334/udp"
       ];
       environment = {
-        POSTGRES_HOST = "postgres";
+        POSTGRES_HOST = "bitmagnet-postgres";
         POSTGRES_PASSWORD = "postgres";
       };
       cmd = [
