@@ -93,9 +93,9 @@
         margin-left = 10;
         margin-right = 10;
         margin-bottom = 0;
-        modules-left = ["sway/workspaces"];
+        modules-left = ["sway/workspaces" "cpu" "memory" "disk"];
         modules-center = ["sway/window" "custom/hello-from-waybar"];
-        modules-right = ["mpd" "custom/mymodule#with-css-id" "temperature"];
+        modules-right = ["mpd" "custom/mymodule#with-css-id" "battery"];
 
         "sway/workspaces" = {
           disable-scroll = true;
@@ -108,6 +108,11 @@
           exec = pkgs.writeShellScript "hello-from-waybar" ''
             echo "from within waybar"
           '';
+        };
+        "disk" = {
+          interval = 30;
+          format = "💾 {percentage_used}%";
+          path = "/nix";
         };
       };
     };
