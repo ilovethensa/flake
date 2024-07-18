@@ -65,8 +65,8 @@
           "HDMI-A-1"
         ];
         margin-top = "7";
-        margin-left = "12";
-        margin-right = "12";
+        margin-left = "10";
+        margin-right = "10";
         margin-bottom = "0";
         modules-left = ["sway/workspaces"];
         modules-center = ["sway/window" "custom/hello-from-waybar"];
