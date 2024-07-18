@@ -26,28 +26,22 @@
       }
 
       window#waybar {
-          opacity: 0.75;
           background: @background-darker;
           color: @foreground;
-          border-radius: 0.5em;
-          border: 0.5px solid @selection;
       }
 
       #workspaces {
           background: @background;
           border: 0.5px solid @selection;
-          border-radius: 0.5em;
           padding: 0;
           margin-top: 0.5em;
           margin-bottom: 0.5em;
       }
 
       #workspaces button {
-          padding: 0 0.05em;
           background: @surface0;
           color: @foreground;
           font-size: 1.25em;
-          border-radius: 50%;
       }
 
       #workspaces button.visible {
@@ -84,13 +78,6 @@
           background: @overlay0;
           padding: 0 0;
           font-weight: bold;
-      }
-
-      #custom-arch-logo {
-          color: @cyan;
-          font-size: 2em;
-          padding: 0 0 0 8px;
-          margin: 0;
       }
 
       #battery.critical {
