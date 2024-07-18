@@ -92,9 +92,20 @@
         margin-left = 10;
         margin-right = 10;
         margin-bottom = 0;
-        modules-left = ["sway/workspaces" "cpu" "memory" "disk"];
-        modules-center = ["sway/window" "custom/hello-from-waybar"];
-        modules-right = ["mpd" "battery"];
+        modules-left = [
+          "workspaces"
+          "cpu"
+          "memory"
+          "disk"
+          "custom/updates"
+        ];
+        modules-right = [
+          "network"
+          "battery"
+          "pulseaudio"
+          "tray"
+          "clock"
+        ];
 
         "sway/workspaces" = {
           disable-scroll = true;
@@ -106,10 +117,125 @@
           path = "/nix";
         };
         "cpu" = {
-          format = "🖥️ {}%";
+          format = "💻 {usage}%";
+          tooltip = true;
+          on-click = "foot nix-shell - p btop - -command btop";
+          interval = 2;
         };
         "memory" = {
-          format = "🚃 {used:0.1f}G/{total:0.1f}G";
+          format = "🚃 {}%";
+          tooltip = true;
+          on-click = "foot nix-shell - p btop - -command btop";
+          interval = 2;
+        };
+        "battery" = {
+          states = {
+            good = 100;
+            warning = 30;
+            critical = 10;
+          };
+          format = "{icon} {capacity}%";
+          format-charging = "⚡ {capacity}%";
+          format-plugged = "🔌 {capacity}%";
+          format-alt = "{icon} {time}";
+          # format-good = ""; # An empty format will hide the module
+          format-full = "🔋 {capacity}%";
+          /*
+                       format-icons = [
+            "";
+            "";
+            "";
+            "";
+            "";
+            "";
+            "";
+            "";
+            "";
+            "";
+          ];
+          */
+          interval = 2;
+        };
+        "clock" = {
+          timezone = "Europe/Sofia";
+          format = "🕓 {:%d <small>%a</small> %H:%M}";
+          # format = " {:%a %b %d %Y | %H:%M}";
+          format-alt = "🕓 {:%A %B %d %Y (%V) | %r}";
+          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+          calendar-weeks-pos = "right";
+          today-format = "<span color='#f38ba8'><b><u>{}</u></b></span>";
+          format-calendar = "<span color='#f2cdcd'><b>{}</b></span>";
+          format-calendar-weeks = "<span color='#94e2d5'><b>W{:%U}</b></span>";
+          format-calendar-weekdays = "<span color='#f9e2af'><b>{}</b></span>";
+          interval = 60;
+        };
+        "tray" = {
+          icon-size = 15;
+          spacing = 15;
+        };
+        "pulseaudio" = {
+          # scroll-step = 1; # %, can be a float
+          format = "🔊 {volume}%"; # {format_source}
+          format-bluetooth = "{icon} {volume}%"; # {format_source}
+          format-bluetooth-muted = ""; # {format_source}
+          format-muted = "🔇"; # {format_source}
+          format-source = "{volume}% ";
+          format-source-muted = "";
+          format-icons = {
+            headphone = "";
+            headset = "";
+            phone = "";
+            portable = "";
+            car = " ";
+            /*
+                           default = [
+              "";
+              "";
+              "";
+            ];
+            */
+          };
+          on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
+        };
+        "network" = {
+          # interface = "wlp2*"; # (Optional) To force the use of this interface
+          format = "↕{bandwidthTotalBytes}";
+          format-disconnected = "{icon} No Internet";
+          format-linked = " {ifname} (No IP)";
+          format-alt = "↕{bandwidthUpBytes} | ↕{bandwidthDownBytes}";
+          tooltip-format = "{ifname}: {ipaddr}/{cidr}  {gwaddr}";
+          tooltip-format-wifi = "{icon} {essid} ({signalStrength}%)";
+          tooltip-format-ethernet = "{icon} {ipaddr}/{cidr}";
+          tooltip-format-disconnected = "{icon} Disconnected";
+          on-click-right = "nm-connection-editor";
+          format-icons = {
+            ethernet = "";
+            disconnected = "⚠";
+            /*
+                           wifi = [
+              "睊";
+              "直";
+            ];
+            */
+          };
+          interval = 2;
+        };
+        "temperature" = {
+          # thermal-zone = 2;
+          # hwmon-path = "/sys/class/hwmon/hwmon2/temp1_input";
+          critical-threshold = 40;
+          format-critical = "{icon} {temperatureC}°C";
+          format = "{icon} {temperatureC}°C";
+          /*
+                       format-icons = [
+            "";
+            "";
+            "";
+          ];
+          */
+          tooltip = true;
+          on-click = "foot nix-shell -p btop --command btop";
+          interval = 2;
         };
       };
     };
