@@ -1,24 +1,60 @@
-{pkgs, config, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   programs.waybar = {
     enable = true;
     style = ''
-@define-color base00 #${config.colorScheme.palette.base00};
-@define-color base01 #${config.colorScheme.palette.base01};
-@define-color base02 #${config.colorScheme.palette.base02};
-@define-color base03 #${config.colorScheme.palette.base03};
-@define-color base04 #${config.colorScheme.palette.base04};
-@define-color base05 #${config.colorScheme.palette.base05};
-@define-color base06 #${config.colorScheme.palette.base06};
-@define-color base07 #${config.colorScheme.palette.base07};
-@define-color base08 #${config.colorScheme.palette.base08};
-@define-color base09 #${config.colorScheme.palette.base09};
-@define-color base0A #${config.colorScheme.palette.base0A};
-@define-color base0B #${config.colorScheme.palette.base0B};
-@define-color base0C #${config.colorScheme.palette.base0C};
-@define-color base0D #${config.colorScheme.palette.base0D};
-@define-color base0E #${config.colorScheme.palette.base0E};
-@define-color base0F #${config.colorScheme.palette.base0F};
-      '';
+      @define-color background-darker rgba(${config.colorScheme.palette.base00}, 0.9);
+      @define-color background #${config.colorScheme.palette.base01};
+      @define-color selection #${config.colorScheme.palette.base02};
+      @define-color foreground #${config.colorScheme.palette.base03};
+      @define-color comment #${config.colorScheme.palette.base04};
+      @define-color cyan #${config.colorScheme.palette.base05};
+      @define-color green #${config.colorScheme.palette.base06};
+      @define-color orange #${config.colorScheme.palette.base07};
+      @define-color pink #${config.colorScheme.palette.base08};
+      @define-color purple #${config.colorScheme.palette.base09};
+      @define-color red #${config.colorScheme.palette.base0A};
+      @define-color yellow #${config.colorScheme.palette.base0B};
+      * {
+          border: none;
+          border-radius: 0;
+          font-family: Iosevka;
+          font-size: 11pt;
+          min-height: 0;
+      }
+      window#waybar {
+          opacity: 0.9;
+          background: @background-darker;
+          color: @foreground;
+          border-bottom: 2px solid @background;
+      }
+      #workspaces button {
+          padding: 0 10px;
+          background: @background;
+          color: @foreground;
+      }
+      #workspaces button:hover {
+          box-shadow: inherit;
+          text-shadow: inherit;
+          background-image: linear-gradient(0deg, @selection, @background-darker);
+      }
+      #workspaces button.active {
+          background-image: linear-gradient(0deg, @purple, @selection);
+      }
+      #workspaces button.urgent {
+          background-image: linear-gradient(0deg, @red, @background-darker);
+      }
+      #taskbar button.active {
+          background-image: linear-gradient(0deg, @selection, @background-darker);
+      }
+      #clock {
+          padding: 0 4px;
+          background: @background;
+      }
+    '';
     settings = {
       mainBar = {
         layer = "top";
