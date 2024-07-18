@@ -33,9 +33,6 @@
       #workspaces {
           background: @background;
           border: 0.5px solid @selection;
-          padding: 0;
-          margin-top: 0.5em;
-          margin-bottom: 0.5em;
       }
 
       #workspaces button {
@@ -67,11 +64,6 @@
 
       #clock {
           padding: 0 8px 0 0;
-      }
-
-      #pulseaudio-slider trough, #backlight-slider trough {
-          min-height: 10px;
-          min-width: 80px;
       }
 
       #window {
