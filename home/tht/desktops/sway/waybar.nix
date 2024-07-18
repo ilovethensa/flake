@@ -6,7 +6,7 @@
   programs.waybar = {
     enable = true;
     style = ''
-      @define-color background-darker rgba(${config.colorScheme.palette.base00}, 0.9);
+      @define-color background-darker #${config.colorScheme.palette.base00};
       @define-color background #${config.colorScheme.palette.base01};
       @define-color selection #${config.colorScheme.palette.base02};
       @define-color foreground #${config.colorScheme.palette.base03};
