@@ -21,38 +21,84 @@
       * {
           border: none;
           border-radius: 0;
-          font-family: Iosevka;
-          font-size: 11pt;
+          font-family: "FiraCode Nerd Font";
           min-height: 0;
       }
+
       window#waybar {
-          opacity: 0.9;
+          opacity: 0.75;
           background: @background-darker;
           color: @foreground;
-          border-bottom: 2px solid @background;
+          border-radius: 0.5em;
+          border: 0.5px solid @selection;
       }
-      #workspaces button {
-          padding: 0 10px;
+
+      #workspaces {
           background: @background;
+          border: 0.5px solid @selection;
+          border-radius: 0.5em;
+          padding: 0;
+          margin-top: 0.5em;
+          margin-bottom: 0.5em;
+      }
+
+      #workspaces button {
+          padding: 0 0.05em;
+          background: @surface0;
+          color: @foreground;
+          font-size: 1.25em;
+          border-radius: 50%;
+      }
+
+      #workspaces button.visible {
+          color: @blue;
+      }
+
+      #workspaces button.empty {
+          color: @overlay0;
+      }
+
+      #workspaces button.active {
+          color: @purple;
+      }
+
+      #workspaces button.urgent {
+          background: @red;
           color: @foreground;
       }
-      #workspaces button:hover {
-          box-shadow: inherit;
-          text-shadow: inherit;
-          background-image: linear-gradient(0deg, @selection, @background-darker);
-      }
-      #workspaces button.active {
-          background-image: linear-gradient(0deg, @purple, @selection);
-      }
-      #workspaces button.urgent {
-          background-image: linear-gradient(0deg, @red, @background-darker);
-      }
+
       #taskbar button.active {
-          background-image: linear-gradient(0deg, @selection, @background-darker);
+          background: @selection;
       }
+
       #clock {
-          padding: 0 4px;
-          background: @background;
+          padding: 0 8px 0 0;
+      }
+
+      #pulseaudio-slider trough, #backlight-slider trough {
+          min-height: 10px;
+          min-width: 80px;
+      }
+
+      #window {
+          background: @overlay0;
+          padding: 0 0;
+          font-weight: bold;
+      }
+
+      #custom-arch-logo {
+          color: @cyan;
+          font-size: 2em;
+          padding: 0 0 0 8px;
+          margin: 0;
+      }
+
+      #battery.critical {
+          color: @red;
+      }
+
+      #battery.warning {
+          color: @orange;
       }
     '';
     settings = {
