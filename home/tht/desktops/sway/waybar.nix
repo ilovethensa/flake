@@ -93,7 +93,7 @@
         margin-right = 10;
         margin-bottom = 0;
         modules-left = [
-          "workspaces"
+          "sway/workspaces"
           "cpu"
           "memory"
           "disk"
