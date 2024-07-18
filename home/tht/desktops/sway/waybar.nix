@@ -38,7 +38,6 @@
       #workspaces button {
           background: @surface0;
           color: @foreground;
-          font-size: 1.25em;
       }
 
       #workspaces button.visible {
@@ -95,24 +94,22 @@
         margin-bottom = 0;
         modules-left = ["sway/workspaces" "cpu" "memory" "disk"];
         modules-center = ["sway/window" "custom/hello-from-waybar"];
-        modules-right = ["mpd" "custom/mymodule#with-css-id" "battery"];
+        modules-right = ["mpd" "battery"];
 
         "sway/workspaces" = {
           disable-scroll = true;
           all-outputs = true;
         };
-        "custom/hello-from-waybar" = {
-          format = "hello {}";
-          max-length = 40;
-          interval = "once";
-          exec = pkgs.writeShellScript "hello-from-waybar" ''
-            echo "from within waybar"
-          '';
-        };
         "disk" = {
           interval = 30;
           format = "💾 {percentage_used}%";
           path = "/nix";
+        };
+        "cpu" = {
+          format = "🖥️ {}%";
+        };
+        "memory" = {
+          format = "🚃 {used:0.1f}G/{total:0.1f}G";
         };
       };
     };
