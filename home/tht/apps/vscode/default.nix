@@ -10,7 +10,7 @@
         jnoortheen.nix-ide
         usernamehw.errorlens
         eamodio.gitlens
-        jdinhlife.gruvbox
+        dracula-theme.theme-dracula
         #continue.continue
         christian-kohler.path-intellisense
         rust-lang.rust-analyzer
@@ -34,7 +34,7 @@
     userSettings = {
       #"workbench.colorTheme" = "Catppuccin Mocha";
       #"workbench.iconTheme" = "catppuccin-mocha";
-      #"workbench.colorTheme" = "Gruvbox Dark Hard";
+      "workbench.colorTheme" = "Dracula";
       "workbench.iconTheme" = "vscode-icons";
       "files.autoSave" = "afterDelay";
       "editor.bracketPairColorization.independentColorPoolPerBracketType" = true;
