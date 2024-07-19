@@ -9,6 +9,8 @@
   environment.systemPackages = with pkgs; [
     protonup-qt
     mangohud
+    wineWowPackages.stable
+    wineWowPackages.waylandFull
     (lutris.override {
       extraLibraries = pkgs: [
         # List library dependencies here
