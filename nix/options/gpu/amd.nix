@@ -30,7 +30,7 @@ in {
     # Additional hardware configurations
     services.xserver.videoDrivers = ["amdgpu"];
     boot.initrd.kernelModules = ["amdgpu"];
-    hardware.opengl = {
+    hardware.graphics = {
       enable = true;
       extraPackages = with pkgs; [
         rocmPackages_5.clr.icd
