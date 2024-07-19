@@ -8,6 +8,7 @@
   programs.gamemode.enable = true;
   environment.systemPackages = with pkgs; [
     protonup-qt
+    mangohud
     (lutris.override {
       extraLibraries = pkgs: [
         # List library dependencies here
