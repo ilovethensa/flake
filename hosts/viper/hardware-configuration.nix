@@ -4,6 +4,7 @@
 {
   config,
   lib,
+  pkgs,
   modulesPath,
   ...
 }: {
@@ -12,46 +13,35 @@
   ];
   boot = {
     initrd = {
-      availableKernelModules = ["xhci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci"];
+      availableKernelModules = ["xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
       kernelModules = [];
-      luks.devices."cryptroot".device = "/dev/disk/by-uuid/8d4c6e8c-6469-4d14-bd0e-abce3076d7b0";
+      luks.devices."cryptroot".device = "/dev/disk/by-uuid/d024e02e-d5aa-4a00-b0df-5cc847252de7";
     };
-    kernelModules = [];
+    kernelModules = ["kvm-amd"];
     extraModulePackages = [];
-    kernelParams = [
-      "processor.max_cstate=1"
-      "i915.enable_dc=0"
-      "intel_idle.max_cstate=2"
-      "i915.enable_psr=0"
-      "i915.enable_rc6=0"
-      "i915.preliminary_hw_support=1"
-      "intel_idle.max_cstate=1"
-      "i915.enable_dc=0"
-      "ahci.mobile_lpm_policy=1"
-    ];
   };
+
   fileSystems = {
     "/" = {
       device = "none";
       fsType = "tmpfs";
-      options = ["defaults" "size=2G" "mode=755"];
+      options = ["defaults" "size=4G" "mode=755"];
+    };
+    "/boot" = {
+      device = "/dev/disk/by-uuid/BDA3-B5B8";
+      fsType = "vfat";
+    };
+    "/home" = {
+      device = "/dev/disk/by-uuid/dface61b-5d67-4158-97f6-9f44c1a35346";
+      fsType = "btrfs";
+      options = ["subvol=@home" "noatime" "compress=zstd" "ssd"];
     };
     "/nix" = {
-      device = "/dev/disk/by-uuid/1b31ae92-d46e-4efc-853f-488629064453";
+      device = "/dev/disk/by-uuid/dface61b-5d67-4158-97f6-9f44c1a35346";
       fsType = "btrfs";
       options = ["subvol=@nix" "noatime" "compress=zstd" "ssd"];
     };
-    "/home" = {
-      device = "/dev/disk/by-uuid/1b31ae92-d46e-4efc-853f-488629064453";
-      fsType = "btrfs";
-      options = ["subvol=@home"];
-    };
-    "/boot" = {
-      device = "/dev/disk/by-uuid/A07B-CB36";
-      fsType = "vfat";
-    };
   };
-
   swapDevices = [];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
@@ -59,9 +49,8 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp0s31f6.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlp2s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.ens1.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
