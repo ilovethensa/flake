@@ -8,5 +8,13 @@
   programs.gamemode.enable = true;
   environment.systemPackages = with pkgs; [
     protonup-qt
+    (lutris.override {
+      extraLibraries = pkgs: [
+        # List library dependencies here
+      ];
+      extraPkgs = pkgs: [
+        # List package dependencies here
+      ];
+    })
   ];
 }
