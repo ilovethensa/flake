@@ -20,8 +20,9 @@ jobs:
         run: bash scripts/update-containers.sh .
 
       - uses: nixbuild/nix-quick-install-action@v28
-        # Add your existing steps here
-        # Example: - run: nix flake update
+
+      - name: Update flake
+        run: nix flake update
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
