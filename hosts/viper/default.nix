@@ -2,6 +2,7 @@
   # Import modules and configuration pieces
   imports = [
     ./hardware-configuration.nix
+    ./vfio.nix
     ../../profiles/desktop
     ../../nix/configs/users/tht.nix
     ../../nix/configs/desktop/sway.nix
