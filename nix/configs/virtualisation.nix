@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  ennvironment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     qemu
     (pkgs.writeShellScriptBin "qemu-system-x86_64-uefi" ''
       qemu-system-x86_64 \
