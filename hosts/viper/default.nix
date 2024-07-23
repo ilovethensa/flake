@@ -30,7 +30,7 @@
   };
   virtualisation.waydroid.enable = true;
   environment.persistence."/nix/persist".directories = [
-    "/var/lib/waydroid"
+    "/var/lib/libvirt"
   ];
   boot.kernelParams = [
     "amd_iommu=o"
