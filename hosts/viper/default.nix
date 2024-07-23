@@ -31,6 +31,10 @@
   environment.persistence."/nix/persist".directories = [
     "/var/lib/waydroid"
   ];
+  boot.kernelParams = [
+    "amd_iommu=o"
+    "iommu=pt"
+  ];
   # System state version
   system.stateVersion = "23.05";
 }
