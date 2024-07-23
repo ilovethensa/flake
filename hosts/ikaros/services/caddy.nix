@@ -32,6 +32,11 @@
         file_server
         root * /var/www/theholytachanka.com
       '';
+      "localhost".extraConfig = ''
+        encode gzip
+        file_server
+        root * /var/www/theholytachanka.com
+      '';
       "pwned.page".extraConfig = ''
         encode gzip
         file_server

@@ -11,6 +11,20 @@
       role = "relay"; # Set the relay role (e.g., "relay", "bridge")
     };
     openFirewall = true;
+    relay.onionServices = {
+      myOnion = {
+        version = 3;
+        map = [
+          {
+            port = 80;
+            target = {
+              addr = "localhost";
+              port = 80;
+            };
+          }
+        ];
+      };
+    };
     # Configure Tor settings
     settings = {
       Nickname = "tht";
