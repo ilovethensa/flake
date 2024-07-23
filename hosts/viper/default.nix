@@ -6,6 +6,7 @@
     ../../nix/configs/users/tht.nix
     ../../nix/configs/desktop/sway.nix
     ../../nix/configs/gaming.nix
+    ../../nix/configs/virtualisation.nix
     ../../nix/options
   ];
   home-manager = {
