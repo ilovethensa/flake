@@ -95,5 +95,5 @@ if [ $ACTION = "release" ]; then
     #systemctl set-property --runtime -- init.scope AllowedCPUs=0-3
 
     # reinitialize coolercontrold to query gpu temp
-    systemctl restart coolercontrold.service
+    #systemctl restart coolercontrold.service
 fi
