@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   virtualisation.libvirtd = {
     hooks = {
-      qemu.win10 = pkgs.writeShellScriptBin "win10.sh" ''
+      qemu.win10 = pkgs.writeShellScript "win10.sh" ''
         # Debugging
         set -x
         exec &>>/tmp/libvirt-hook
