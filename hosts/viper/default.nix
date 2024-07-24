@@ -33,8 +33,6 @@
   virtualisation.waydroid.enable = true;
   environment.persistence."/nix/persist".directories = [
     "/var/lib/libvirt"
-    "/var/lib/libvirt/hooks/qemu.d/win10/prepare"
-    "/var/lib/libvirt/hooks/qemu.d/win10/release/"
   ];
   boot.kernelParams = [
     "amd_iommu=o"
