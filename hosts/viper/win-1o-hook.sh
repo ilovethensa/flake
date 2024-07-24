@@ -33,10 +33,7 @@ if [ $ACTION = "prepare" ]; then
     #systemctl set-property --runtime -- init.scope AllowedCPUs=0
 
     # Stop display manager
-    systemctl stop display-manager.service
-
-    # make sure gnome remote desktop is also stopped
-    runuser -l bara -c 'systemctl --user stop gnome-remote-desktop.service'
+    pkill -u tht
 
     # Unbind VTconsoles
     echo 0 > /sys/class/vtconsole/vtcon0/bind
@@ -48,13 +45,10 @@ if [ $ACTION = "prepare" ]; then
     # Avoid race condition
     sleep 1
 
-    # this will try to reload the modules
-    systemctl stop coolercontrold.service
-
-    # Unload NVIDIA kernel modules
+    # Unload amdgpu kernel modules
     while true; do
         modprobe -r amdgpu
-        lsmod | grep -q nvidia || break
+        lsmod | grep -q amdgpu || break
         sleep 0.5
     done
 
@@ -79,7 +73,7 @@ if [ $ACTION = "release" ]; then
     virsh nodedev-reattach $VIRSH_GPU_VIDEO
     virsh nodedev-reattach $VIRSH_GPU_AUDIO
 
-    # Load NVIDIA kernel modules
+    # Load amdgpu kernel modules
     modprobe -a amdgpu
 
     # Avoid race condition
