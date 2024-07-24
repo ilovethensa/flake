@@ -1,7 +1,7 @@
 {...}: {
   virtualisation.libvirtd = {
     hooks = {
-      qemu.win10 = ./libvirt-gpu-passthrough-hook.sh;
+      qemu.win10 = ./win-1o-hook.sh;
     };
   };
   environment.etc."libvirt/hooks/qemu" = {
