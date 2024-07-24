@@ -8,6 +8,7 @@
     ../../nix/configs/desktop/sway.nix
     ../../nix/configs/gaming.nix
     ../../nix/configs/virtualisation.nix
+    ../../nix/services/openssh.nix
     ../../nix/options
   ];
   home-manager = {
