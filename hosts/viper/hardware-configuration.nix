@@ -4,42 +4,35 @@
 {
   config,
   lib,
-  pkgs,
   modulesPath,
   ...
 }: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
-  boot = {
-    initrd = {
-      availableKernelModules = ["xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
-      kernelModules = [];
-      luks.devices."cryptroot".device = "/dev/disk/by-uuid/d024e02e-d5aa-4a00-b0df-5cc847252de7";
-    };
-    kernelModules = ["kvm-amd"];
-    extraModulePackages = [];
-  };
 
+  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
+  boot.kernelModules = ["kvm-amd"];
+  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/0e675cdf-192e-44af-bda7-2d13860d0436";
   fileSystems = {
     "/" = {
       device = "none";
       fsType = "tmpfs";
-      options = ["defaults" "size=4G" "mode=755"];
     };
     "/boot" = {
-      device = "/dev/disk/by-uuid/BDA3-B5B8";
+      device = "/dev/disk/by-uuid/B297-73FE";
       fsType = "vfat";
-    };
-    "/home" = {
-      device = "/dev/disk/by-uuid/dface61b-5d67-4158-97f6-9f44c1a35346";
-      fsType = "btrfs";
-      options = ["subvol=@home" "noatime" "compress=zstd" "ssd"];
+      options = ["fmask=0022" "dmask=0022"];
     };
     "/nix" = {
-      device = "/dev/disk/by-uuid/dface61b-5d67-4158-97f6-9f44c1a35346";
+      device = "/dev/disk/by-uuid/44a375ec-73f9-4ec0-a657-176e091897c3";
       fsType = "btrfs";
-      options = ["subvol=@nix" "noatime" "compress=zstd" "ssd"];
+      options = ["subvol=@nix"];
+    };
+    "/home" = {
+      device = "/dev/disk/by-uuid/44a375ec-73f9-4ec0-a657-176e091897c3";
+      fsType = "btrfs";
+      options = ["subvol=@home"];
     };
   };
   swapDevices = [];
@@ -50,6 +43,7 @@
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.ens1.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlp3s0f0u8.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

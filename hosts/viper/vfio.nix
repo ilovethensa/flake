@@ -64,7 +64,7 @@
 
         if [ $ACTION = "started" ]; then
             # this will try to reload the modules
-            systemctl start coolercontrold.service
+            #systemctl start coolercontrold.service
         fi
 
         if [ $ACTION = "release" ]; then
@@ -97,7 +97,7 @@
             #systemctl set-property --runtime -- init.scope AllowedCPUs=0-3
 
             # reinitialize coolercontrold to query gpu temp
-            systemctl restart coolercontrold.service
+            #systemctl restart coolercontrold.service
         fi'';
     };
   };
