@@ -65,6 +65,7 @@
         if [ $ACTION = "started" ]; then
             # this will try to reload the modules
             #systemctl start coolercontrold.service
+            echo lol
         fi
 
         if [ $ACTION = "release" ]; then
