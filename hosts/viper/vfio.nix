@@ -47,8 +47,8 @@
         sleep 2
 
         # Unbind the GPU from display driver
-        virsh nodedev-detach pci_0000_0c_00_0
-        virsh nodedev-detach pci_0000_0c_00_1
+        virsh nodedev-detach pci_0000_09_00_0
+        virsh nodedev-detach pci_0000_09_00_1
 
         # Load VFIO Kernel Module
         modprobe vfio-pci
