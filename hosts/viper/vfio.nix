@@ -103,7 +103,7 @@
     };
   };
   environment.etc."libvirt/hooks/qemu" = {
-    mode = "0555";
+    mode = "0777";
     text = ''
       GUEST_NAME="$1"
       HOOK_NAME="$2"
