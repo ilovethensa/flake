@@ -35,25 +35,21 @@
             #systemctl set-property --runtime -- init.scope AllowedCPUs=0
 
             # Stop display manager
-            pkill -u tht
+            pkill sway
 
             # Unbind VTconsoles
             echo 0 > /sys/class/vtconsole/vtcon0/bind
             echo 0 > /sys/class/vtconsole/vtcon1/bind
 
             # Unbind EFI Framebuffer
-            echo efi-framebuffer.0 > /sys/bus/platform/drivers/efi-framebuffer/unbind
+            #echo efi-framebuffer.0 > /sys/bus/platform/drivers/efi-framebuffer/unbind
 
             # Avoid race condition
             sleep 1
 
             # Unload amdgpu kernel modules
-            while true; do
-                modprobe -r amdgpu
-                lsmod | grep -q amdgpu || break
-                sleep 0.5
-            done
-
+            modprobe -r amdgpu
+            
             # Detach GPU devices from host
             virsh nodedev-detach $VIRSH_GPU_VIDEO
             virsh nodedev-detach $VIRSH_GPU_AUDIO

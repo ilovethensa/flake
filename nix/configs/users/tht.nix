@@ -16,7 +16,7 @@
       };
       tht = {
         isNormalUser = true;
-        extraGroups = ["wheel" "render" "video" "docker" "adbusers" "gamemode"]; # Enable ‘sudo’ for the user.
+        extraGroups = ["wheel" "render" "video" "docker" "adbusers" "gamemode" "libvirtd"]; # Enable ‘sudo’ for the user.
         openssh.authorizedKeys.keys = [
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO1TqzsM18I70A0XhmBjYhryhkRFdGl6ofup92N3XNyC tht" # content of authorized_keys file
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBPxwPORGfx1bD9W6Dq0AOkxwlx1eO7AHdO1LhhA9I/n tht"
