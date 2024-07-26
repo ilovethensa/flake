@@ -69,6 +69,8 @@ in {
       ping = "${pkgs.gping}/bin/gping";
       ask = "${pkgs.tgpt}/bin/tgpt";
       backup-server = "${backup-server}/bin/backup-server.sh";
+      reboot = "systemctl reboot";
+      shutdown = "systemctl poweroff";
     };
     plugins = [
       # Enable a plugin (here grc for colorized command output) from nixpkgs
