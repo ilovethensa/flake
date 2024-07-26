@@ -107,7 +107,7 @@
       exec = "${pkgs.psmisc}/bin/killall -SIGUSR2 .waybar-wrapped"; # Restart waybar
       exec-once = /usr/lib/polkit-kde-authentication-agent-1 # authentication dialogue for GUI apps
       exec-once = ${pkgs.waybar}/bin/waybar # launch the system panel
-      exec-once = ${pkgs.gammastep-indicator}/bin/gammastep-indicator - t 6500:2500 -l 42.13058:24.73996
+      exec-once = gammastep-indicator - t 6500:2500 -l 42.13058:24.73996
 
 
       # ░█▀▀█ █── ░█─░█ ░█▀▀█
