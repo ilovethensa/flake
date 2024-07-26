@@ -3,6 +3,7 @@
     "libvirt/hooks/qemu.d/win10-gpu/release/end/revert.sh" = {
       mode = "0777";
       source = pkgs.writeShellScript "revert.sh" ''
+        exec > /tmp/revert-log.txt 2>&1
         set -x
 
         # Re-Bind GPU to Nvidia Driver
@@ -27,6 +28,7 @@
     "libvirt/hooks/qemu.d/win10-gpu/prepare/begin/start.sh" = {
       mode = "0777";
       source = pkgs.writeShellScript "start.sh" ''
+        exec > /tmp/start-log.txt 2>&1
         # Helpful to read output when debugging
         set -x
 
@@ -47,8 +49,8 @@
         sleep 2
 
         # Unbind the GPU from display driver
-        virsh nodedev-detach pci_0000_0c_00_0
-        virsh nodedev-detach pci_0000_0c_00_1
+        virsh nodedev-detach pci_0000_09_00_0
+        virsh nodedev-detach pci_0000_09_00_1
 
         # Load VFIO Kernel Module
         modprobe vfio-pci
@@ -56,6 +58,7 @@
     };
     "libvirt/hooks/qemu" = {
       source = pkgs.writeShellScript "qemu" ''
+        exec > /tmp/qemu-log.txt 2>&1
         GUEST_NAME="$1"
         HOOK_NAME="$2"
         STATE_NAME="$3"

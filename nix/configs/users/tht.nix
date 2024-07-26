@@ -21,6 +21,8 @@
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO1TqzsM18I70A0XhmBjYhryhkRFdGl6ofup92N3XNyC tht" # content of authorized_keys file
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBPxwPORGfx1bD9W6Dq0AOkxwlx1eO7AHdO1LhhA9I/n tht"
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIICZPbS3Jf+N2MmVD1n+qJfbLGVUGGpRH0BJvpU+ECR5 u0_a169"
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO1TqzsM18I70A0XhmBjYhryhkRFdGl6ofup92N3XNyC tht"
+
           # note: ssh-copy-id will add user@your-machine after the public key
           # but we can remove the "@your-machine" part
         ];
