@@ -34,7 +34,7 @@
       startup = [
         {command = "${pkgs.gammastep}/bin/gammastep -o -O 2000";}
         {
-          command = pkgs.writeShellScript "launch-waybar" ''
+          command = "${pkgs.writeShellScript "launch-waybar" ''
             CONFIG_FILES="$HOME/.config/waybar/config $HOME/.config/waybar/style.css"
 
             trap "${pkgs.killall}/bin/killall waybar" EXIT
@@ -43,7 +43,7 @@
                 ${pkgs.waybar}/bin/waybar &
                 ${pkgs.inotify-tools}/bin/inotifywait -e create,modify $CONFIG_FILES
                 ${pkgs.killall}/bin/killall waybar
-            done'';
+            done''}";
         }
       ];
     };
