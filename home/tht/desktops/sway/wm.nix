@@ -84,9 +84,11 @@
         }
         {title = "^Steam Keyboard$";}
       ];
-      bars."1" = {
-        statusCommand = "${pkgs.i3status}/bin/i3status";
-      };
+      bars = [
+        {
+          statusCommand = "${pkgs.i3status}/bin/i3status";
+        }
+      ];
     };
     extraConfig = ''
       gaps inner 10
