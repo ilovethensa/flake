@@ -18,7 +18,7 @@
     #./apps/yt-dlp
     ./apps/neovim
     #./apps/newsboat
-    ./desktops/hyprland-new
+    ./desktops/sway
     #spicetify-nix.homeManagerModule
     #inputs.stylix.homeManagerModules.stylix
   ];

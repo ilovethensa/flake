@@ -33,6 +33,7 @@
       };
       startup = [
         {command = "${pkgs.gammastep}/bin/gammastep -o -O 2000";}
+        {command = "${pkgs.psmisc}/bin/killall -SIGUSR2 .waybar-wrapped | ${pkgs.waybar}/bin/waybar";}
       ];
     };
     extraConfig = ''
