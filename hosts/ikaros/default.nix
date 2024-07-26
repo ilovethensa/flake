@@ -14,6 +14,7 @@
     ./services/snowflake.nix
     ./services/tor.nix
     #./services/bitmagnet.nix
+    ./services/cockpit.nix
     ../../nix/configs/users/tht.nix
   ];
 
