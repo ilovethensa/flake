@@ -3,6 +3,7 @@
   imports = [
     ./hardware-configuration.nix
     ./vfio.nix
+    ./aagl.nix
     ../../profiles/desktop
     ../../nix/configs/users/tht.nix
     ../../nix/configs/desktop/sway.nix

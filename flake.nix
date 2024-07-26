@@ -14,6 +14,7 @@
     simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
     nixvim.url = "github:nix-community/nixvim";
     nix-colors.url = "github:misterio77/nix-colors";
+    aagl.url = "github:ezKEa/aagl-gtk-on-nix";
   };
   outputs = {
     self,
@@ -28,6 +29,7 @@
     home-manager,
     nixvim,
     nix-colors,
+    aagl,
     ...
   } @ inputs: let
     inherit (self) outputs;
