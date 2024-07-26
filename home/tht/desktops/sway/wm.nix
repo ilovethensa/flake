@@ -10,7 +10,7 @@
         "Print" = "exec --no-startup-id ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp -d)\" - | ${pkgs.wl-clipboard-rs}/bin/wl-copy && ${pkgs.libnotify}/bin/notify-send \"Screenshot taken\" -i camera-photo-symbolic";
 
         "${modifier}+Return" = "exec ${pkgs.foot}/bin/foot";
-        "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun | ${pkgs.findutils}/bin/xargs swaymsg exec --";
+        "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun -show-icons | ${pkgs.findutils}/bin/xargs swaymsg exec --";
         "${modifier}+q" = "kill";
         "${modifier}+f" = "fullscreen toggle";
         "${modifier}+1" = "workspace 1";
