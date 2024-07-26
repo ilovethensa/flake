@@ -7,7 +7,7 @@
   imports = [
     ./foot.nix
     ./wm.nix
-    ./waybar.nix
+    ./i3status.nix
     inputs.nix-colors.homeManagerModules.default
   ];
   home.packages = with pkgs; [
