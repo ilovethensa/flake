@@ -7,6 +7,7 @@
       terminal = "${pkgs.foot}/bin/footclient";
       keybindings = {
         "control+shift+escape" = "exec $term ${pkgs.btop}/bin/btop";
+        "Print" = "exec --no-startup-id ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp -d)\" - | ${pkgs.wl-clipboard-rs}/bin/wl-copy && ${pkgs.notify-send}/bin/notify-send \"Screenshot taken\" -i camera-photo-symbolic";
 
         "${modifier}+Return" = "exec ${pkgs.foot}/bin/foot";
         "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun | ${pkgs.findutils}/bin/xargs swaymsg exec --";
@@ -83,6 +84,7 @@
           title = "^Steam Guard - Computer Authorization Required$";
         }
         {title = "^Steam Keyboard$";}
+        {title = "Discord Updater";}
       ];
       bars = [
         {
@@ -92,7 +94,8 @@
     };
     extraConfig = ''
       gaps inner 10
-      default_border none
+      # Disable window titlebars
+      default_border pixel 2
       #output * background /home/tht/Pictures/wall.png fill
       input type:touchpad {
         tap enabled
@@ -101,6 +104,8 @@
       bindgesture swipe:right workspace prev
       bindgesture swipe:left workspace next
       for_window [shell="xwayland"] title_format "[XWayland] %title"
+      for_window [title="Picture-in-picture"] floating enable, sticky toggle # Fix Chrome PIP
+      for_window [app_id="firefox" title="Picture-in-Picture"] floating enable, sticky enable, border none
     '';
   };
 }

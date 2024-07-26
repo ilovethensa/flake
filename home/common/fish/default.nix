@@ -35,6 +35,7 @@ in {
     statix
     deadnix
     just
+    wl-clipboard-rs
   ];
   programs.fish = {
     enable = true;
