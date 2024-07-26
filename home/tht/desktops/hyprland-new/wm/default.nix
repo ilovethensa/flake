@@ -114,9 +114,9 @@
       # ░█▀▀▄ █── ░█─░█ ░█▄▄▀
       # ░█▄▄█ ▀▀▀ ─▀▄▄▀ ░█─░█
 
-      layerrule = "blur,waybar";
-      layerrule = "blur,rofi";
-      layerrule = "blur,^(eww-blur)$";
+      #layerrule = "blur,waybar";
+      #layerrule = "blur,rofi";
+      #layerrule = "blur,^(eww-blur)$";
 
 
       # ▒█▀▀▀ ▒█▄░▒█ ▒█░░▒█
