@@ -17,7 +17,7 @@
         };
         position = 2;
       };
-      "battery" = {
+      "battery all" = {
         settings = {
           format = "%status %percentage %remaining";
         };
