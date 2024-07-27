@@ -1,6 +1,7 @@
 {...}: {
   programs.i3status = {
     enable = true;
+    enableDefault = false;
     modules = {
       "wireless _first_" = {
         settings = {
