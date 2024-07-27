@@ -45,9 +45,9 @@
         "XF86MonBrightnessDown" = "exec light -U 10";
         "XF86MonBrightnessUp" = "exec light -A 10";
         # Audio
-        "XF86AudioRaiseVolume" = "exec '${pkgs.ulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +1%'";
-        "XF86AudioLowerVolume" = "exec '${pkgs.ulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -1%'";
-        "XF86AudioMute" = "exec '${pkgs.ulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle'";
+        "XF86AudioRaiseVolume" = "exec '${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +1%'";
+        "XF86AudioLowerVolume" = "exec '${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -1%'";
+        "XF86AudioMute" = "exec '${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle'";
       };
       startup = [
         {command = "${pkgs.gammastep}/bin/gammastep -o -O 2000";}
