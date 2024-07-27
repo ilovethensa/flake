@@ -42,8 +42,8 @@
         "${modifier}+Shift+Up" = "move up";
         "${modifier}+Shift+Right" = "move right";
         # Brightness
-        "XF86MonBrightnessDown" = "exec light -U 10";
-        "XF86MonBrightnessUp" = "exec light -A 10";
+        "XF86MonBrightnessDown" = "exec ${pkgs.light}/bin/light -U 10";
+        "XF86MonBrightnessUp" = "exec ${pkgs.light}/bin/light -A 10";
         # Audio
         "XF86AudioRaiseVolume" = "exec '${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +1%'";
         "XF86AudioLowerVolume" = "exec '${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -1%'";
