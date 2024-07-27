@@ -1,59 +1,51 @@
 {...}: {
-  programs.i3status = {
+  programs.i3status-rust = {
     enable = true;
-    enableDefault = false;
-    modules = {
-      "wireless _first_" = {
+    bars = {
+      bottom = {
+        blocks = [
+          {
+            block = "net";
+            format = "E: $ip ()";
+          }
+          {
+            block = "battery";
+          }
+          {
+            block = "memory";
+            format_mem = " $icon $mem_used_percents ";
+          }
+          {
+            block = "disk_space";
+            path = "/";
+            info_type = "available";
+            interval = 60;
+            warning = 20.0;
+            alert = 10.0;
+          }
+
+          {
+            block = "cpu";
+            interval = 1;
+          }
+          {block = "sound";}
+          {
+            block = "time";
+            interval = 60;
+            format = " $timestamp.datetime(f:'%a %d/%m %R') ";
+          }
+        ];
         settings = {
-          format_down = "W: down";
-          format_up = "W: (%quality at %essid) %ip";
+          theme = {
+            theme = "solarized-dark";
+            overrides = {
+              idle_bg = "#123456";
+              idle_fg = "#abcdef";
+            };
+          };
         };
-        position = 1;
-      };
-      "ethernet _first_" = {
-        settings = {
-          format_down = "E: down";
-          format_up = "E: %ip (%speed)";
-        };
-        position = 2;
-      };
-      "battery all" = {
-        settings = {
-          format = "%status %percentage %remaining";
-        };
-        position = 3;
-      };
-      "memory" = {
-        settings = {
-          format = "%used";
-          format_degraded = "MEMORY < %available";
-          threshold_degraded = "1G";
-        };
-        position = 4;
-      };
-      "disk /nix" = {
-        settings = {
-          format = "%avail";
-        };
-        position = 5;
-      };
-      "load" = {
-        settings = {
-          format = "%1min";
-        };
-        position = 6;
-      };
-      "cpu_usage" = {
-        settings = {
-          format = "%usage";
-        };
-        position = 7;
-      };
-      "tztime local" = {
-        settings = {
-          format = "%Y-%m-%d %H:%M:%S";
-        };
-        position = 8;
+        icons = "awesome5";
+        theme = "gruvbox-dark";
       };
     };
   };
