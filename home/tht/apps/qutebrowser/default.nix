@@ -23,14 +23,14 @@
         url = "https://update.greasyfork.org/scripts/453320/Simple%20Sponsor%20Skipper.user.js";
         sha256 = "sha256-SmdyGmMVEQYV9sQUjwxq8OkJ+7BBqWpkRyNoL5xqiuQ=";
       })
-      #(pkgs.fetchurl {
-      #  url = "https://update.greasyfork.org/scripts/465936/Proxy%20Redirect.user.js";
-      #  sha256 = "sha256-YgSPdCaFqYkk6Y0/ifuDk0hJtFmQPxDBCUdx8KjyQM0=";
-      #})
       (pkgs.fetchurl {
-        url = "https://update.greasyfork.org/scripts/436359/Privacy%20Redirector.user.js";
-        sha256 = "sha256-JNdHJxn3WTh6gDWW4YLHSj1UhA4W/jpU5pA6BENB1Jo=";
+        url = "https://update.greasyfork.org/scripts/465936/Proxy%20Redirect.user.js";
+        sha256 = "sha256-YgSPdCaFqYkk6Y0/ifuDk0hJtFmQPxDBCUdx8KjyQM0=";
       })
+      #(pkgs.fetchurl {
+      #  url = "https://update.greasyfork.org/scripts/436359/Privacy%20Redirector.user.js";
+      #  sha256 = "sha256-JNdHJxn3WTh6gDWW4YLHSj1UhA4W/jpU5pA6BENB1Jo=";
+      #})
       (pkgs.fetchurl {
         url = "https://update.greasyfork.org/scripts/491832/Remove%20Share%20Buttons.user.js";
         sha256 = "sha256-xp+sbM+rcRQ5d3WXm/t+q3fO8GI0Pe0duXC/o3XbwE8=";
