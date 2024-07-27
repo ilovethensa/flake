@@ -9,12 +9,8 @@ in {
   imports = [spicetify-nix.homeManagerModule];
   programs.spicetify = {
     enable = true;
-    theme = spicePkgs.themes.catppuccin;
-    colorScheme = "mocha";
-
-    enabledExtensions = with spicePkgs.extensions; [
-      fullAppDisplay
-      adblock
+    enabledCustomApps = with spicePkgs.apps; [
+      marketplace
     ];
   };
 }
