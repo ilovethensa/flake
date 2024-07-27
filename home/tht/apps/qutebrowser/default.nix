@@ -4,6 +4,7 @@
   ...
 }: {
   home.file.".config/qutebrowser/catppuccin".source = inputs.qutebrowser-catppucin;
+
   programs.qutebrowser = {
     enable = true;
     searchEngines = {
@@ -23,10 +24,8 @@
         url = "https://update.greasyfork.org/scripts/453320/Simple%20Sponsor%20Skipper.user.js";
         sha256 = "sha256-SmdyGmMVEQYV9sQUjwxq8OkJ+7BBqWpkRyNoL5xqiuQ=";
       })
-      (pkgs.fetchurl {
-        url = "./redirect.js";
-        sha256 = "sha256-YgSPdCaFqYkk6Y0/ifuDk0hJtFmQPxDBCUdx8KjyQM0=";
-      })
+      (pkgs.writeText (builtins.baseNameOf ./redirect.js) (builtins.readFile ./redirect.js))
+      #(pkgs.writeText "some-script.js" import ./redirect.nix)
       #(pkgs.fetchurl {
       #  url = "https://update.greasyfork.org/scripts/436359/Privacy%20Redirector.user.js";
       #  sha256 = "sha256-JNdHJxn3WTh6gDWW4YLHSj1UhA4W/jpU5pA6BENB1Jo=";
