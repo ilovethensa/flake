@@ -9,8 +9,12 @@ in {
   imports = [spicetify-nix.homeManagerModule];
   programs.spicetify = {
     enable = true;
-    enabledCustomApps = with spicePkgs.apps; [
-      marketplace
+    enabledExtensions = with spicePkgs.extensions; [
+      fullAppDisplay
+      adblock
     ];
+          enabledCustomApps = with spicePkgs.apps; [
+        marketplace
+      ];
   };
 }
