@@ -12,6 +12,7 @@
       nw = "https://wiki.nixos.org/index.php?search={}";
       ns = "https://mynixos.com/search?q={}";
       np = "https://search.nixos.org/packages?query={}";
+      yt = "https://piped.video/results?search_query={}";
     };
     greasemonkey = [
       (pkgs.fetchurl {
