@@ -20,6 +20,7 @@
       kamadorueda.alejandra
       ms-python.python
       ms-python.vscode-pylance
+      continue.continue
     ];
 
     # Define user settings for Visual Studio Code
