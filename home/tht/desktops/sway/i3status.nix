@@ -10,7 +10,7 @@
         format_down = "E: down";
         format_up = "E: %ip (%speed)";
       };
-      "battery _first_" = {
+      "battery" = {
         format = "%status %percentage %remaining";
       };
       "memory" = {
