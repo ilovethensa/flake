@@ -25,7 +25,7 @@
       };
       "memory" = {
         settings = {
-          format = "%used | %available";
+          format = "%used";
           format_degraded = "MEMORY < %available";
           threshold_degraded = "1G";
         };
@@ -43,11 +43,19 @@
         };
         position = 6;
       };
+      "volume master" = {
+        settings = {
+          format = "♪: %volume";
+          format_muted = "♪: muted (%volume)";
+          device = "pulse:alsa_card.pci-0000_09_00.1";
+        };
+        position = 7;
+      };
       "tztime local" = {
         settings = {
           format = "%Y-%m-%d %H:%M:%S";
         };
-        position = 7;
+        position = 8;
       };
     };
   };
