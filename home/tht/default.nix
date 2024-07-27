@@ -13,11 +13,14 @@
     # ./nvim.nix
     #inputs.nix-colors.homeManagerModules.default
     ./apps/vscode
+    ./apps/spotify
+    ./apps/qutebrowser
     #./apps/firefox
     ../common/fish
     #./apps/yt-dlp
     ./apps/neovim
     #./apps/newsboat
+    ./apps/yazi
     ./desktops/sway
     #spicetify-nix.homeManagerModule
     #inputs.stylix.homeManagerModules.stylix
@@ -42,7 +45,7 @@
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
-  home.packages = with pkgs; [hashcat vesktop nixpkgs-fmt git-crypt yazi];
+  home.packages = with pkgs; [hashcat vesktop nixpkgs-fmt signal-desktop];
   programs = {
     home-manager.enable = true;
     git = {

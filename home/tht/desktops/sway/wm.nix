@@ -4,10 +4,13 @@
     config = rec {
       modifier = "Mod1";
       # Use kitty as default terminal
-      terminal = "${pkgs.foot}/bin/foot";
+      terminal = "${pkgs.foot}/bin/footclient";
       keybindings = {
+        "control+shift+escape" = "exec $term ${pkgs.btop}/bin/btop";
+        "Print" = "exec --no-startup-id ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp -d)\" - | ${pkgs.wl-clipboard-rs}/bin/wl-copy && ${pkgs.libnotify}/bin/notify-send \"Screenshot taken\" -i camera-photo-symbolic";
+
         "${modifier}+Return" = "exec ${pkgs.foot}/bin/foot";
-        "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun | ${pkgs.findutils}/bin/xargs swaymsg exec --";
+        "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun -show-icons | ${pkgs.findutils}/bin/xargs swaymsg exec --";
         "${modifier}+q" = "kill";
         "${modifier}+f" = "fullscreen toggle";
         "${modifier}+1" = "workspace 1";
@@ -30,14 +33,69 @@
         "${modifier}+Shift+8" = "move container to workspace 8";
         "${modifier}+Shift+9" = "move container to workspace 9";
         "${modifier}+Shift+0" = "move container to workspace 10";
+        "${modifier}+Left" = "focus left";
+        "${modifier}+Down" = "focus down";
+        "${modifier}+Up" = "focus up";
+        "${modifier}+Right" = "focus right";
+        "${modifier}+Shift+Left" = "move left";
+        "${modifier}+Shift+Down" = "move down";
+        "${modifier}+Shift+Up" = "move up";
+        "${modifier}+Shift+Right" = "move right";
       };
       startup = [
         {command = "${pkgs.gammastep}/bin/gammastep -o -O 2000";}
+        {command = "${pkgs.foot}/bin/foot -s";}
+      ];
+      floating.criteria = [
+        {
+          class = "^Steam$";
+          title = "^Friends$";
+        }
+        {
+          class = "^Steam$";
+          title = "Steam - News";
+        }
+        {
+          class = "^Steam$";
+          title = ".* - Chat";
+        }
+        {
+          class = "^Steam$";
+          title = "^Settings$";
+        }
+        {
+          class = "^Steam$";
+          title = ".* - event started";
+        }
+        {
+          class = "^Steam$";
+          title = ".* CD key";
+        }
+        {
+          class = "^Steam$";
+          title = "^Steam - Self Updater$";
+        }
+        {
+          class = "^Steam$";
+          title = "^Screenshot Uploader$";
+        }
+        {
+          class = "^Steam$";
+          title = "^Steam Guard - Computer Authorization Required$";
+        }
+        {title = "^Steam Keyboard$";}
+        {title = "Discord Updater";}
+      ];
+      bars = [
+        {
+          statusCommand = "${pkgs.i3status}/bin/i3status";
+        }
       ];
     };
     extraConfig = ''
       gaps inner 10
-      default_border none
+      # Disable window titlebars
+      default_border pixel 2
       #output * background /home/tht/Pictures/wall.png fill
       input type:touchpad {
         tap enabled
@@ -45,6 +103,9 @@
       }
       bindgesture swipe:right workspace prev
       bindgesture swipe:left workspace next
+      for_window [shell="xwayland"] title_format "[XWayland] %title"
+      for_window [title="Picture-in-picture"] floating enable, sticky toggle # Fix Chrome PIP
+      for_window [app_id="firefox" title="Picture-in-Picture"] floating enable, sticky enable, border none
     '';
   };
 }

@@ -11,9 +11,14 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
     agenix.url = "github:ryantm/agenix";
     comin.url = "github:nlewo/comin";
-    simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
-    nixvim.url = "github:nix-community/nixvim";
     nix-colors.url = "github:misterio77/nix-colors";
+    aagl.url = "github:ezKEa/aagl-gtk-on-nix";
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+
+    qutebrowser-catppucin = {
+      url = "github:catppuccin/qutebrowser";
+      flake = false;
+    };
   };
   outputs = {
     self,
@@ -24,10 +29,10 @@
     nix-gaming,
     agenix,
     comin,
-    simple-nixos-mailserver,
     home-manager,
-    nixvim,
     nix-colors,
+    aagl,
+    qutebrowser-catppucin,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -40,7 +45,6 @@
         comin.nixosModules.comin
         agenix.nixosModules.default
         nixarr.nixosModules.default
-        simple-nixos-mailserver.nixosModule
         ./hosts/ikaros
       ];
     };

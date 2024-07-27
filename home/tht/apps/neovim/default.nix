@@ -1,31 +1,38 @@
-{inputs, ...}: {
-  imports = [inputs.nixvim.homeManagerModules.nixvim];
-  programs.nixvim = {
-    enable = true;
-    colorschemes.cyberdream.enable = true;
-    plugins = {
-      neo-tree.enable = true;
-      lightline.enable = true;
-      nix.enable = true;
-      clangd-extensions.enable = true;
-      rustaceanvim.enable = true;
-      rust-tools.enable = true;
-      wtf.enable = true;
-      lsp-lines.enable = true;
-      lsp-status.enable = true;
-      lsp-format.enable = true;
-      inc-rename.enable = true;
-      lsp = {
-        enable = true;
-        servers = {
-          rust-analyzer = {
-            enable = true;
-            installCargo = true;
-            installRustc = true;
-          };
-          pylsp.enable = true;
-        };
-      };
-    };
-  };
+{...}: {
+  home.file.".config/nvim/init.lua".text = ''
+    -- Bootstrap lazy.nvim
+    local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+    if not (vim.uv or vim.loop).fs_stat(lazypath) then
+      local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+      local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+      if vim.v.shell_error ~= 0 then
+        vim.api.nvim_echo({
+          { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+          { out, "WarningMsg" },
+          { "\nPress any key to exit..." },
+        }, true, {})
+        vim.fn.getchar()
+        os.exit(1)
+      end
+    end
+    vim.opt.rtp:prepend(lazypath)
+
+    -- Make sure to setup `mapleader` and `maplocalleader` before
+    -- loading lazy.nvim so that mappings are correct.
+    -- This is also a good place to setup other settings (vim.opt)
+    vim.g.mapleader = " "
+    vim.g.maplocalleader = "\\"
+
+    -- Setup lazy.nvim
+    require("lazy").setup({
+      spec = {
+        -- add your plugins here
+      },
+      -- Configure any other settings here. See the documentation for more details.
+      -- colorscheme that will be used when installing plugins.
+      install = { colorscheme = { "habamax" } },
+      -- automatically check for plugin updates
+      checker = { enabled = true },
+    })
+  '';
 }
