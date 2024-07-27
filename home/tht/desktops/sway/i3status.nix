@@ -43,11 +43,9 @@
         };
         position = 6;
       };
-      "volume master" = {
+      "cpu_usage" = {
         settings = {
-          format = "♪: %volume";
-          format_muted = "♪: muted (%volume)";
-          device = "pulse:49";
+          format = "%usage";
         };
         position = 7;
       };
