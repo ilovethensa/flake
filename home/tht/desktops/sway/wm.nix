@@ -8,6 +8,17 @@
       keybindings = {
         "control+shift+escape" = "exec $term ${pkgs.btop}/bin/btop";
         "Print" = "exec --no-startup-id ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp -d)\" - | ${pkgs.wl-clipboard-rs}/bin/wl-copy && ${pkgs.libnotify}/bin/notify-send \"Screenshot taken\" -i camera-photo-symbolic";
+        # Brightness
+        "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%-";
+        "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set +10%";
+        # Audio
+        "XF86AudioRaiseVolume" = "exec '${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +1%'";
+        "XF86AudioLowerVolume" = "exec '${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -1%'";
+        "XF86AudioMute" = "exec '${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle'";
+        "XF86AudioMicMute" = "exec ${pkgs.pulseaudio}/bin/pactl set-source-mute @DEFAULT_SOURCE@ toggle";
+        "XF86AudioPlay" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
+        "XF86AudioNext" = "exec ${pkgs.playerctl}/bin/playerctl next";
+        "XF86AudioPrev" = "exec ${pkgs.playerctl}/bin/playerctl previous";
 
         "${modifier}+Return" = "exec ${pkgs.foot}/bin/foot";
         "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun -show-icons | ${pkgs.findutils}/bin/xargs swaymsg exec --";
@@ -41,17 +52,20 @@
         "${modifier}+Shift+Down" = "move down";
         "${modifier}+Shift+Up" = "move up";
         "${modifier}+Shift+Right" = "move right";
-        # Brightness
-        "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%-";
-        "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set +10%";
-        # Audio
-        "XF86AudioRaiseVolume" = "exec '${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +1%'";
-        "XF86AudioLowerVolume" = "exec '${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -1%'";
-        "XF86AudioMute" = "exec '${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle'";
       };
       startup = [
         {command = "${pkgs.gammastep}/bin/gammastep -o -O 2000";}
         {command = "${pkgs.foot}/bin/foot -s";}
+        {command = "${pkgs.toybox}/bin/ls ~/Pictures/walls/ | ${pkgs.toybox}/bin/shuf -n 1 | ${pkgs.toybox}/bin/xargs -I {} ${pkgs.swaybg}/bin/swaybg -i /home/tht/Pictures/walls/{}";}
+        {
+          command = pkgs.writeShellScript "swayidle-start" ''
+            exec ${pkgs.swayidle}/bin/swayidle -w \
+              timeout 1800 '${pkgs.swaylock}/bin/swaylock -f' \
+              timeout 1805 'swaymsg "output * power off"' \
+              before-sleep '${pkgs.playerctl}/bin/playerctl pause; ${pkgs.swaylock}/bin/swaylock' \
+              resume 'swaymsg "output * power on"'';
+        }
+        {command = "${pkgs.wl-clipboard-rs}/bin/wl-paste -t text --watch ${pkgs.clipman}/bin/clipman store";}
       ];
       floating.criteria = [
         {
