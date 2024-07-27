@@ -16,6 +16,11 @@
     nix-colors.url = "github:misterio77/nix-colors";
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+
+    qutebrowser-catppucin = {
+      url = "github:catppuccin/qutebrowser";
+      flake = false;
+    };
   };
   outputs = {
     self,
@@ -31,6 +36,7 @@
     nixvim,
     nix-colors,
     aagl,
+    qutebrowser-catppucin,
     ...
   } @ inputs: let
     inherit (self) outputs;
