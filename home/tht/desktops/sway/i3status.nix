@@ -3,29 +3,50 @@
     enable = true;
     modules = {
       "wireless _first_" = {
-        format_down = "W: down";
-        format_up = "W: (%quality at %essid) %ip";
+        settings = {
+          format_down = "W: down";
+          format_up = "W: (%quality at %essid) %ip";
+        };
+        position = 1;
       };
       "ethernet _first_" = {
-        format_down = "E: down";
-        format_up = "E: %ip (%speed)";
+        settings = {
+          format_down = "E: down";
+          format_up = "E: %ip (%speed)";
+        };
+        position = 2;
       };
       "battery" = {
-        format = "%status %percentage %remaining";
+        settings = {
+          format = "%status %percentage %remaining";
+        };
+        position = 3;
       };
       "memory" = {
-        format = "%used | %available";
-        format_degraded = "MEMORY < %available";
-        threshold_degraded = "1G";
+        settings = {
+          format = "%used | %available";
+          format_degraded = "MEMORY < %available";
+          threshold_degraded = "1G";
+        };
+        position = 4;
       };
       "disk /nix" = {
-        format = "%avail";
+        settings = {
+          format = "%avail";
+        };
+        position = 5;
       };
       "load" = {
-        format = "%1min";
+        settings = {
+          format = "%1min";
+        };
+        position = 6;
       };
       "tztime local" = {
-        format = "%Y-%m-%d %H:%M:%S";
+        settings = {
+          format = "%Y-%m-%d %H:%M:%S";
+        };
+        position = 7;
       };
     };
   };
