@@ -47,7 +47,7 @@
         settings = {
           format = "♪: %volume";
           format_muted = "♪: muted (%volume)";
-          device = "pulse:alsa_card.pci-0000_09_00.1";
+          device = "pulse:49";
         };
         position = 7;
       };
