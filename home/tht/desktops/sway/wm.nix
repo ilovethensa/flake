@@ -57,7 +57,6 @@
         {command = "${pkgs.gammastep}/bin/gammastep -o -O 2000";}
         {command = "${pkgs.foot}/bin/foot -s";}
         {command = "${pkgs.toybox}/bin/ls ~/Pictures/walls/ | ${pkgs.toybox}/bin/shuf -n 1 | ${pkgs.toybox}/bin/xargs -I {} ${pkgs.swaybg}/bin/swaybg -i /home/tht/Pictures/walls/{}";}
-        {command = "${pkgs.wl-clipboard-rs}/bin/wl-paste -t text --watch ${pkgs.clipman}/bin/clipman store";}
       ];
       floating.criteria = [
         {

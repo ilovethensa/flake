@@ -11,6 +11,7 @@
           {
             block = "battery";
             format = " $icon $percentage ";
+            missing_format = " $icon ";
           }
           {
             block = "memory";
@@ -18,7 +19,7 @@
           }
           {
             block = "disk_space";
-            path = "/";
+            path = "/nix";
             info_type = "available";
             interval = 60;
             warning = 20.0;
