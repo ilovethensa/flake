@@ -24,7 +24,7 @@
         sha256 = "sha256-SmdyGmMVEQYV9sQUjwxq8OkJ+7BBqWpkRyNoL5xqiuQ=";
       })
       (pkgs.fetchurl {
-        url = "https://update.greasyfork.org/scripts/465936/Proxy%20Redirect.user.js";
+        url = "https://update.greasyfork.org/scripts/436359/Privacy%20Redirector.user.js";
         sha256 = "sha256-YgSPdCaFqYkk6Y0/ifuDk0hJtFmQPxDBCUdx8KjyQM0=";
       })
       (pkgs.fetchurl {
