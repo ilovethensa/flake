@@ -37,7 +37,7 @@
         ];
         settings = {
           theme = {
-            theme = "solarized-dark";
+            theme = "plain";
             overrides = {
               idle_bg = "#123456";
               idle_fg = "#abcdef";
