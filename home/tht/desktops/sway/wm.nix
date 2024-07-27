@@ -30,13 +30,6 @@
         "${modifier}+Shift+8" = "move container to workspace 8";
         "${modifier}+Shift+9" = "move container to workspace 9";
         "${modifier}+Shift+0" = "move container to workspace 10";
-        # Brightness
-        "XF86MonBrightnessDown" = "exec light -U 10";
-        "XF86MonBrightnessUp" = "exec light -A 10";
-        # Audio
-        "XF86AudioRaiseVolume" = "exec '${pkgs.ulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +1%'";
-        "XF86AudioLowerVolume" = "exec '${pkgs.ulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -1%'";
-        "XF86AudioMute" = "exec '${pkgs.ulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle'";
       };
       startup = [
         {command = "${pkgs.gammastep}/bin/gammastep -o -O 2000";}
