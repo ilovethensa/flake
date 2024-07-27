@@ -15,6 +15,7 @@
     nixvim.url = "github:nix-community/nixvim";
     nix-colors.url = "github:misterio77/nix-colors";
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
   outputs = {
     self,
