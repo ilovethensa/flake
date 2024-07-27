@@ -12,7 +12,7 @@
       adblock
     ];
     enabledCustomApps = with spicePkgs.apps; [
-      lyrics-plus
+      lyricsPlus
     ];
     theme = spicePkgs.themes.catppuccin;
     colorScheme = "mocha";

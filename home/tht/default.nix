@@ -13,6 +13,7 @@
     # ./nvim.nix
     #inputs.nix-colors.homeManagerModules.default
     ./apps/vscode
+    ./apps/spotify
     #./apps/firefox
     ../common/fish
     #./apps/yt-dlp
