@@ -15,6 +15,7 @@
     nixvim.url = "github:nix-community/nixvim";
     nix-colors.url = "github:misterio77/nix-colors";
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
   };
   outputs = {
     self,
@@ -30,6 +31,7 @@
     nixvim,
     nix-colors,
     aagl,
+    spicetify-nix,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -55,7 +57,7 @@
         home-manager.nixosModules.home-manager
         ./hosts/mute
         {
-          home-manager.extraSpecialArgs = {inherit nix-colors inputs outputs;};
+          home-manager.extraSpecialArgs = {inherit nix-colors spicetify-nix inputs outputs;};
         }
       ];
     };
@@ -68,7 +70,7 @@
         home-manager.nixosModules.home-manager
         ./hosts/viper
         {
-          home-manager.extraSpecialArgs = {inherit nix-colors inputs outputs;};
+          home-manager.extraSpecialArgs = {inherit nix-colors spicetify-nix inputs outputs;};
         }
       ];
     };
