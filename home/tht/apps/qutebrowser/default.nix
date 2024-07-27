@@ -15,7 +15,6 @@
       yt = "https://piped.video/results?search_query={}";
     };
     greasemonkey = [
-      (builtins.readFile ./redirect.js)
       (pkgs.fetchurl {
         url = "https://update.greasyfork.org/scripts/466058/Dark%20Reader.user.js";
         sha256 = "sha256-lkZksw4tZcA3jTldcivzh3TDMKqcA38u9sbE3qklQP8=";
@@ -23,6 +22,10 @@
       (pkgs.fetchurl {
         url = "https://update.greasyfork.org/scripts/453320/Simple%20Sponsor%20Skipper.user.js";
         sha256 = "sha256-SmdyGmMVEQYV9sQUjwxq8OkJ+7BBqWpkRyNoL5xqiuQ=";
+      })
+      (pkgs.fetchurl {
+        url = "https://update.greasyfork.org/scripts/465936/Proxy%20Redirect.user.js";
+        sha256 = "sha256-YgSPdCaFqYkk6Y0/ifuDk0hJtFmQPxDBCUdx8KjyQM0=";
       })
       (pkgs.fetchurl {
         url = "https://update.greasyfork.org/scripts/491832/Remove%20Share%20Buttons.user.js";
