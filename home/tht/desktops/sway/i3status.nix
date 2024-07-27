@@ -10,6 +10,7 @@
           }
           {
             block = "battery";
+            format = " $icon $percentage ";
           }
           {
             block = "memory";
