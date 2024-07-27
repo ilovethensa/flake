@@ -15,7 +15,7 @@
       yt = "https://piped.video/results?search_query={}";
     };
     greasemonkey = [
-      ./redirect.js
+      (builtins.readFile ./redirect.js)
       (pkgs.fetchurl {
         url = "https://update.greasyfork.org/scripts/466058/Dark%20Reader.user.js";
         sha256 = "sha256-lkZksw4tZcA3jTldcivzh3TDMKqcA38u9sbE3qklQP8=";
