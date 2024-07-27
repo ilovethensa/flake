@@ -34,43 +34,5 @@
         ];
       };
     };
-    keymap = {
-      input.keymap = [
-        {
-          exec = "close";
-          on = ["<c-q>"];
-        }
-        {
-          exec = "close --submit";
-          on = ["<enter>"];
-        }
-        {
-          exec = "escape";
-          on = ["<esc>"];
-        }
-        {
-          exec = "backspace";
-          on = ["<backspace>"];
-        }
-      ];
-      manager.keymap = [
-        {
-          exec = "shell \"$SHELL\" --block --confirm";
-          on = ["<C-s>"];
-        }
-        {
-          exec = "escape";
-          on = ["<esc>"];
-        }
-        {
-          exec = "quit";
-          on = ["q"];
-        }
-        {
-          exec = "close";
-          on = ["<c-q>"];
-        }
-      ];
-    };
   };
 }
