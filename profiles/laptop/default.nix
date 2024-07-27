@@ -4,4 +4,5 @@
     ../desktop
     ../../nix/configs/battery.nix
   ];
+  programs.light.enable = true;
 }
