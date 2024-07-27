@@ -45,7 +45,7 @@
           };
         };
         icons = "awesome5";
-        theme = "gruvbox-dark";
+        theme = "plain";
       };
     };
   };
