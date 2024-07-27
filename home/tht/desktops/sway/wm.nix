@@ -101,7 +101,7 @@
       ];
       bars = [
         {
-          statusCommand = "${pkgs.i3status}/bin/i3status";
+          statusCommand = "${pkgs.i3status-rust}/bin/i3status-rust";
         }
       ];
     };
