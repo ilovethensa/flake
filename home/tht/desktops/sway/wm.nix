@@ -57,14 +57,6 @@
         {command = "${pkgs.gammastep}/bin/gammastep -o -O 2000";}
         {command = "${pkgs.foot}/bin/foot -s";}
         {command = "${pkgs.toybox}/bin/ls ~/Pictures/walls/ | ${pkgs.toybox}/bin/shuf -n 1 | ${pkgs.toybox}/bin/xargs -I {} ${pkgs.swaybg}/bin/swaybg -i /home/tht/Pictures/walls/{}";}
-        {
-          command = pkgs.writeShellScript "swayidle-start" ''
-            exec ${pkgs.swayidle}/bin/swayidle -w \
-              timeout 1800 '${pkgs.swaylock}/bin/swaylock -f' \
-              timeout 1805 'swaymsg "output * power off"' \
-              before-sleep '${pkgs.playerctl}/bin/playerctl pause; ${pkgs.swaylock}/bin/swaylock' \
-              resume 'swaymsg "output * power on"'';
-        }
         {command = "${pkgs.wl-clipboard-rs}/bin/wl-paste -t text --watch ${pkgs.clipman}/bin/clipman store";}
       ];
       floating.criteria = [
@@ -127,6 +119,11 @@
       for_window [shell="xwayland"] title_format "[XWayland] %title"
       for_window [title="Picture-in-picture"] floating enable, sticky toggle # Fix Chrome PIP
       for_window [app_id="firefox" title="Picture-in-Picture"] floating enable, sticky enable, border none
+      exec ${pkgs.swayidle}/bin/swayidle -w \
+                    timeout 1800 '${pkgs.swaylock}/bin/swaylock -f' \
+                    timeout 1805 'swaymsg "output * power off"' \
+                    before-sleep '${pkgs.playerctl}/bin/playerctl pause; ${pkgs.swaylock}/bin/swaylock' \
+                    resume 'swaymsg "output * power on"
     '';
   };
 }
