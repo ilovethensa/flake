@@ -4,6 +4,7 @@
     ./hardware-configuration.nix
     ./vfio.nix
     ./aagl.nix
+    ./ollama.nix
     ../../profiles/desktop
     ../../nix/configs/users/tht.nix
     ../../nix/configs/desktop/sway.nix
