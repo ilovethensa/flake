@@ -100,7 +100,7 @@
       ];
       bars = [
         {
-          statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-bottom.toml";
+          statusCommand = "${pkgs.i3status}/bin/i3status";
         }
       ];
     };

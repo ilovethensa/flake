@@ -1,5 +1,7 @@
 {...}: {
-  programs.i3status-rust = {
+  programs.i3status.enable = true;
+  /*
+     programs.i3status-rust = {
     enable = true;
     bars = {
       bottom = {
@@ -51,4 +53,5 @@
       };
     };
   };
+  */
 }
