@@ -14,7 +14,7 @@
     nix-colors.url = "github:misterio77/nix-colors";
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-    firefox-addons.url = "https://gitlab.com/rycee/nur-expressions/-/tree/master/pkgs/firefox-addons?ref_type=heads";
+    firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
 
     qutebrowser-catppucin = {
       url = "github:catppuccin/qutebrowser";

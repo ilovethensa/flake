@@ -98,7 +98,7 @@
     },
     "devshell": {
       "inputs": {
-        "flake-utils": "flake-utils",
+        "flake-utils": "flake-utils_2",
         "nixpkgs": [
           "nixarr",
           "nixpkgs"
@@ -116,6 +116,27 @@
         "owner": "numtide",
         "repo": "devshell",
         "type": "github"
+      }
+    },
+    "firefox-addons": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs_4"
+      },
+      "locked": {
+        "dir": "pkgs/firefox-addons",
+        "lastModified": 1722225797,
+        "narHash": "sha256-qkVwXLMn5miM3v+7xWcC9ab1jqdebnpnnU6iRcCSXmA=",
+        "owner": "rycee",
+        "repo": "nur-expressions",
+        "rev": "4002dc8a2dec233b78af2ea108fa259a72159016",
+        "type": "gitlab"
+      },
+      "original": {
+        "dir": "pkgs/firefox-addons",
+        "owner": "rycee",
+        "repo": "nur-expressions",
+        "type": "gitlab"
       }
     },
     "flake-compat": {
@@ -227,6 +248,21 @@
       }
     },
     "flake-utils": {
+      "locked": {
+        "lastModified": 1629284811,
+        "narHash": "sha256-JHgasjPR0/J1J3DRm4KxM4zTyAj4IOJY8vIl75v/kPI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "c5d161cc0af116a2e17f54316f0bf43f0819785c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_2": {
       "inputs": {
         "systems": "systems_2"
       },
@@ -322,7 +358,7 @@
     "nix-gaming": {
       "inputs": {
         "flake-parts": "flake-parts",
-        "nixpkgs": "nixpkgs_4",
+        "nixpkgs": "nixpkgs_5",
         "umu": "umu"
       },
       "locked": {
@@ -344,7 +380,7 @@
         "devshell": "devshell",
         "flake-parts": "flake-parts_2",
         "flake-root": "flake-root",
-        "nixpkgs": "nixpkgs_5",
+        "nixpkgs": "nixpkgs_6",
         "treefmt-nix": "treefmt-nix",
         "vpnconfinement": "vpnconfinement"
       },
@@ -452,6 +488,22 @@
     },
     "nixpkgs_4": {
       "locked": {
+        "lastModified": 1627814220,
+        "narHash": "sha256-P+MDgdZw2CBk9X1ZZaUgHgN+32pTfLFf3XVIBOXirI4=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "ab5b6828af26215bf2646c31961da5d3749591ef",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_5": {
+      "locked": {
         "lastModified": 1722073938,
         "narHash": "sha256-OpX0StkL8vpXyWOGUD6G+MA26wAXK6SpT94kLJXo6B4=",
         "owner": "NixOS",
@@ -466,7 +518,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_5": {
+    "nixpkgs_6": {
       "locked": {
         "lastModified": 1717893485,
         "narHash": "sha256-WMU6ZRZrBgEUDIF0siu2aIyVAXcxfElSwzZtS/mSpN4=",
@@ -482,7 +534,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_6": {
+    "nixpkgs_7": {
       "locked": {
         "lastModified": 1722062969,
         "narHash": "sha256-QOS0ykELUmPbrrUGmegAUlpmUFznDQeR4q7rFhl8eQg=",
@@ -498,7 +550,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_7": {
+    "nixpkgs_8": {
       "locked": {
         "lastModified": 1722062969,
         "narHash": "sha256-QOS0ykELUmPbrrUGmegAUlpmUFznDQeR4q7rFhl8eQg=",
@@ -535,12 +587,13 @@
         "aagl": "aagl",
         "agenix": "agenix",
         "comin": "comin",
+        "firefox-addons": "firefox-addons",
         "home-manager": "home-manager_2",
         "impermanence": "impermanence",
         "nix-colors": "nix-colors",
         "nix-gaming": "nix-gaming",
         "nixarr": "nixarr",
-        "nixpkgs": "nixpkgs_6",
+        "nixpkgs": "nixpkgs_7",
         "nixpkgs-stable": "nixpkgs-stable",
         "qutebrowser-catppucin": "qutebrowser-catppucin",
         "spicetify-nix": "spicetify-nix"
@@ -549,7 +602,7 @@
     "spicetify-nix": {
       "inputs": {
         "flake-compat": "flake-compat_2",
-        "nixpkgs": "nixpkgs_7"
+        "nixpkgs": "nixpkgs_8"
       },
       "locked": {
         "lastModified": 1722139873,
