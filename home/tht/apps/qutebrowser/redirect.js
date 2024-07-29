@@ -3,9 +3,10 @@
 // @namespace    http://tampermonkey.net/
 // @version      1.0
 // @description  Redirects YouTube and Reddit URLs to farside.link equivalents
-// @author       Your Name
+// @author       someone
 // @match        *://*.youtube.com/*
 // @match        *://*.reddit.com/*
+// @run-at document-start
 // @grant        none
 // ==/UserScript==
 
