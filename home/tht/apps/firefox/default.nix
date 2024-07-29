@@ -176,8 +176,6 @@
       };
       userChrome = ''
       '';
-      userContent = ''
-      '';
       search = {
         default = "DuckDuckGo";
         privateDefault = "DuckDuckGo";
