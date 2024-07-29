@@ -1,4 +1,7 @@
 {...}: {
+  programs.neovim = {
+    enable = true;
+  };
   home.file.".config/nvim/init.lua".text = ''
     -- Bootstrap lazy.nvim
     local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
