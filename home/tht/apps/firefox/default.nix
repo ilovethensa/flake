@@ -3,8 +3,6 @@
   inputs,
   ...
 }: {
-  home.file.".mozilla/firefox/default/chrome/firefox-gnome-theme".source =
-    inputs.firefox-gnome-theme;
   programs.firefox = {
     enable = true;
     profiles.default = {
@@ -21,8 +19,6 @@
         violentmonkey
         boring-rss
         bitwarden
-        augmented-steam
-        enhanced-github
       ];
       settings = {
         "privacy.resistFingerprinting" = true;
@@ -33,7 +29,6 @@
         "browser.theme.dark-private-windows" = false;
         "widget.gtk.rounded-bottom-corners.enabled" = true;
         "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
-
         "gfx.canvas.accelerated.cache-items" = 4096;
         "gfx.canvas.accelerated.cache-size" = 512;
         "gfx.content.skia-font-cache-size" = 20;
@@ -177,10 +172,8 @@
         "ui.key.menuAccessKeyFocuses" = false;
       };
       userChrome = ''
-        @import "firefox-gnome-theme/userChrome.css";
       '';
       userContent = ''
-        @import "firefox-gnome-theme/userContent.css";
       '';
       search = {
         default = "DuckDuckGo";
@@ -218,6 +211,16 @@
             iconUpdateURL = "https://nixos.wiki/favicon.png";
             updateInterval = 24 * 60 * 60 * 1000; # every day
             definedAliases = ["nw"];
+          };
+          "Mynixos" = {
+            urls = [
+              {
+                template = "https://mynixos.com/search?q={searchTerms}";
+              }
+            ];
+            iconUpdateURL = "https://nixos.wiki/favicon.png";
+            updateInterval = 24 * 60 * 60 * 1000; # every day
+            definedAliases = ["ns"];
           };
           "DuckDuckGo" = {
             urls = [

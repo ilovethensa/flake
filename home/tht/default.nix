@@ -15,7 +15,7 @@
     ./apps/vscode
     ./apps/spotify
     ./apps/qutebrowser
-    #./apps/firefox
+    ./apps/firefox
     ../common/fish
     #./apps/yt-dlp
     ./apps/neovim
