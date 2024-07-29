@@ -5,6 +5,7 @@
 }: {
   programs.firefox = {
     enable = true;
+    package = pkgs.wrapFirefox (pkgs.firefox-unwrapped.override {pipewireSupport = true;}) {};
     profiles.default = {
       id = 0;
       name = "Default";
