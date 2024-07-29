@@ -21,6 +21,8 @@
         bitwarden
       ];
       settings = {
+        "extensions.autoDisableScopes" = 0;
+        "extensions.enabledScopes" = 15;
         "privacy.resistFingerprinting" = true;
         "privacy.resistFingerprinting.letterboxing" = true;
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
