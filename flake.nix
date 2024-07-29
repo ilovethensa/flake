@@ -15,6 +15,7 @@
     aagl.url = "github:ezKEa/aagl-gtk-on-nix";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    nixvim.url = "github:nix-community/nixvim";
 
     qutebrowser-catppucin = {
       url = "github:catppuccin/qutebrowser";
@@ -35,6 +36,7 @@
     aagl,
     qutebrowser-catppucin,
     firefox-addons,
+    nixvim,
     ...
   } @ inputs: let
     inherit (self) outputs;
