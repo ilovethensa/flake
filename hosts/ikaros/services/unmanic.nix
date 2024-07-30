@@ -1,4 +1,4 @@
-{...}: {
+{_}: {
   virtualisation.oci-containers.containers."unmanic" = {
     image = "josh5/unmanic";
     ports = [
@@ -13,7 +13,7 @@
       "--device=/dev/dri"
     ];
   };
-    networking.firewall.allowedTCPPorts = [
+  networking.firewall.allowedTCPPorts = [
     8888
   ];
 }

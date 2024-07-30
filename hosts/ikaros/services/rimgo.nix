@@ -1,4 +1,4 @@
-{...}: {
+{_}: {
   services.rimgo = {
     enable = true;
     settings = {

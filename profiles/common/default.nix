@@ -1,4 +1,4 @@
-{...}: {
+{_}: {
   imports = [
     ./openssh.nix
     ../../nix/options

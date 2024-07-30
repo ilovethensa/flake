@@ -1,4 +1,4 @@
-{...}: {
+{_}: {
   services.openssh = {
     enable = true;
     # require public key authentication for better security

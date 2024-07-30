@@ -1,4 +1,4 @@
-{...}: {
+{_}: {
   virtualisation.oci-containers.containers."commiemc" = {
     image = "itzg/minecraft-server";
     autoStart = true;
