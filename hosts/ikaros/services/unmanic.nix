@@ -1,4 +1,4 @@
-{_}: {
+{...}: {
   virtualisation.oci-containers.containers."unmanic" = {
     image = "josh5/unmanic";
     ports = [

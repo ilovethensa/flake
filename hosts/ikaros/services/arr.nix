@@ -1,4 +1,4 @@
-{_}: {
+{...}: {
   nixarr = {
     enable = true;
     mediaDir = "/mnt/media";

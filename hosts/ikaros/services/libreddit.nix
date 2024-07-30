@@ -1,4 +1,4 @@
-{_}: {
+{...}: {
   services = {
     libreddit = {
       enable = true;

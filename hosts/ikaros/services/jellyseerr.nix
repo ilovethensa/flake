@@ -1,4 +1,4 @@
-{_}: {
+{...}: {
   virtualisation.oci-containers.containers."jellyseerr" = {
     image = "fallenbagel/jellyseerr:1.9.2";
     autoStart = true;

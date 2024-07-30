@@ -1,4 +1,4 @@
-{_}: {
+{...}: {
   programs.i3status.enable = true;
   /*
      programs.i3status-rust = {
