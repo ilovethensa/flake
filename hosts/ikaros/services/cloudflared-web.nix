@@ -1,4 +1,4 @@
-{...}: {
+{_}: {
   virtualisation.oci-containers.containers."cloudflared-web" = {
     image = "ghcr.io/wisdomsky/cloudflared-web:2024.6.1";
     autoStart = true;
