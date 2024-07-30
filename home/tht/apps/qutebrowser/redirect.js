@@ -14,6 +14,17 @@
   'use strict';
 
   const currentUrl = window.location.href;
-  const newUrl = 'https://farside.link/' + currentUrl;
-  window.location.replace(newUrl);
+
+  const redirectPatterns = [
+    { pattern: /^https?:\/\/(www\.)?youtube\.com\//, replacement: 'https://farside.link/invidious/' },
+    { pattern: /^https?:\/\/(www\.)?reddit\.com\//, replacement: 'https://farside.link/libreddit/' }
+  ];
+
+  for (const { pattern, replacement } of redirectPatterns) {
+    if (pattern.test(currentUrl)) {
+      const newUrl = currentUrl.replace(pattern, replacement);
+      window.location.replace(newUrl);
+      break;
+    }
+  }
 })();
