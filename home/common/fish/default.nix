@@ -61,6 +61,7 @@ in {
           cd $project_name
           nix flake init -t ~/Projects/lol/dots/#$lang
         end
+        ${pkgs.zoxide}/bin/zoxide init fish | source
       '';
       shellAliases = {
         ls = "${pkgs.eza}/bin/eza -la";
