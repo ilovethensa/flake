@@ -1,4 +1,4 @@
-{...}: {
+{_}: {
   virtualisation.oci-containers.containers."speedtest-tracker" = {
     image = "lscr.io/linuxserver/speedtest-tracker:latest";
     autoStart = true;
