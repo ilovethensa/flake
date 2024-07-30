@@ -1,6 +1,6 @@
 {...}: {
   services = {
-    libreddit = {
+    redlib = {
       enable = true;
       port = 5462;
     };
@@ -15,8 +15,8 @@
     cloudflare-dyndns.domains = [
       "lr.pwned.page"
     ];
-    acme.certs = {
-      "lr.pwned.page" = {};
-    };
+  };
+  security.acme.certs = {
+    "lr.pwned.page" = {};
   };
 }

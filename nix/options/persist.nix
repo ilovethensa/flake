@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  inputs,
   ...
 }: let
   service = "meta";
@@ -12,6 +13,9 @@ in {
       default = true;
     };
   };
+  imports = [
+    inputs.impermanence.nixosModules.impermanence
+  ];
 
   config = lib.mkIf cfg.persist {
     environment.persistence."/nix/persist" = {

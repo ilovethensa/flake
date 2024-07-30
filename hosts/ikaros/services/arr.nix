@@ -1,4 +1,7 @@
-{...}: {
+{inputs, ...}: {
+  imports = [
+    inputs.nixarr.nixosModules.default
+  ];
   nixarr = {
     enable = true;
     mediaDir = "/mnt/media";

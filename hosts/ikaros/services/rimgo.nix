@@ -25,8 +25,8 @@
     cloudflare-dyndns.domains = [
       "rimgo.pwned.page"
     ];
-    acme.certs = {
-      "rimgo.pwned.page" = {};
-    };
+  };
+  security.acme.certs = {
+    "rimgo.pwned.page" = {};
   };
 }

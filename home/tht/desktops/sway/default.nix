@@ -1,7 +1,6 @@
 {
   pkgs,
   inputs,
-  nix-colors,
   ...
 }: {
   imports = [
@@ -36,7 +35,7 @@
   #      base0F = "#be5046";
   #    };
   #  };
-  colorScheme = nix-colors.colorSchemes.catppuccin-mocha;
+  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
   qt = {
     enable = true;
     platformTheme = "gtk";

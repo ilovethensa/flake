@@ -10,9 +10,9 @@
     ./services/rimgo.nix
     ./services/libreddit.nix
     #./services/n8n.nix
-    ./services/mindustry.nix
+    #./services/mindustry.nix
     ./services/snowflake.nix
-    ./services/tor.nix
+    #./services/tor.nix
     #./services/bitmagnet.nix
     ./services/cockpit.nix
     ../../nix/configs/users/tht.nix
