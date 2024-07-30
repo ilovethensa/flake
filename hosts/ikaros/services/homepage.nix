@@ -1,20 +1,24 @@
 {config, ...}: {
-  sops.secrets.jellyfin_key = {};
-  sops.secrets.jellyseerr_key = {};
-  sops.secrets.prowlarr_key = {};
-  sops.secrets.radarr_key = {};
-  sops.secrets.sonarr_key = {};
-  sops.secrets.bazarr_key = {};
-  sops.secrets.changedetection_key = {};
-  sops.templates."homepage_env".content = ''
-    HOMEPAGE_VAR_JELLYFIN_KEY="${config.sops.placeholder.jellyfin_key}"
-    HOMEPAGE_VAR_JELLYSEERR_KEY="${config.sops.placeholder.jellyseerr_key}"
-    HOMEPAGE_VAR_PROWLARR_KEY="${config.sops.placeholder.prowlarr_key}"
-    HOMEPAGE_VAR_RADARR_KEY="${config.sops.placeholder.radarr_key}"
-    HOMEPAGE_VAR_SONARR_KEY="${config.sops.placeholder.sonarr_key}"
-    HOMEPAGE_VAR_BAZARR_KEY="${config.sops.placeholder.bazarr_key}"
-    HOMEPAGE_VAR_CHANGEDETECTION_KEY="${config.sops.placeholder.changedetection_key}"
-  '';
+  sops = {
+    secrets = {
+      jellyfin_key = {};
+      jellyseerr_key = {};
+      prowlarr_key = {};
+      radarr_key = {};
+      sonarr_key = {};
+      bazarr_key = {};
+      changedetection_key = {};
+    };
+    templates."homepage_env".content = ''
+      HOMEPAGE_VAR_JELLYFIN_KEY="${config.sops.placeholder.jellyfin_key}"
+      HOMEPAGE_VAR_JELLYSEERR_KEY="${config.sops.placeholder.jellyseerr_key}"
+      HOMEPAGE_VAR_PROWLARR_KEY="${config.sops.placeholder.prowlarr_key}"
+      HOMEPAGE_VAR_RADARR_KEY="${config.sops.placeholder.radarr_key}"
+      HOMEPAGE_VAR_SONARR_KEY="${config.sops.placeholder.sonarr_key}"
+      HOMEPAGE_VAR_BAZARR_KEY="${config.sops.placeholder.bazarr_key}"
+      HOMEPAGE_VAR_CHANGEDETECTION_KEY="${config.sops.placeholder.changedetection_key}"
+    '';
+  };
   services.homepage-dashboard = {
     enable = true;
     openFirewall = true;
