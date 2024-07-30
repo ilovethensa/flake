@@ -9,6 +9,7 @@
     ./services/unmanic.nix
     ./services/rimgo.nix
     ./services/libreddit.nix
+    ./services/minecraft.nix
     #./services/n8n.nix
     #./services/mindustry.nix
     ./services/snowflake.nix
