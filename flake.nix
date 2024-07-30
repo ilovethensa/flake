@@ -41,42 +41,44 @@
   } @ inputs: let
     inherit (self) outputs;
   in {
-    nixosConfigurations.ikaros = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {inherit inputs outputs;};
-      modules = [
-        impermanence.nixosModules.impermanence
-        comin.nixosModules.comin
-        agenix.nixosModules.default
-        nixarr.nixosModules.default
-        ./hosts/ikaros
-      ];
-    };
-    nixosConfigurations.mute = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {inherit inputs outputs;};
-      modules = [
-        impermanence.nixosModules.impermanence
-        comin.nixosModules.comin
-        home-manager.nixosModules.home-manager
-        ./hosts/mute
-        {
-          home-manager.extraSpecialArgs = {inherit nix-colors inputs outputs;};
-        }
-      ];
-    };
-    nixosConfigurations.viper = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {inherit inputs outputs;};
-      modules = [
-        impermanence.nixosModules.impermanence
-        comin.nixosModules.comin
-        home-manager.nixosModules.home-manager
-        ./hosts/viper
-        {
-          home-manager.extraSpecialArgs = {inherit nix-colors inputs outputs;};
-        }
-      ];
+    nixosConfigurations = {
+      ikaros = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          impermanence.nixosModules.impermanence
+          comin.nixosModules.comin
+          agenix.nixosModules.default
+          nixarr.nixosModules.default
+          ./hosts/ikaros
+        ];
+      };
+      mute = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          impermanence.nixosModules.impermanence
+          comin.nixosModules.comin
+          home-manager.nixosModules.home-manager
+          ./hosts/mute
+          {
+            home-manager.extraSpecialArgs = {inherit nix-colors inputs outputs;};
+          }
+        ];
+      };
+      viper = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          impermanence.nixosModules.impermanence
+          comin.nixosModules.comin
+          home-manager.nixosModules.home-manager
+          ./hosts/viper
+          {
+            home-manager.extraSpecialArgs = {inherit nix-colors inputs outputs;};
+          }
+        ];
+      };
     };
   };
 }
