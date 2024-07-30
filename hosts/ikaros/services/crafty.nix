@@ -1,4 +1,4 @@
-{...}: {
+{_}: {
   virtualisation.oci-containers.containers."crafty" = {
     image = "registry.gitlab.com/crafty-controller/crafty-4:latest";
     autoStart = true;
