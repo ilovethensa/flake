@@ -1,4 +1,4 @@
-{...}: {
+{_}: {
   services.xserver = {
     # Enable the X11 windowing system.
     enable = true;
