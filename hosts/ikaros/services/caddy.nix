@@ -61,9 +61,11 @@
   };
   security.acme = {
     acceptTerms = true;
-    defaults.email = lib.mkForce "me@theholytachanka.com";
-    defaults.dnsProvider = "cloudflare";
-    defaults.environmentFile = config.age.secrets.cloudflare_stuff.path;
+    defaults = {
+      email = lib.mkForce "me@theholytachanka.com";
+      dnsProvider = "cloudflare";
+      environmentFile = config.age.secrets.cloudflare_stuff.path;
+    };
     certs = {
       "mc.theholytachanka.com" = {};
       "vpn.theholytachanka.com" = {};
