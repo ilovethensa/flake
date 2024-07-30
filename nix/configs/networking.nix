@@ -1,14 +1,16 @@
 {lib, ...}: {
-  networking.firewall = {
-    enable = true;
-    logRefusedPackets = true;
-    logRefusedConnections = true;
+  networking = {
+    networkmanager.enable = true;
+    dhcpcd.extraConfig = ''
+      noarp
+    '';
+    firewall = {
+      enable = true;
+      logRefusedPackets = true;
+      logRefusedConnections = true;
+    };
   };
   time.timeZone = "Europe/Sofia";
   # Optimizations
-  networking.networkmanager.enable = true;
   systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
-  networking.dhcpcd.extraConfig = ''
-    noarp
-  '';
 }
