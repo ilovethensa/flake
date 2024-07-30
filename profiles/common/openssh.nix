@@ -1,4 +1,4 @@
-{...}: {
+{_}: {
   # Client side SSH configuration
   programs.ssh = {
     ciphers = [
