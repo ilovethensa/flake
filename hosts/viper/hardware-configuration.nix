@@ -10,10 +10,13 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
-
-  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
-  boot.kernelModules = ["kvm-amd"];
-  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/0e675cdf-192e-44af-bda7-2d13860d0436";
+  boot = {
+    kernelModules = ["kvm-amd"];
+    initrd = {
+      availableKernelModules = ["xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
+      luks.devices."cryptroot".device = "/dev/disk/by-uuid/0e675cdf-192e-44af-bda7-2d13860d0436";
+    };
+  };
   fileSystems = {
     "/" = {
       device = "none";
