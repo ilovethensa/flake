@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
@@ -10,23 +6,19 @@
     gamescopeSession.enable = true;
   };
   programs.gamemode.enable = true;
-  environment.systemPackages = with pkgs;
-    [
-      protonup-qt
-      mangohud
-      wineWowPackages.stable
-      wineWowPackages.waylandFull
-      (lutris.override {
-        extraLibraries = pkgs: [
-          # List library dependencies here
-        ];
-        extraPkgs = pkgs: [
-          # List package dependencies here
-        ];
-      })
-    ]
-    ++ [
-      inputs.zvezda.packages.${pkgs.system}.prismlauncher-unwrapped
-      pkgs.jdk17
-    ];
+  environment.systemPackages = with pkgs; [
+    protonup-qt
+    mangohud
+    wineWowPackages.stable
+    wineWowPackages.waylandFull
+    jdk19
+    (lutris.override {
+      extraLibraries = pkgs: [
+        # List library dependencies here
+      ];
+      extraPkgs = pkgs: [
+        # List package dependencies here
+      ];
+    })
+  ];
 }

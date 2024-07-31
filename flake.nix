@@ -16,7 +16,6 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     nixvim.url = "github:nix-community/nixvim";
-    zvezda.url = "github:Kame03/ZvezdaLauncher";
 
     qutebrowser-catppucin = {
       url = "github:catppuccin/qutebrowser";
@@ -38,7 +37,6 @@
     qutebrowser-catppucin,
     firefox-addons,
     nixvim,
-    zvezda,
     ...
   } @ inputs: let
     inherit (self) outputs;
