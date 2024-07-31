@@ -1,12 +1,12 @@
 {...}: {
-  virtualisation.oci-containers.containers."commiemc" = {
+  virtualisation.oci-containers.containers."SovietMC" = {
     image = "itzg/minecraft-server";
     autoStart = true;
     ports = [
       "25565:25565"
     ];
     volumes = [
-      "/mnt/data/minecraft/commiemc:/data"
+      "/mnt/data/minecraft/SovietMC:/data"
     ];
     extraOptions = [
       "--tty"
@@ -16,7 +16,7 @@
       TYPE = "FABRIC";
       VERSION = "1.20.4";
       ONLINE_MODE = "FALSE";
-      SERVER_NAME = "CommieMC";
+      SERVER_NAME = "SovietMC";
       USE_AIKAR_FLAGS = "true";
       MEMORY = "3G";
       PACKWIZ_URL = "https://raw.githubusercontent.com/ilovethensa/better-vanilla/main/pack.toml";
