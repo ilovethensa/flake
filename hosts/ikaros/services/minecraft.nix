@@ -19,7 +19,7 @@
       SERVER_NAME = "SovietMC";
       USE_AIKAR_FLAGS = "true";
       MEMORY = "3G";
-      PACKWIZ_URL = "https://raw.githubusercontent.com/ilovethensa/VanillaPlus/main/index.toml";
+      PACKWIZ_URL = "https://raw.githubusercontent.com/ilovethensa/better-vanilla/main/pack.toml";
     };
   };
   services.cloudflare-dyndns.domains = [
