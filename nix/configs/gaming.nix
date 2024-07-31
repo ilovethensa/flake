@@ -11,7 +11,7 @@
     mangohud
     wineWowPackages.stable
     wineWowPackages.waylandFull
-    jdk19
+    #jdk19
     (lutris.override {
       extraLibraries = pkgs: [
         # List library dependencies here
