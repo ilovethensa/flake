@@ -15,7 +15,7 @@
     mangohud
     wineWowPackages.stable
     wineWowPackages.waylandFull
-    inputs.zvezda.packages.${pkgs.system}.prismlauncher
+    inputs.zvezda.packages.${pkgs.system}.prismlauncher-unwrapped
     jdk17
     (lutris.override {
       extraLibraries = pkgs: [
