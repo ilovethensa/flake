@@ -22,6 +22,9 @@
       PACKWIZ_URL = "https://raw.githubusercontent.com/ilovethensa/better-vanilla/main/pack.toml";
     };
   };
+  services.cloudflare-dyndns.domains = [
+    "mc.pwned.page"
+  ];
   networking.firewall = {
     allowedTCPPorts = [
       25565
