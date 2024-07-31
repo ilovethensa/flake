@@ -8,6 +8,7 @@
   programs.qutebrowser = {
     enable = true;
     searchEngines = {
+      default = "https://farside.link/searxng/search?q={}";
       w = "https://en.wikipedia.org/wiki/Special:Search?search={}&amp;go=Go&amp;ns0=1";
       aw = "https://wiki.archlinux.org/?search={}";
       nw = "https://wiki.nixos.org/index.php?search={}";
