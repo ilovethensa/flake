@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
@@ -11,6 +15,8 @@
     mangohud
     wineWowPackages.stable
     wineWowPackages.waylandFull
+    inputs.zvezda.packages.${pkgs.system}.prismlauncher
+    jdk17
     (lutris.override {
       extraLibraries = pkgs: [
         # List library dependencies here
