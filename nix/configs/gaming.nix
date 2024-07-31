@@ -10,20 +10,23 @@
     gamescopeSession.enable = true;
   };
   programs.gamemode.enable = true;
-  environment.systemPackages = with pkgs; [
-    protonup-qt
-    mangohud
-    wineWowPackages.stable
-    wineWowPackages.waylandFull
-    inputs.zvezda.packages.${pkgs.system}.prismlauncher-unwrapped
-    jdk17
-    (lutris.override {
-      extraLibraries = pkgs: [
-        # List library dependencies here
-      ];
-      extraPkgs = pkgs: [
-        # List package dependencies here
-      ];
-    })
-  ];
+  environment.systemPackages = with pkgs;
+    [
+      protonup-qt
+      mangohud
+      wineWowPackages.stable
+      wineWowPackages.waylandFull
+      (lutris.override {
+        extraLibraries = pkgs: [
+          # List library dependencies here
+        ];
+        extraPkgs = pkgs: [
+          # List package dependencies here
+        ];
+      })
+    ]
+    ++ [
+      inputs.zvezda.packages.${pkgs.system}.prismlauncher-unwrapped
+      pkgs.jdk17
+    ];
 }
