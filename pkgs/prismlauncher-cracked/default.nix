@@ -27,12 +27,11 @@
 in
   assert lib.assertMsg (stdenv.isLinux || !gamemodeSupport) "gamemodeSupport is only available on Linux";
     stdenv.mkDerivation (finalAttrs: {
-      pname = "prismlauncher-unwrapped";
-      version = "8.3";
-
+      pname = "prismlauncher-cracked";
+      version = "8.4.1";
       src = fetchFromGitHub {
-        owner = "PrismLauncher";
-        repo = "PrismLauncher";
+        owner = "Diegiwg";
+        repo = "PrismLauncher-Cracked";
         rev = finalAttrs.version;
         hash = "sha256-1YGzCgNdzscnOVeNlHMFJa0RbMo6C2qQjtBOeDxHakI=";
       };
