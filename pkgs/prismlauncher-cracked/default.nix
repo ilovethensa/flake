@@ -6,7 +6,9 @@
   cmake,
   cmark,
   ninja,
+  jdk8,
   jdk17,
+  jdk21,
   zlib,
   qtbase,
   quazip,
@@ -16,8 +18,33 @@
   gamemode,
   qt5,
   msaClientID ? null,
-  gamemodeSupport ? stdenv.isLinux,
   wrapQtAppsHook,
+  xorg,
+  libpulseaudio,
+  libGL,
+  glfw,
+  openal,
+  vulkan-loader,
+  udev,
+  libusb1,
+  flite,
+  gamemodeSupport ? stdenv.isLinux,
+  textToSpeechSupport ? stdenv.isLinux,
+  controllerSupport ? stdenv.isLinux,
+  # Adds `glfw-wayland-minecraft` to `LD_LIBRARY_PATH`
+  # when launched on wayland, allowing for the game to be run natively.
+  # Make sure to enable "Use system installation of GLFW" in instance settings
+  # for this to take effect
+  #
+  # Warning: This build of glfw may be unstable, and the launcher
+  # itself can take slightly longer to start
+  withWaylandGLFW ? false,
+  jdks ? [jdk21 jdk17 jdk8],
+  additionalLibs ? [],
+  additionalPrograms ? [],
+  glxinfo,
+  pciutils,
+  addOpenGLRunpath,
 }: let
   libnbtplusplus = fetchFromGitHub {
     owner = "PrismLauncher";
@@ -29,12 +56,12 @@ in
   assert lib.assertMsg (stdenv.isLinux || !gamemodeSupport) "gamemodeSupport is only available on Linux";
     stdenv.mkDerivation (finalAttrs: {
       pname = "prismlauncher-cracked";
-      version = "8.3";
+      version = "v8.4.1";
       src = fetchFromGitHub {
         owner = "Diegiwg";
         repo = "PrismLauncher-Cracked";
         rev = finalAttrs.version;
-        hash = "sha256-dQ29GiDXs4+uyUXDH3sJkTUYl4A7ta4tt4wW+SJs5RM=";
+        hash = "sha256-ffx3MgvKj9VsRIK9DT5Cxr+3WSrvMglzLE+kFU/cni4=";
       };
 
       nativeBuildInputs = [extra-cmake-modules cmake jdk17 ninja stripJavaArchivesHook qt5.qtnetworkauth wrapQtAppsHook];
@@ -71,6 +98,45 @@ in
       '';
 
       dontWrapQtApps = false;
+      qtWrapperArgs = let
+        runtimeLibs =
+          [
+            xorg.libX11
+            xorg.libXext
+            xorg.libXcursor
+            xorg.libXrandr
+            xorg.libXxf86vm
+
+            # lwjgl
+            libpulseaudio
+            libGL
+            glfw
+            openal
+            stdenv.cc.cc.lib
+            vulkan-loader # VulkanMod's lwjgl
+
+            # oshi
+            udev
+          ]
+          ++ lib.optional gamemodeSupport gamemode.lib
+          ++ lib.optional textToSpeechSupport flite
+          ++ lib.optional controllerSupport libusb1
+          ++ additionalLibs;
+
+        runtimePrograms =
+          [
+            xorg.xrandr
+            glxinfo
+            pciutils # need lspci
+          ]
+          ++ additionalPrograms;
+      in
+        ["--prefix PRISMLAUNCHER_JAVA_PATHS : ${lib.makeSearchPath "bin/java" jdks}"]
+        ++ lib.optionals stdenv.isLinux [
+          "--set LD_LIBRARY_PATH ${addOpenGLRunpath.driverLink}/lib:${lib.makeLibraryPath runtimeLibs}"
+          # xorg.xrandr needed for LWJGL [2.9.2, 3) https://github.com/LWJGL/lwjgl/issues/128
+          "--prefix PATH : ${lib.makeBinPath runtimePrograms}"
+        ];
 
       meta = {
         mainProgram = "prismlauncher";
