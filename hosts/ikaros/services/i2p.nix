@@ -11,7 +11,6 @@
       httpProxy = {
         enable = true;
         address = "0.0.0.0";
-
       };
     };
   };
@@ -19,5 +18,8 @@
     6135
     7070
     4444
+  ];
+  environment.persistence."/nix/persist".directories = [
+    "/var/lib/i2pd"
   ];
 }
