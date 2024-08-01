@@ -4,6 +4,7 @@
     port = 6135;
     dataDir = "/mnt/data/i2pd";
     notransit = false;
+    floodfill = true;
     proto = {
       http = {
         enable = true;
