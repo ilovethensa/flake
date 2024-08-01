@@ -10,6 +10,7 @@
     ../../nix/configs/oom.nix
     ../../nix/configs/security.nix
     ../../nix/configs/zram.nix
+    ../../nix/configs/podman.nix
   ];
   nixpkgs = {
     overlays = [
