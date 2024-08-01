@@ -4,6 +4,7 @@
     autoStart = true;
     ports = [
       "25565:25565"
+      "19132:19132"
     ];
     volumes = [
       "/mnt/data/minecraft/SovietMC:/data"
