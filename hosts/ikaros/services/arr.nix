@@ -1,13 +1,6 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{inputs, ...}: {
   imports = [
     inputs.nixarr.nixosModules.default
-  ];
-  environment.systemPackages = with pkgs; [
-    unrar # Needed for bazarr
   ];
   nixarr = {
     enable = true;

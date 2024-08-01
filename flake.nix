@@ -42,7 +42,7 @@
     inherit (self) outputs;
   in {
     nixosConfigurations = {
-      ikaros = nixpkgs.lib.nixosSystem {
+      ikaros = nixpkgs-stable.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {inherit inputs outputs;};
         modules = [
