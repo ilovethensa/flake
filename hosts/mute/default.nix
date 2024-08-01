@@ -20,13 +20,9 @@
     wifite2
     hcxtools
     hcxdumptool
-    qemu
     qbittorrent
-    mullvad-browser
     tor-browser
-    brave
     rage
-    flare-signal
     wl-clipboard
   ];
   virtualisation.waydroid.enable = true;

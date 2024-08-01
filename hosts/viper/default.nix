@@ -23,9 +23,7 @@
   environment.systemPackages = with pkgs; [
     qbittorrent
     tor-browser
-    brave
     rage
-    flare-signal
     wl-clipboard
   ];
   meta = {
