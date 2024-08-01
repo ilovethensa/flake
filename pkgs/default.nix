@@ -1,4 +1,5 @@
 {pkgs ? import <nixpkgs> {}, ...}: {
   # example = pkgs.callPackage ./example { };
-  prismlauncher-cracked = pkgs.libsForQt5.callPackage ./prismlauncher-cracked {};
+  prismlauncher-cracked-unwrapped = pkgs.libsForQt5.callPackage ./prismlauncher-cracked-unwrapped {};
+  prismlauncher-cracked- = pkgs.libsForQt5.callPackage ./prismlauncher-cracked {};
 }

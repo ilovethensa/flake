@@ -1,88 +1,124 @@
 {
   lib,
   stdenv,
-  fetchFromGitHub,
-  stripJavaArchivesHook,
-  cmake,
-  cmark,
-  ninja,
+  symlinkJoin,
+  makeWrapper,
+  wrapQtAppsHook,
+  addOpenGLRunpath,
+  prismlauncher-cracked-unwrapped,
+  qtbase, # needed for wrapQtAppsHook
+  qtsvg,
+  qtwayland,
+  xorg,
+  libpulseaudio,
+  libGL,
+  glfw,
+  glfw-wayland-minecraft,
+  openal,
+  jdk8,
   jdk17,
-  zlib,
-  qtbase,
-  quazip,
-  extra-cmake-modules,
-  tomlplusplus,
-  ghc_filesystem,
+  jdk21,
   gamemode,
-  qt5,
+  flite,
+  glxinfo,
+  pciutils,
+  udev,
+  vulkan-loader,
+  libusb1,
   msaClientID ? null,
   gamemodeSupport ? stdenv.isLinux,
-}: let
-  libnbtplusplus = fetchFromGitHub {
-    owner = "PrismLauncher";
-    repo = "libnbtplusplus";
-    rev = "a5e8fd52b8bf4ab5d5bcc042b2a247867589985f";
-    hash = "sha256-A5kTgICnx+Qdq3Fir/bKTfdTt/T1NQP2SC+nhN1ENug=";
+  textToSpeechSupport ? stdenv.isLinux,
+  controllerSupport ? stdenv.isLinux,
+  # Adds `glfw-wayland-minecraft` to `LD_LIBRARY_PATH`
+  # when launched on wayland, allowing for the game to be run natively.
+  # Make sure to enable "Use system installation of GLFW" in instance settings
+  # for this to take effect
+  #
+  # Warning: This build of glfw may be unstable, and the launcher
+  # itself can take slightly longer to start
+  withWaylandGLFW ? false,
+  jdks ? [jdk21 jdk17 jdk8],
+  additionalLibs ? [],
+  additionalPrograms ? [],
+}:
+assert lib.assertMsg (withWaylandGLFW -> stdenv.isLinux) "withWaylandGLFW is only available on Linux"; let
+  prismlauncher' = prismlauncher-cracked-unwrapped.override {
+    inherit msaClientID gamemodeSupport;
   };
 in
-  assert lib.assertMsg (stdenv.isLinux || !gamemodeSupport) "gamemodeSupport is only available on Linux";
-    stdenv.mkDerivation (finalAttrs: {
-      pname = "prismlauncher-cracked";
-      version = "8.3";
-      src = fetchFromGitHub {
-        owner = "Diegiwg";
-        repo = "PrismLauncher-Cracked";
-        rev = finalAttrs.version;
-        hash = "sha256-dQ29GiDXs4+uyUXDH3sJkTUYl4A7ta4tt4wW+SJs5RM=";
-      };
+  symlinkJoin {
+    name = "prismlauncher-${prismlauncher'.version}";
 
-      nativeBuildInputs = [extra-cmake-modules cmake jdk17 ninja stripJavaArchivesHook qt5.qtnetworkauth];
-      buildInputs =
+    paths = [prismlauncher'];
+
+    nativeBuildInputs =
+      [
+        wrapQtAppsHook
+      ]
+      # purposefully using a shell wrapper here for variable expansion
+      # see https://github.com/NixOS/nixpkgs/issues/172583
+      ++ lib.optional withWaylandGLFW makeWrapper;
+
+    buildInputs =
+      [
+        qtbase
+        qtsvg
+      ]
+      ++ lib.optional (lib.versionAtLeast qtbase.version "6" && stdenv.isLinux) qtwayland;
+
+    waylandPreExec = lib.optionalString withWaylandGLFW ''
+      if [ -n "$WAYLAND_DISPLAY" ]; then
+        export LD_LIBRARY_PATH=${lib.getLib glfw-wayland-minecraft}/lib:"$LD_LIBRARY_PATH"
+      fi
+    '';
+
+    postBuild = ''
+      ${lib.optionalString withWaylandGLFW ''
+        qtWrapperArgs+=(--run "$waylandPreExec")
+      ''}
+
+      wrapQtAppsHook
+    '';
+
+    qtWrapperArgs = let
+      runtimeLibs =
         [
-          qtbase
-          zlib
-          quazip
-          ghc_filesystem
-          tomlplusplus
-          cmark
+          xorg.libX11
+          xorg.libXext
+          xorg.libXcursor
+          xorg.libXrandr
+          xorg.libXxf86vm
+
+          # lwjgl
+          libpulseaudio
+          libGL
+          glfw
+          openal
+          stdenv.cc.cc.lib
+          vulkan-loader # VulkanMod's lwjgl
+
+          # oshi
+          udev
         ]
-        ++ lib.optional gamemodeSupport gamemode;
-      #++ lib.optionals stdenv.isDarwin [Cocoa];
+        ++ lib.optional gamemodeSupport gamemode.lib
+        ++ lib.optional textToSpeechSupport flite
+        ++ lib.optional controllerSupport libusb1
+        ++ additionalLibs;
 
-      hardeningEnable = lib.optionals stdenv.isLinux ["pie"];
-
-      cmakeFlags =
+      runtimePrograms =
         [
-          # downstream branding
-          "-DLauncher_BUILD_PLATFORM=nixpkgs"
+          xorg.xrandr
+          glxinfo
+          pciutils # need lspci
         ]
-        ++ lib.optionals (msaClientID != null) ["-DLauncher_MSA_CLIENT_ID=${msaClientID}"]
-        ++ lib.optionals (lib.versionOlder qtbase.version "6") ["-DLauncher_QT_VERSION_MAJOR=5"]
-        ++ lib.optionals stdenv.isDarwin [
-          "-DINSTALL_BUNDLE=nodeps"
-          "-DMACOSX_SPARKLE_UPDATE_FEED_URL=''"
-          "-DCMAKE_INSTALL_PREFIX=${placeholder "out"}/Applications/"
-        ];
+        ++ additionalPrograms;
+    in
+      ["--prefix PRISMLAUNCHER_JAVA_PATHS : ${lib.makeSearchPath "bin/java" jdks}"]
+      ++ lib.optionals stdenv.isLinux [
+        "--set LD_LIBRARY_PATH ${addOpenGLRunpath.driverLink}/lib:${lib.makeLibraryPath runtimeLibs}"
+        # xorg.xrandr needed for LWJGL [2.9.2, 3) https://github.com/LWJGL/lwjgl/issues/128
+        "--prefix PATH : ${lib.makeBinPath runtimePrograms}"
+      ];
 
-      postUnpack = ''
-        rm -rf source/libraries/libnbtplusplus
-        ln -s ${libnbtplusplus} source/libraries/libnbtplusplus
-      '';
-
-      dontWrapQtApps = true;
-
-      meta = {
-        mainProgram = "prismlauncher";
-        homepage = "https://prismlauncher.org/";
-        description = "A free, open source launcher for Minecraft";
-        longDescription = ''
-          Allows you to have multiple, separate instances of Minecraft (each with
-          their own mods, texture packs, saves, etc) and helps you manage them and
-          their associated options with a simple interface.
-        '';
-        platforms = with lib.platforms; linux ++ darwin;
-        changelog = "https://github.com/PrismLauncher/PrismLauncher/releases/tag/${finalAttrs.version}";
-        license = lib.licenses.gpl3Only;
-        maintainers = with lib.maintainers; [minion3665 Scrumplex getchoo];
-      };
-    })
+    inherit (prismlauncher') meta;
+  }
