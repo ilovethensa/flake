@@ -17,6 +17,7 @@
     #./services/bitmagnet.nix
     ./services/cockpit.nix
     ./services/i2p.nix
+    ./services/n8n.nix
     ../../nix/configs/users/tht.nix
   ];
 
