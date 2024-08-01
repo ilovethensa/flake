@@ -3,10 +3,12 @@
     enable = true;
     port = 6135;
     dataDir = "/mnt/data/i2pd";
+    notransit = false;
     proto = {
       http = {
         enable = true;
         address = "0.0.0.0";
+        hostname = "ikaros.local";
       };
       httpProxy = {
         enable = true;
