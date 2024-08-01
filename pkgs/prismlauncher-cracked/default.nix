@@ -5,7 +5,6 @@
   stripJavaArchivesHook,
   cmake,
   cmark,
-  Cocoa,
   ninja,
   jdk17,
   zlib,
@@ -15,6 +14,7 @@
   tomlplusplus,
   ghc_filesystem,
   gamemode,
+  qt5,
   msaClientID ? null,
   gamemodeSupport ? stdenv.isLinux,
 }: let
@@ -28,15 +28,15 @@ in
   assert lib.assertMsg (stdenv.isLinux || !gamemodeSupport) "gamemodeSupport is only available on Linux";
     stdenv.mkDerivation (finalAttrs: {
       pname = "prismlauncher-cracked";
-      version = "8.4.1";
+      version = "8.3";
       src = fetchFromGitHub {
         owner = "Diegiwg";
         repo = "PrismLauncher-Cracked";
         rev = finalAttrs.version;
-        hash = "sha256-1YGzCgNdzscnOVeNlHMFJa0RbMo6C2qQjtBOeDxHakI=";
+        hash = "sha256-dQ29GiDXs4+uyUXDH3sJkTUYl4A7ta4tt4wW+SJs5RM=";
       };
 
-      nativeBuildInputs = [extra-cmake-modules cmake jdk17 ninja stripJavaArchivesHook];
+      nativeBuildInputs = [extra-cmake-modules cmake jdk17 ninja stripJavaArchivesHook qt5.qtnetworkauth];
       buildInputs =
         [
           qtbase
@@ -46,8 +46,8 @@ in
           tomlplusplus
           cmark
         ]
-        ++ lib.optional gamemodeSupport gamemode
-        ++ lib.optionals stdenv.isDarwin [Cocoa];
+        ++ lib.optional gamemodeSupport gamemode;
+      #++ lib.optionals stdenv.isDarwin [Cocoa];
 
       hardeningEnable = lib.optionals stdenv.isLinux ["pie"];
 

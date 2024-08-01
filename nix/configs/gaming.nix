@@ -11,8 +11,7 @@
     mangohud
     wineWowPackages.stable
     wineWowPackages.waylandFull
-    jdk21
-    jdk17
+    prismlauncher-cracked
     (lutris.override {
       extraLibraries = pkgs: [
         # List library dependencies here

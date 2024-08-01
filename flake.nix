@@ -57,7 +57,6 @@
     overlays = import ./overlays {inherit inputs;};
     nixosConfigurations = {
       ikaros = nixpkgs-stable.lib.nixosSystem {
-        system = "x86_64-linux";
         specialArgs = {inherit inputs outputs;};
         modules = [
           comin.nixosModules.comin
@@ -65,7 +64,6 @@
         ];
       };
       mute = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
         specialArgs = {inherit inputs outputs;};
         modules = [
           comin.nixosModules.comin
@@ -73,7 +71,6 @@
         ];
       };
       viper = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
         specialArgs = {inherit inputs outputs;};
         modules = [
           comin.nixosModules.comin
