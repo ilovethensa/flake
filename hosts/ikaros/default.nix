@@ -16,6 +16,7 @@
     #./services/tor.nix
     #./services/bitmagnet.nix
     ./services/cockpit.nix
+    ./services/i2pd.nix
     ../../nix/configs/users/tht.nix
   ];
 

@@ -1,0 +1,23 @@
+{...}: {
+  services.i2pd = {
+    enable = true;
+    port = 6135;
+    dataDir = "/mnt/data/i2pd";
+    proto = {
+      http = {
+        enable = true;
+        address = "0.0.0.0";
+      };
+      httpProxy = {
+        enable = true;
+        address = "0.0.0.0";
+
+      };
+    };
+  };
+  networking.firewall.allowedTCPPorts = [
+    6135
+    7070
+    4444
+  ];
+}
