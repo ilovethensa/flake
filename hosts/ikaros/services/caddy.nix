@@ -48,6 +48,9 @@
         root * /var/www/pwned.page
       '';
     };
+    globalConfig = ''
+      auto_https disable_redirects
+    '';
   };
 
   services.cloudflare-dyndns = {
