@@ -21,7 +21,7 @@
     ../../nix/configs/users/tht.nix
   ];
 
-  # Networking and system configurations
+  # Networking and system configurationsHE
   networking.hostName = "ikaros"; # Define hostname
 
   environment.systemPackages = with pkgs; [
