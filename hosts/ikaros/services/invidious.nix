@@ -13,7 +13,7 @@
       enable = true;
       virtualHosts = {
         "${config.services.invidious.domain}".extraConfig = ''
-          reverse_proxy http://localhost:${config.services.invidious.port}
+          reverse_proxy http://localhost:4236
         '';
       };
     };
