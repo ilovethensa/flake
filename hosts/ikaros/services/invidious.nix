@@ -7,8 +7,10 @@
       settings = {
         registration_enabled = false;
         login_enabled = true;
-        db.user = "invidious";
-        db.dbname = config.services.invidious.settings.db.user;
+        db = {
+          user = "invidious";
+          dbname = "invidious";
+        };
       };
     };
     caddy = {
