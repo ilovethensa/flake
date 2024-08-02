@@ -14,7 +14,7 @@
     #inputs.nix-colors.homeManagerModules.default
     ./apps/vscode
     ./apps/spotify
-    ./apps/qutebrowser
+    #./apps/qutebrowser
     ./apps/firefox
     ./apps/chromium
     ../common/fish
