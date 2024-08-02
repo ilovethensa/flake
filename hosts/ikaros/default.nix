@@ -10,8 +10,7 @@
     ./services/rimgo.nix
     ./services/libreddit.nix
     ./services/minecraft.nix
-    #./services/n8n.nix
-    #./services/mindustry.nix
+    ./services/mindustry.nix
     ./services/snowflake.nix
     #./services/tor.nix
     #./services/bitmagnet.nix
