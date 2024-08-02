@@ -9,7 +9,7 @@
     inbound.length = 1;
     outbound.length = 1;
     inTunnels = {
-      myEep = {
+      tht = {
         enable = true;
         keys = "tht.dat";
         inPort = 80;
