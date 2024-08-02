@@ -16,6 +16,7 @@
     ./apps/spotify
     ./apps/qutebrowser
     ./apps/firefox
+    ./apps/chromium
     ../common/fish
     #./apps/yt-dlp
     ./apps/neovim
