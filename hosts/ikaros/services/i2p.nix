@@ -14,7 +14,7 @@
         keys = "tht.dat";
         inPort = 80;
         address = "127.0.0.1";
-        destination = "localhost";
+        destination = "theholytachanka.com";
         port = 3568;
         # inbound.length = 1;
         # outbound.length = 1;
