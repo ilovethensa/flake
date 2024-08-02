@@ -6,10 +6,10 @@
     notransit = false;
     floodfill = true;
     ntcp2.port = 9899;
-    inbound.length = 1;
-    outbound.length = 1;
     inTunnels = {
       tht = {
+        inbound.length = 1;
+        outbound.length = 1;
         enable = true;
         keys = "tht.dat";
         inPort = 80;
