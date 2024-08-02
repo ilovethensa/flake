@@ -9,10 +9,10 @@
       theholytachanka = {
         enable = true;
         keys = "theholytachanka.dat";
-        inPort = 8081;
+        inPort = 80;
         address = "127.0.0.1";
         destination = "localhost";
-        port = 80;
+        port = 1346;
         inbound.length = 1;
         outbound.length = 1;
       };
@@ -35,7 +35,7 @@
     allowedTCPPorts = [
       9898
       9899
-      8081
+      1346
 
       7070
       4444
@@ -43,7 +43,7 @@
     allowedUDPPorts = [
       9898
       9899
-      8081
+      1346
 
       7070
       4444
