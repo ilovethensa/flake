@@ -1,7 +1,6 @@
 {...}: {
   services.i2pd = {
     enable = true;
-    ifname = "enp0s31f6";
     # TCP & UDP
     port = 9898;
     # TCP
@@ -30,7 +29,7 @@
       };
     };
     enableIPv4 = true;
-    enableIPv6 = true;
+    enableIPv6 = false;
   };
   networking.firewall = {
     allowedTCPPorts = [
