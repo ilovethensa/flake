@@ -10,8 +10,8 @@
         enable = true;
         keys = "theholytachanka.dat";
         inPort = 80;
-        address = "localhost";
-        destination = "localhost";
+        address = "127.0.0.1";
+        destination = "localhost:80";
         port = 8081;
         inbound.length = 1;
         outbound.length = 1;
