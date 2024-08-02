@@ -13,7 +13,7 @@
         enable = true;
         keys = "tht.dat";
         inPort = 80;
-        address = "::1";
+        address = "127.0.0.1";
         destination = "localhost";
         port = 3568;
         # inbound.length = 1;
