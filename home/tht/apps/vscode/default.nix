@@ -36,10 +36,16 @@
       "notebook.formatOnCellExecution" = true;
       "rust-analyzer.checkOnSave.command" = "clippy";
       "nix.enableLanguageServer" = true;
-      "nix.serverPath" = "${pkgs.nil}/bin/nil";
+      #"nix.serverPath" = "${pkgs.nil}/bin/nil";
       "codeium.enableConfig" = {
         "*" = true;
         "nix" = true;
+      };
+      "languageserver" = {
+        "nix" = {
+          "command" = "${pkgs.nixd}/bin/nixd";
+          "filetypes" = ["nix"];
+        };
       };
     };
   };
