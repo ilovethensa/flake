@@ -4,7 +4,6 @@
       enable = true;
       port = 4236;
       domain = "yt.pwned.page";
-      database.createLocally = true;
       settings = {
         registration_enabled = false;
         login_enabled = true;
