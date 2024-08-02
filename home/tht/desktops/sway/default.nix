@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  config,
   ...
 }: {
   imports = [
@@ -42,11 +43,23 @@
     style.name = "adwaita-dark";
     style.package = pkgs.adwaita-qt;
   };
+  dconf.settings = {
+    "org/gnome/desktop/background" = {
+      picture-uri-dark = "file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.src}";
+    };
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
+
   gtk = {
     enable = true;
-    #cursorTheme.package = pkgs.bibata-cursors;
-    #cursorTheme.name = "Bibata-Modern-Ice";
-    #theme.package = pkgs.dracula-theme;
-    #theme.name = "Dracula";
+    theme = {
+      name = "Adwaita-dark";
+      package = pkgs.gnome.gnome-themes-extra;
+    };
   };
+
+  # Wayland, X, etc. support for session vars
+  systemd.user.sessionVariables = config.home-manager.users.tht.home.sessionVariables;
 }
