@@ -20,12 +20,12 @@
     proto = {
       http = {
         enable = true;
-        address = "0.0.0.0";
+        address = "192.168.1.111";
         hostname = "ikaros.local";
       };
       httpProxy = {
         enable = true;
-        address = "0.0.0.0";
+        address = "192.168.1.111";
       };
     };
     enableIPv4 = true;
