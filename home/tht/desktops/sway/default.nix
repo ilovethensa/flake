@@ -10,6 +10,7 @@
     ./i3status.nix
     ./swaylock.nix
     ./mako.nix
+    ./bat.nix
     inputs.nix-colors.homeManagerModules.default
   ];
   home.packages = with pkgs; [
