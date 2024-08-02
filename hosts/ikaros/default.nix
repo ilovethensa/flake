@@ -16,6 +16,7 @@
     #./services/tor.nix
     #./services/bitmagnet.nix
     ./services/cockpit.nix
+    ./services/invidious.nix
     ../../nix/configs/users/tht.nix
   ];
 
