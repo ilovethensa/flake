@@ -36,6 +36,17 @@
         address = "192.168.1.111";
       };
     };
+    addressbook.subscriptions = [
+      "http://inr.i2p/export/alive-hosts.txt"
+      "http://i2p-projekt.i2p/hosts.txt"
+      "http://stats.i2p/cgi-bin/newhosts.txt"
+      "http://notbob.i2p/hosts.txt"
+      "http://notbob.i2p/hosts-all.txt"
+      "http://skank.i2p/hosts.txt"
+      "http://identiguy.i2p/hosts.txt"
+      "http://linuxfarm.i2p/hosts.txt"
+      "http://reg.i2p/export/hosts.txt"
+    ];
     enableIPv4 = true;
     enableIPv6 = false;
   };
