@@ -15,12 +15,9 @@
     #./services/tor.nix
     #./services/bitmagnet.nix
     ./services/cockpit.nix
-<<<<<<< HEAD
     ./services/invidious.nix
-=======
     ./services/i2p.nix
     ./services/n8n.nix
->>>>>>> 80976cf2167a3246a40cdd14148d3265182857f7
     ../../nix/configs/users/tht.nix
   ];
 
