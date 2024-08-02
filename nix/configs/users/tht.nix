@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   programs.fish.enable = true;
   users = {
     defaultUserShell = pkgs.fish;
@@ -39,4 +43,6 @@
     info.enable = false; # info pages and the info command
     doc.enable = false; # documentation distributed in packages' /share/doc
   };
+  # Wayland, X, etc. support for session vars
+  systemd.user.sessionVariables = config.home-manager.users.tht.home.sessionVariables;
 }
