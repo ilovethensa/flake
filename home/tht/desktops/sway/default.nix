@@ -82,6 +82,4 @@
     };
     */
   };
-  # Wayland, X, etc. support for session vars
-  systemd.user.sessionVariables = config.home-manager.users.tht.home.sessionVariables;
 }
