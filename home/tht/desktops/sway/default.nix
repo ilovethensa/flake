@@ -8,6 +8,8 @@
     ./foot.nix
     ./wm.nix
     ./i3status.nix
+    ./swaylock.nix
+    ./mako.nix
     inputs.nix-colors.homeManagerModules.default
   ];
   home.packages = with pkgs; [

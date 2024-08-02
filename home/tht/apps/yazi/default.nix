@@ -1,4 +1,8 @@
 {pkgs, ...}: {
+  home.file.".config/yazi/theme.toml".source = builtins.fetchurl {
+    url = "https://raw.githubusercontent.com/catppuccin/yazi/main/themes/mocha.toml";
+    sha256 = "0bhccaf3m3mhhqwfxhwds1rhb228pxj014mrd5hm7ys52jkqljxb";
+  };
   programs.yazi = {
     enable = true;
     enableFishIntegration = true;
