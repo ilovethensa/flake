@@ -1,51 +1,42 @@
 {...}: {
   services.i2pd = {
     enable = true;
-    port = 6135;
-    dataDir = "/mnt/data/i2pd";
-    notransit = false;
-    floodfill = true;
+    ifname = "enp0s31f6";
+    # TCP & UDP
+    port = 9898;
+    # TCP
     ntcp2.port = 9899;
     inTunnels = {
-      tht = {
-        inbound.length = 1;
-        outbound.length = 1;
+      theholytachanka = {
         enable = true;
-        keys = "tht.dat";
+        keys = "theholytachanka.dat";
         inPort = 80;
         address = "127.0.0.1";
-        destination = "theholytachanka.com";
-        port = 3568;
-        # inbound.length = 1;
-        # outbound.length = 1;
+        destination = "127.0.0.1";
+        port = 8081;
+        inbound.length = 1;
+        outbound.length = 1;
       };
     };
-    proto = {
-      http = {
-        enable = true;
-        address = "0.0.0.0";
-        hostname = "ikaros.local";
-      };
-      httpProxy = {
-        enable = true;
-        address = "0.0.0.0";
-      };
-    };
+    enableIPv4 = true;
+    enableIPv6 = true;
   };
   networking.firewall = {
     allowedTCPPorts = [
-      6135
+      9898
+      9899
+      8081
+
       7070
       4444
-      3568
-      9899
     ];
     allowedUDPPorts = [
-      6135
+      9898
+      9899
+      8081
+
       7070
       4444
-      3568
-      9899
     ];
   };
   environment.persistence."/nix/persist".directories = [
