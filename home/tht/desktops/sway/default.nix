@@ -37,22 +37,6 @@
   #    };
   #  };
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
-  dconf.settings = {
-    "org/gnome/desktop/background" = {
-      picture-uri-dark = "file://${pkgs.nixos-artwork.wallpapers.nineish-dark-gray.src}";
-    };
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-    };
-  };
-  qt = {
-    enable = true;
-    platformTheme.name = "gtk";
-    style = {
-      name = "adwaita-dark";
-      package = pkgs.adwaita-qt;
-    };
-  };
   # Now symlink the `~/.config/gtk-4.0/` folder declaratively:
   xdg.configFile = {
     "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
@@ -62,24 +46,55 @@
 
   gtk = {
     enable = true;
-    cursorTheme = {
-      package = pkgs.catppuccin-cursors.mochaDark;
-      name = "mochaDark";
-    };
     theme = {
-      name = "Catppuccin-Mocha-Compact-Sapphire-Dark";
+      name = "Catppuccin-Macchiato-Standard-Blue-Dark";
       package = pkgs.catppuccin-gtk.override {
-        accents = ["sapphire"];
-        size = "compact";
-        tweaks = ["rimless"];
-        variant = "mocha";
+        accents = ["blue"];
+        size = "standard";
+        variant = "macchiato";
       };
     };
-    /*
-           iconTheme = {
-      package = pkgs.gruvboxPlus;
-      name = "GruvboxPlus";
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.catppuccin-papirus-folders.override {
+        flavor = "macchiato";
+        accent = "blue";
+      };
     };
-    */
+    cursorTheme = {
+      name = "Catppuccin-Macchiato-Dark-Cursors";
+      package = pkgs.catppuccin-cursors.macchiatoDark;
+    };
+    gtk3 = {
+      extraConfig.gtk-application-prefer-dark-theme = true;
+    };
+  };
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    name = "Catppuccin-Macchiato-Dark-Cursors";
+    package = pkgs.catppuccin-cursors.macchiatoDark;
+    size = 16;
+  };
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      gtk-theme = "Catppuccin-Macchiato-Standard-Blue-Dark";
+      color-scheme = "prefer-dark";
+    };
+
+    # For Gnome shell
+    "org/gnome/shell/extensions/user-theme" = {
+      name = "Catppuccin-Macchiato-Standard-Blue-Dark";
+    };
+  };
+  qt = {
+    enable = true;
+    platformTheme = "qtct";
+    style.name = "kvantum";
+  };
+
+  xdg.configFile."Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" {
+    General.theme = "Catppuccin-Macchiato-Blue";
   };
 }
