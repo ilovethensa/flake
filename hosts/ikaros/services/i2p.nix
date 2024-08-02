@@ -18,6 +18,17 @@
         outbound.length = 1;
       };
     };
+    proto = {
+      http = {
+        enable = true;
+        address = "0.0.0.0";
+        hostname = "ikaros.local";
+      };
+      httpProxy = {
+        enable = true;
+        address = "0.0.0.0";
+      };
+    };
     enableIPv4 = true;
     enableIPv6 = true;
   };
