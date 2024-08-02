@@ -32,13 +32,22 @@
       };
     };
   };
-  networking.firewall.allowedTCPPorts = [
-    6135
-    7070
-    4444
-    3568
-    9899
-  ];
+  networking.firewall = {
+    allowedTCPPorts = [
+      6135
+      7070
+      4444
+      3568
+      9899
+    ];
+    allowedUDPPorts = [
+      6135
+      7070
+      4444
+      3568
+      9899
+    ];
+  };
   environment.persistence."/nix/persist".directories = [
     "/var/lib/i2pd"
   ];
