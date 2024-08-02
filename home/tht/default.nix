@@ -16,7 +16,6 @@
     ./apps/spotify
     #./apps/qutebrowser
     ./apps/firefox
-    ./apps/chromium
     ../common/fish
     #./apps/yt-dlp
     ./apps/neovim
@@ -46,7 +45,7 @@
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
-  home.packages = with pkgs; [hashcat vesktop nixpkgs-fmt signal-desktop thunderbird bitwarden];
+  home.packages = with pkgs; [hashcat vesktop nixpkgs-fmt signal-desktop thunderbird bitwarden ungoogled-chromium];
   programs = {
     home-manager.enable = true;
     git = {
