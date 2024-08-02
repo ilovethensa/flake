@@ -12,7 +12,7 @@
         inPort = 80;
         address = "127.0.0.1";
         destination = "localhost";
-        port = 1346;
+        port = 80;
         inbound.length = 1;
         outbound.length = 1;
       };
