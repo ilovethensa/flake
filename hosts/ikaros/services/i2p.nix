@@ -5,6 +5,21 @@
     dataDir = "/mnt/data/i2pd";
     notransit = false;
     floodfill = true;
+    ntcp2.port = 9899;
+    inbound.length = 1;
+    outbound.length = 1;
+    inTunnels = {
+      myEep = {
+        enable = true;
+        keys = "tht.dat";
+        inPort = 80;
+        address = "::1";
+        destination = "localhost";
+        port = 3568;
+        # inbound.length = 1;
+        # outbound.length = 1;
+      };
+    };
     proto = {
       http = {
         enable = true;
@@ -21,6 +36,8 @@
     6135
     7070
     4444
+    3568
+    9899
   ];
   environment.persistence."/nix/persist".directories = [
     "/var/lib/i2pd"
