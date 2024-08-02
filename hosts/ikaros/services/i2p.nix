@@ -1,4 +1,12 @@
-{...}: {
+{config, ...}: {
+  services.nginx = {
+    enable = true;
+    defaultSSLListenPort = 56783;
+    defaultHTTPListenPort = 5642;
+    virtualHosts."localhost" = {
+      root = "/var/www/theholytachanka.com";
+    };
+  };
   services.i2pd = {
     enable = true;
     # TCP & UDP
@@ -12,7 +20,7 @@
         inPort = 80;
         address = "127.0.0.1";
         destination = "localhost";
-        port = 80;
+        port = config.services.nginx.defaultHTTPListenPort;
         inbound.length = 1;
         outbound.length = 1;
       };
