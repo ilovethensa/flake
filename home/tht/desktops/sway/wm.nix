@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   wayland.windowManager.sway = {
     enable = true;
     config = rec {
@@ -123,6 +127,33 @@
                     timeout 1805 'swaymsg "output * power off"' \
                     before-sleep '${pkgs.playerctl}/bin/playerctl pause; ${pkgs.swaylock}/bin/swaylock' \
                     resume 'swaymsg "output * power on"
+                    set $rosewater ${config.colorScheme.palette.base06}  # rosewater
+                    set $flamingo ${config.colorScheme.palette.base0F}   # flamingo
+                    set $pink ${config.colorScheme.palette.base00}       # Not defined in the scheme, choose an appropriate base
+                    set $mauve ${config.colorScheme.palette.base0E}      # mauve
+                    set $red ${config.colorScheme.palette.base08}        # red
+                    set $maroon ${config.colorScheme.palette.base00}     # Not defined in the scheme, choose an appropriate base
+                    set $peach ${config.colorScheme.palette.base09}      # peach
+                    set $yellow ${config.colorScheme.palette.base0A}     # yellow
+                    set $green ${config.colorScheme.palette.base0B}      # green
+                    set $teal ${config.colorScheme.palette.base0C}       # teal
+                    set $sky ${config.colorScheme.palette.base00}        # Not defined in the scheme, choose an appropriate base
+                    set $sapphire ${config.colorScheme.palette.base00}   # Not defined in the scheme, choose an appropriate base
+                    set $blue ${config.colorScheme.palette.base0D}       # blue
+                    set $lavender ${config.colorScheme.palette.base07}   # lavender
+                    set $text ${config.colorScheme.palette.base05}       # text
+                    set $subtext1 ${config.colorScheme.palette.base00}   # Not defined in the scheme, choose an appropriate base
+                    set $subtext0 ${config.colorScheme.palette.base00}   # Not defined in the scheme, choose an appropriate base
+                    set $overlay2 ${config.colorScheme.palette.base00}   # Not defined in the scheme, choose an appropriate base
+                    set $overlay1 ${config.colorScheme.palette.base00}   # Not defined in the scheme, choose an appropriate base
+                    set $overlay0 ${config.colorScheme.palette.base00}   # Not defined in the scheme, choose an appropriate base
+                    set $surface2 ${config.colorScheme.palette.base04}   # surface2
+                    set $surface1 ${config.colorScheme.palette.base03}   # surface1
+                    set $surface0 ${config.colorScheme.palette.base02}   # surface0
+                    set $base ${config.colorScheme.palette.base00}       # base
+                    set $mantle ${config.colorScheme.palette.base01}     # mantle
+                    set $crust ${config.colorScheme.palette.base00}      # Not defined in the scheme, choose an appropriate base
+
     '';
   };
 }

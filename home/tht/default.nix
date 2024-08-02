@@ -14,7 +14,7 @@
     #inputs.nix-colors.homeManagerModules.default
     ./apps/vscode
     ./apps/spotify
-    ./apps/qutebrowser
+    #./apps/qutebrowser
     ./apps/firefox
     ../common/fish
     #./apps/yt-dlp
@@ -45,7 +45,7 @@
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
-  home.packages = with pkgs; [hashcat vesktop nixpkgs-fmt signal-desktop thunderbird bitwarden];
+  home.packages = with pkgs; [hashcat vesktop nixpkgs-fmt signal-desktop thunderbird bitwarden ungoogled-chromium];
   programs = {
     home-manager.enable = true;
     git = {

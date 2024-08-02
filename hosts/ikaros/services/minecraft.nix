@@ -4,6 +4,8 @@
     autoStart = true;
     ports = [
       "25565:25565"
+      "19132:19132"
+      "19132:19132/udp"
     ];
     volumes = [
       "/mnt/data/minecraft/SovietMC:/data"
@@ -20,6 +22,7 @@
       USE_AIKAR_FLAGS = "true";
       MEMORY = "3G";
       PACKWIZ_URL = "https://raw.githubusercontent.com/ilovethensa/better-vanilla/main/pack.toml";
+      SEED = "-1476270621647710826";
     };
   };
   services.cloudflare-dyndns.domains = [
@@ -28,6 +31,7 @@
   networking.firewall = {
     allowedTCPPorts = [
       25565
+      19132
     ];
     allowedUDPPorts = [
       19132

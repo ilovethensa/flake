@@ -32,7 +32,12 @@
         file_server
         root * /var/www/theholytachanka.com
       '';
-      "localhost".extraConfig = ''
+      "http://localhost".extraConfig = ''
+        encode gzip
+        file_server
+        root * /var/www/theholytachanka.com
+      '';
+      "http://127.0.0.1".extraConfig = ''
         encode gzip
         file_server
         root * /var/www/theholytachanka.com
@@ -43,6 +48,9 @@
         root * /var/www/pwned.page
       '';
     };
+    globalConfig = ''
+      auto_https disable_redirects
+    '';
   };
 
   services.cloudflare-dyndns = {

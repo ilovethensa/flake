@@ -1,4 +1,4 @@
-{...}: {
+{outputs, ...}: {
   imports = [
     ./openssh.nix
     ../../nix/options
@@ -10,5 +10,15 @@
     ../../nix/configs/oom.nix
     ../../nix/configs/security.nix
     ../../nix/configs/zram.nix
+    ../../nix/configs/podman.nix
   ];
+  nixpkgs = {
+    overlays = [
+      outputs.overlays.additions
+      outputs.overlays.modifications
+    ];
+    config = {
+      allowUnfree = true; # Enable unfree packages
+    };
+  };
 }
