@@ -34,7 +34,7 @@ in {
         PrivateUsers = true;
         DevicePolicy = "closed";
         ProtectSystem = "strict";
-        ProtectHome = "read-only";
+        ProtectHome = true;
         ProtectControlGroups = true;
         ProtectKernelModules = true;
         ProtectKernelTunables = true;
