@@ -28,7 +28,22 @@ in {
       serviceConfig = {
         Type = "simple";
         ExecStart = "${pkgs.mindustry-server}/bin/mindustry-server host";
-        ExecStop = "pkill server-release.jar";
+        NoNewPrivileges = true;
+        PrivateTmp = true;
+        PrivateDevices = true;
+        PrivateUsers = true;
+        DevicePolicy = "closed";
+        ProtectSystem = "strict";
+        ProtectHome = "read-only";
+        ProtectControlGroups = true;
+        ProtectKernelModules = true;
+        ProtectKernelTunables = true;
+        RestrictAddressFamilies = "AF_UNIX AF_INET AF_INET6 AF_NETLINK";
+        RestrictNamespaces = true;
+        RestrictRealtime = true;
+        RestrictSUIDSGID = true;
+        MemoryDenyWriteExecute = true;
+        LockPersonality = true;
       };
       wantedBy = ["network.target"];
     };
