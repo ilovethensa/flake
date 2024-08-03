@@ -24,7 +24,6 @@
     tor-browser
     rage
     wl-clipboard
-    wlvncc
   ];
   meta.intel = true;
   virtualisation.waydroid.enable = true;
