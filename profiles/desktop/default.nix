@@ -10,4 +10,8 @@
     inputs.home-manager.nixosModules.home-manager
   ];
   home-manager.extraSpecialArgs = {inherit inputs outputs;};
+  services.udisks2 = {
+    enable = true;
+    mountOnMedia = true;
+  };
 }
