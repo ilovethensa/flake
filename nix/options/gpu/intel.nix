@@ -36,6 +36,7 @@ in {
         libvdpau-va-gl
         intel-compute-runtime # OpenCL filter support (hardware tonemapping and subtitle burn-in)
         intel-media-sdk # QSV up to 11th gen
+        intel-ocl # Intel OpenCL
       ];
     };
     environment.sessionVariables = {LIBVA_DRIVER_NAME = "iHD";}; # Optionally, set the environment variable
