@@ -25,6 +25,7 @@
     rage
     wl-clipboard
   ];
+  meta.intel = true;
   virtualisation.waydroid.enable = true;
   networking.firewall = {
     allowedTCPPorts = [
