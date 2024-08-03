@@ -1,6 +1,6 @@
 {...}: {
   services = {
-    libreddit = {
+    redlib = {
       enable = true;
       port = 5462;
     };
