@@ -1,4 +1,10 @@
 {pkgs, ...}: let
+  run-gui = pkgs.writeShellScriptBin "run-gui" ''
+    set -o allexport
+    XDG_RUNTIME_DIR="/run/user/$(id -u)"
+    eval "$(systemctl --user show-environment)"
+    exec "$@"
+  '';
   backup-server = pkgs.writeShellScriptBin "backup-server.sh" ''
     # Services to stop and start
     services="'docker-*' bazarr jellyfin radarr sonarr prowlarr homepage-dashboard mindustry miniflux transmission changedetection-io"
@@ -70,6 +76,7 @@ in {
         ping = "${pkgs.gping}/bin/gping";
         ask = "${pkgs.tgpt}/bin/tgpt";
         backup-server = "${backup-server}/bin/backup-server.sh";
+        run-gui = "${run-gui}/bin/run-gui";
         reboot = "systemctl reboot";
         shutdown = "systemctl poweroff";
       };
