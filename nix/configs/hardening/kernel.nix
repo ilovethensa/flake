@@ -72,7 +72,8 @@
     };
     kernelParams = [
       # Arguments
-      "slab_nomerge"
+      /*
+         "slab_nomerge"
       "init_on_alloc=1"
       "init_on_free=1"
       "page_alloc.shuffle=1"
@@ -86,6 +87,7 @@
       "mce=0"
       "quiet"
       "loglevel=0"
+      */
       # Vuln mit
       "spectre_v2=on"
       "spec_store_bypass_disable=on"
