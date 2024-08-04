@@ -51,6 +51,7 @@
       RestrictSUIDSGID = true;
       MemoryDenyWriteExecute = true;
       LockPersonality = true;
+      ReadWritePaths = "/mnt/data/transmission /mnt/media/torrents";
     };
     bazarr.serviceConfig = {
       NoNewPrivileges = true;
@@ -69,6 +70,7 @@
       RestrictSUIDSGID = true;
       MemoryDenyWriteExecute = true;
       LockPersonality = true;
+      ReadWritePaths = "/mnt/data/bazarr /mnt/media/library";
     };
     prowlarr.serviceConfig = {
       NoNewPrivileges = true;
@@ -86,6 +88,7 @@
       RestrictRealtime = true;
       RestrictSUIDSGID = true;
       LockPersonality = true;
+      ReadWritePaths = "/mnt/data/prowlarr";
     };
     radarr.serviceConfig = {
       NoNewPrivileges = true;
@@ -103,6 +106,7 @@
       RestrictRealtime = true;
       RestrictSUIDSGID = true;
       LockPersonality = true;
+      ReadWritePaths = "/mnt/data/radarr /mnt/media";
     };
     sonarr.serviceConfig = {
       NoNewPrivileges = true;
