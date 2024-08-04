@@ -1,7 +1,6 @@
 {
   inputs,
-  outputs,
-  pkgs,
+  outputs, pkgs,
   ...
 }: {
   imports = [
@@ -16,5 +15,5 @@
     mountOnMedia = true;
   };
   services.flatpak.enable = true;
-  boot.kernelPackages = pkgs.linuxPackages_hardkernel_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 }
