@@ -10,5 +10,5 @@
     ../../nix/configs/hardening
     inputs.agenix.nixosModules.default
   ];
-  boot.kernelPackages = pkgs.linuxKernel.kernels.linux_hardened;
+  #boot.kernelPackages = pkgs.linuxKernel.kernels.linux_hardened;
 }

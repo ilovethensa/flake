@@ -8,7 +8,6 @@
     ../../nix/configs/boot.nix
     ../../nix/configs/nix.nix
     ../../nix/configs/oom.nix
-    ../../nix/configs/security.nix
     ../../nix/configs/zram.nix
     ../../nix/configs/podman.nix
   ];
