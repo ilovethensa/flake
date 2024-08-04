@@ -117,6 +117,11 @@
         tap enabled
         natural_scroll enabled
       }
+      input * {
+          xkb_layout "us,bg"
+          xkb_variant ",phonetic"
+          xkb_options "grp:alt_space_toggle"
+      }
       bindgesture swipe:right workspace prev
       bindgesture swipe:left workspace next
       for_window [shell="xwayland"] title_format "[XWayland] %title"
