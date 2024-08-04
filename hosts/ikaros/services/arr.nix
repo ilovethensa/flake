@@ -60,6 +60,7 @@
       SystemCallArchitectures = "native";
       ProtectProc = "invisible";
       ProcSubset = "pid";
+      SystemCallFilter = ["@system-service" "~@privileged" "~@resources"];
       DeviceAllow = [""];
     };
     prowlarr.serviceConfig = {
@@ -86,6 +87,7 @@
       SystemCallArchitectures = "native";
       ProtectProc = "invisible";
       ProcSubset = "pid";
+      SystemCallFilter = ["@system-service" "~@privileged" "~@resources"];
       DeviceAllow = [""];
     };
     radarr.serviceConfig = {
@@ -112,6 +114,7 @@
       SystemCallArchitectures = "native";
       ProtectProc = "invisible";
       ProcSubset = "pid";
+      SystemCallFilter = ["@system-service" "~@privileged" "~@resources"];
       DeviceAllow = [""];
     };
     sonarr.serviceConfig = {
@@ -138,6 +141,7 @@
       SystemCallArchitectures = "native";
       ProtectProc = "invisible";
       ProcSubset = "pid";
+      SystemCallFilter = ["@system-service" "~@privileged" "~@resources"];
       DeviceAllow = [""];
     };
   };
