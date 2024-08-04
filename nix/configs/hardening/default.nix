@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ./kernel.nix
+    #./kernel.nix
     ./systemd.nix
   ];
   # Only allow members of the wheel group to execute sudo
