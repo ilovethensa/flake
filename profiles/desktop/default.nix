@@ -16,5 +16,5 @@
     mountOnMedia = true;
   };
   services.flatpak.enable = true;
-  boot.kernelPackages = pkgs.linux_hardened;
+  boot.kernelPackages = pkgs.linuxPackages_hardened;
 }
