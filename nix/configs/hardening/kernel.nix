@@ -43,7 +43,8 @@
       # both incoming and outgoing connections:
       "net.ipv4.tcp_fastopen" = 3;
       # Bufferbloat mitigations + slight improvement in throughput & latency
-      "net.ipv4.tcp_congestion_control" = "bbr";
+      /*
+         "net.ipv4.tcp_congestion_control" = "bbr";
       "net.core.default_qdisc" = "cake";
       "kernel.kptr_restrict" = 2;
       "kernel.dmesg_restrict" = 1;
@@ -69,10 +70,11 @@
       "fs.protected_regular" = 2;
       "ipv6.disable" = 1;
       "net.ipv4.tcp_timestamps" = 0;
+      */
     };
     kernelParams = [
       # Arguments
-/*       "slab_nomerge"
+      "slab_nomerge"
       "init_on_alloc=1"
       "init_on_free=1"
       "page_alloc.shuffle=1"
@@ -85,7 +87,7 @@
       "lockdown=confidentiality"
       "mce=0"
       "quiet"
-      "loglevel=0" */
+      "loglevel=0"
     ];
     blacklistedKernelModules = [
       # Obscure network protocols
