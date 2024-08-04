@@ -22,8 +22,7 @@
     #./apps/newsboat
     ./apps/yazi
     ./desktops/sway
-    #spicetify-nix.homeManagerModule
-    #inputs.stylix.homeManagerModules.stylix
+    inputs.nix-flatpak.homeManagerModules.nix-flatpak
   ];
 
   nixpkgs = {

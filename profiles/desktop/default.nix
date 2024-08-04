@@ -14,4 +14,5 @@
     enable = true;
     mountOnMedia = true;
   };
+  services.flatpak.enable = true;
 }
