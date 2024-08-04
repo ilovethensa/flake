@@ -117,7 +117,6 @@
       ProtectControlGroups = true;
       ProtectKernelModules = true;
       ProtectKernelTunables = true;
-      RestrictAddressFamilies = "AF_UNIX AF_INET AF_INET6 AF_NETLINK";
       RestrictNamespaces = true;
       RestrictRealtime = true;
       RestrictSUIDSGID = true;
