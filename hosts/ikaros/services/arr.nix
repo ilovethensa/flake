@@ -107,7 +107,7 @@
     sonarr.serviceConfig = {
       NoNewPrivileges = true;
       PrivateTmp = true;
-      PrivateDevices = true;
+      #PrivateDevices = true;
       PrivateUsers = true;
       DevicePolicy = "closed";
       ProtectSystem = "strict";
