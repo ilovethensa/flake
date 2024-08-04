@@ -24,6 +24,14 @@
     enable = true;
     wrapperFeatures.gtk = true;
   };
+  xdg.portal = {
+    xdgOpenUsePortal = true;
+    enable = true;
+    wlr.enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gnome
+    ];
+  };
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
       description = "polkit-gnome-authentication-agent-1";
