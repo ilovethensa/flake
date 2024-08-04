@@ -85,7 +85,6 @@
       RestrictNamespaces = true;
       RestrictRealtime = true;
       RestrictSUIDSGID = true;
-      MemoryDenyWriteExecute = true;
       LockPersonality = true;
     };
     radarr.serviceConfig = {
@@ -103,7 +102,6 @@
       RestrictNamespaces = true;
       RestrictRealtime = true;
       RestrictSUIDSGID = true;
-      MemoryDenyWriteExecute = true;
       LockPersonality = true;
     };
     sonarr.serviceConfig = {
@@ -117,6 +115,7 @@
       ProtectControlGroups = true;
       ProtectKernelModules = true;
       ProtectKernelTunables = true;
+      RestrictAddressFamilies = "AF_UNIX AF_INET AF_INET6 AF_NETLINK";
       RestrictNamespaces = true;
       RestrictRealtime = true;
       RestrictSUIDSGID = true;
