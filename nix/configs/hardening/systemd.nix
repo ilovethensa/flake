@@ -207,7 +207,7 @@
       ProtectKernelModules = true;
       ProtectKernelLogs = true; # so we won't need all of this
     };
-    NetworkManager-dispatcher.serviceConfig = {
+    "NetworkManager-dispatcher".serviceConfig = {
       ProtectHome = true;
       ProtectKernelTunables = true;
       ProtectKernelModules = true;
@@ -219,17 +219,9 @@
       ProcSubset = "pid";
       PrivateUsers = true;
       PrivateDevices = true;
-      MemoryDenyWriteExecute = true;
       NoNewPrivileges = true;
       LockPersonality = true;
       RestrictRealtime = true;
-      RestrictSUIDSGID = true;
-      RestrictAddressFamilies = "AF_INET";
-      RestrictNamespaces = true;
-      SystemCallFilter = ["write" "read" "openat" "close" "brk" "fstat" "lseek" "mmap" "mprotect" "munmap" "rt_sigaction" "rt_sigprocmask" "ioctl" "nanosleep" "select" "access" "execve" "getuid" "arch_prctl" "set_tid_address" "set_robust_list" "prlimit64" "pread64" "getrandom"];
-      SystemCallArchitectures = "native";
-      UMask = "0077";
-      IPAddressDeny = "any";
     };
     NetworkManager.serviceConfig = {
       NoNewPrivileges = true;

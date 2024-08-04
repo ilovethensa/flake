@@ -12,7 +12,7 @@
       # Disable it, since we don't need it, and is a potential security concern.
       "kernel.sysrq" = 0;
 
-/*       ## TCP hardening
+      ## TCP hardening
       # Prevent bogus ICMP errors from filling up logs.
       "net.ipv4.icmp_ignore_bogus_error_responses" = 1;
       # Reverse path filtering causes the kernel to do source validation of
@@ -35,17 +35,16 @@
       # Protects against SYN flood attacks
       "net.ipv4.tcp_syncookies" = 1;
       # Incomplete protection again TIME-WAIT assassination
-      "net.ipv4.tcp_rfc1337" = 1; */
+      "net.ipv4.tcp_rfc1337" = 1;
 
       ## TCP optimization
       # TCP Fast Open is a TCP extension that reduces network latency by packing
       # data in the sender’s initial TCP SYN. Setting 3 = enable TCP Fast Open for
       # both incoming and outgoing connections:
-      "net.ipv4.tcp_fastopen" = 3;
+      #"net.ipv4.tcp_fastopen" = 3;
       # Bufferbloat mitigations + slight improvement in throughput & latency
 
-      /*
-         "net.ipv4.tcp_congestion_control" = "bbr";
+      "net.ipv4.tcp_congestion_control" = "bbr";
       "net.core.default_qdisc" = "cake";
       "kernel.kptr_restrict" = 2;
       "kernel.dmesg_restrict" = 1;
@@ -71,11 +70,10 @@
       "fs.protected_regular" = 2;
       "ipv6.disable" = 1;
       "net.ipv4.tcp_timestamps" = 0;
-      */
     };
     kernelParams = [
       # Arguments
-      "slab_nomerge"
+      #"slab_nomerge"
       "init_on_alloc=1"
       "init_on_free=1"
       "page_alloc.shuffle=1"
