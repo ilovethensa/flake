@@ -93,7 +93,7 @@
       "tsx_async_abort=full,nosmt"
       "mds=full,nosmt"
       "l1tf=full,force"
-      "nosmt=force "
+      "nosmt=force"
       "kvm.nx_huge_pages=force"
     ];
     blacklistedKernelModules = [
