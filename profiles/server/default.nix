@@ -1,7 +1,6 @@
 {
   inputs,
   pkgs,
-  lib,
   ...
 }: {
   imports = [
@@ -11,5 +10,5 @@
     ../../nix/configs/hardening
     inputs.agenix.nixosModules.default
   ];
-  boot.kernelPackages = lib.mkForce pkgs.linuxKernel.kernels.linux_hardened;
+  boot.kernelPackages = pkgs.linuxKernel.kernels.linux_hardened;
 }
