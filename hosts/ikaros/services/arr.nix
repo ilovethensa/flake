@@ -14,7 +14,7 @@
     transmission = {
       enable = true;
       peerPort = 32456;
-      #flood.enable = true;
+      flood.enable = true;
       openFirewall = true;
     };
     bazarr = {
@@ -61,8 +61,7 @@
       ProtectProc = "invisible";
       ProcSubset = "pid";
       SystemCallFilter = ["@system-service" "~@privileged" "~@resources"];
-      DeviceAllow = [ "" ];
-      
+      DeviceAllow = [""];
     };
     prowlarr.serviceConfig = {
       NoNewPrivileges = true;
@@ -81,6 +80,15 @@
       RestrictSUIDSGID = true;
       LockPersonality = true;
       ReadWritePaths = "/mnt/data/prowlarr";
+      ProtectClock = true;
+      ProtectHostname = true;
+      RemoveIPC = true;
+      KeyringMode = "private";
+      SystemCallArchitectures = "native";
+      ProtectProc = "invisible";
+      ProcSubset = "pid";
+      SystemCallFilter = ["@system-service" "~@privileged" "~@resources"];
+      DeviceAllow = [""];
     };
     radarr.serviceConfig = {
       NoNewPrivileges = true;
@@ -99,6 +107,15 @@
       RestrictSUIDSGID = true;
       LockPersonality = true;
       ReadWritePaths = "/mnt/data/radarr /mnt/media";
+      ProtectClock = true;
+      ProtectHostname = true;
+      RemoveIPC = true;
+      KeyringMode = "private";
+      SystemCallArchitectures = "native";
+      ProtectProc = "invisible";
+      ProcSubset = "pid";
+      SystemCallFilter = ["@system-service" "~@privileged" "~@resources"];
+      DeviceAllow = [""];
     };
     sonarr.serviceConfig = {
       NoNewPrivileges = true;
@@ -117,6 +134,15 @@
       RestrictSUIDSGID = true;
       LockPersonality = true;
       ReadWritePaths = "/mnt/data/sonarr /mnt/media";
+      ProtectClock = true;
+      ProtectHostname = true;
+      RemoveIPC = true;
+      KeyringMode = "private";
+      SystemCallArchitectures = "native";
+      ProtectProc = "invisible";
+      ProcSubset = "pid";
+      SystemCallFilter = ["@system-service" "~@privileged" "~@resources"];
+      DeviceAllow = [""];
     };
   };
   networking.firewall.allowedTCPPorts = [
