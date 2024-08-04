@@ -6,7 +6,7 @@
       "2645:2645"
     ];
     volumes = [
-      "/etc/isso/:/config"
+      "/etc/isso:/config"
       "/mnt/data/isso:/db"
     ];
   };
