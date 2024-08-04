@@ -10,7 +10,7 @@
       # The Magic SysRq key is a key combo that allows users connected to the
       # system console of a Linux kernel to perform some low-level commands.
       # Disable it, since we don't need it, and is a potential security concern.
-      #"kernel.sysrq" = 0;
+      "kernel.sysrq" = 0;
 
       ## TCP hardening
       # Prevent bogus ICMP errors from filling up logs.
@@ -72,7 +72,7 @@
     };
     kernelParams = [
       # Arguments
-      "slab_nomerge"
+/*       "slab_nomerge"
       "init_on_alloc=1"
       "init_on_free=1"
       "page_alloc.shuffle=1"
@@ -85,7 +85,7 @@
       "lockdown=confidentiality"
       "mce=0"
       "quiet"
-      "loglevel=0"
+      "loglevel=0" */
     ];
     blacklistedKernelModules = [
       # Obscure network protocols
