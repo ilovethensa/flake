@@ -141,7 +141,7 @@
       SystemCallArchitectures = "native";
       ProtectProc = "invisible";
       ProcSubset = "pid";
-      SystemCallFilter = ["@system-service" "~@resources"];
+      SystemCallFilter = ["@system-service"];
       DeviceAllow = [""];
     };
   };
