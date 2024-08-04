@@ -1,21 +1,27 @@
 {...}: {
+  virtualisation.oci-containers.containers."isso" = {
+    image = "ghcr.io/isso-comments/isso";
+    autoStart = true;
+    ports = [
+      "2645:2645"
+    ];
+    volumes = [
+      "/etc/isso/:/config"
+      "/mnt/data/isso:/db"
+    ];
+  };
+  environment.etc."isso/isso.cfg".text = ''
+    [general]
+    dbpath = /db/comments.db
+    host = https://theholytachanka.com
+    [server]
+    listen = http://localhost:2645
+  '';
   services = {
-    isso = {
-      enable = true;
-      settings = {
-        general = {
-          dbpath = "/mnt/data/isso/comments.db";
-          host = "https://theholytachanka.com";
-        };
-        server = {
-          listen = "http://localhost:7445";
-        };
-      };
-    };
     caddy = {
       virtualHosts = {
         "comments.theholytachanka.com".extraConfig = ''
-          reverse_proxy http://localhost:7445
+          reverse_proxy http://localhost:2645
         '';
       };
     };
