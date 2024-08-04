@@ -58,7 +58,7 @@
     packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
     overlays = import ./overlays {inherit inputs;};
     nixosConfigurations = {
-      ikaros = nixpkgs.lib.nixosSystem {
+      ikaros = nixpkgs-stable.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
           comin.nixosModules.comin
