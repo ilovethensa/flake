@@ -14,28 +14,28 @@
 
       ## TCP hardening
       # Prevent bogus ICMP errors from filling up logs.
-      #   "net.ipv4.icmp_ignore_bogus_error_responses" = 1;
+      "net.ipv4.icmp_ignore_bogus_error_responses" = 1;
       # Reverse path filtering causes the kernel to do source validation of
       # packets received from all interfaces. This can mitigate IP spoofing.
-      #   "net.ipv4.conf.default.rp_filter" = 1;
-      #  "net.ipv4.conf.all.rp_filter" = 1;
+      "net.ipv4.conf.default.rp_filter" = 1;
+      "net.ipv4.conf.all.rp_filter" = 1;
       # Do not accept IP source route packets (we're not a router)
-      #  "net.ipv4.conf.all.accept_source_route" = 0;
-      #  "net.ipv6.conf.all.accept_source_route" = 0;
+      "net.ipv4.conf.all.accept_source_route" = 0;
+      "net.ipv6.conf.all.accept_source_route" = 0;
       # Don't send ICMP redirects (again, we're on a router)
-      #  "net.ipv4.conf.all.send_redirects" = 0;
-      #  "net.ipv4.conf.default.send_redirects" = 0;
+      "net.ipv4.conf.all.send_redirects" = 0;
+      "net.ipv4.conf.default.send_redirects" = 0;
       # Refuse ICMP redirects (MITM mitigations)
-      # "net.ipv4.conf.all.accept_redirects" = 0;
-      # "net.ipv4.conf.default.accept_redirects" = 0;
-      # "net.ipv4.conf.all.secure_redirects" = 0;
-      # "net.ipv4.conf.default.secure_redirects" = 0;
-      # "net.ipv6.conf.all.accept_redirects" = 0;
-      # "net.ipv6.conf.default.accept_redirects" = 0;
+      "net.ipv4.conf.all.accept_redirects" = 0;
+      "net.ipv4.conf.default.accept_redirects" = 0;
+      "net.ipv4.conf.all.secure_redirects" = 0;
+      "net.ipv4.conf.default.secure_redirects" = 0;
+      "net.ipv6.conf.all.accept_redirects" = 0;
+      "net.ipv6.conf.default.accept_redirects" = 0;
       # Protects against SYN flood attacks
-      # "net.ipv4.tcp_syncookies" = 1;
+      "net.ipv4.tcp_syncookies" = 1;
       # Incomplete protection again TIME-WAIT assassination
-      # "net.ipv4.tcp_rfc1337" = 1;
+      "net.ipv4.tcp_rfc1337" = 1;
 
       ## TCP optimization
       # TCP Fast Open is a TCP extension that reduces network latency by packing
@@ -72,8 +72,7 @@
     };
     kernelParams = [
       # Arguments
-      /*
-         "slab_nomerge"
+      "slab_nomerge"
       "init_on_alloc=1"
       "init_on_free=1"
       "page_alloc.shuffle=1"
@@ -87,16 +86,15 @@
       "mce=0"
       "quiet"
       "loglevel=0"
-      */
       # Vuln mit
-      "spectre_v2=on"
-      "spec_store_bypass_disable=on"
-      "tsx=off"
-      "tsx_async_abort=full,nosmt"
-      "mds=full,nosmt"
-      "l1tf=full,force"
-      "nosmt=force"
-      "kvm.nx_huge_pages=force"
+      #"spectre_v2=on"
+      #"spec_store_bypass_disable=on"
+      #"tsx=off"
+      #"tsx_async_abort=full,nosmt"
+      #"mds=full,nosmt"
+      #"l1tf=full,force"
+      #"nosmt=force"
+      #"kvm.nx_huge_pages=force"
     ];
     blacklistedKernelModules = [
       # Obscure network protocols
