@@ -107,7 +107,7 @@
     sonarr.serviceConfig = {
       NoNewPrivileges = true;
       PrivateTmp = true;
-      #PrivateDevices = true;
+      PrivateDevices = true;
       PrivateUsers = true;
       DevicePolicy = "closed";
       ProtectSystem = "strict";
@@ -120,6 +120,7 @@
       RestrictRealtime = true;
       RestrictSUIDSGID = true;
       LockPersonality = true;
+      ReadWritePaths = "/mnt/data/sonarr /mnt/media";
     };
   };
   networking.firewall.allowedTCPPorts = [
