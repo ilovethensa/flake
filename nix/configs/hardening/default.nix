@@ -102,7 +102,7 @@
       UMask = "0077";
       IPAddressDeny = "any";
     };
-    systemd-rfkill.serviceConfig = {
+    "systemd-rfkill".serviceConfig = {
       ProtectSystem = "strict";
       ProtectHome = true;
       ProtectKernelTunables = true;
@@ -121,7 +121,7 @@
       UMask = "0077";
       IPAddressDeny = "any";
     };
-    rescue.serviceConfig = {
+    "rescue".serviceConfig = {
       ProtectSystem = "strict";
       ProtectHome = true;
       ProtectKernelTunables = true;
@@ -147,7 +147,7 @@
       UMask = "0077";
       IPAddressDeny = "any"; # May need to be relaxed for network troubleshooting in rescue mode
     };
-    nix-daemon.serviceConfig = {
+    "nix-daemon".serviceConfig = {
       ProtectHome = true;
       PrivateUsers = false;
     };
@@ -177,7 +177,7 @@
       UMask = "0077";
       IPAddressDeny = "any";
     };
-    emergency.serviceConfig = {
+    "emergency".serviceConfig = {
       ProtectSystem = "strict";
       ProtectHome = true;
       ProtectKernelTunables = true;
@@ -202,7 +202,7 @@
       UMask = "0077";
       IPAddressDeny = "any";
     };
-    display-manager.serviceConfig = {
+    "display-manager".serviceConfig = {
       ProtectKernelTunables = true;
       ProtectKernelModules = true;
       ProtectKernelLogs = true; # so we won't need all of this
