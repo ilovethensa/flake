@@ -117,10 +117,8 @@
       ProtectControlGroups = true;
       ProtectKernelModules = true;
       ProtectKernelTunables = true;
-      RestrictNamespaces = true;
       RestrictRealtime = true;
       RestrictSUIDSGID = true;
-      MemoryDenyWriteExecute = true;
       LockPersonality = true;
     };
   };
