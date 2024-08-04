@@ -14,6 +14,7 @@
     ./services/snowflake.nix
     ./services/i2p.nix
     ./services/n8n.nix
+    ./services/isso.nix
     ../../nix/configs/users/tht.nix
   ];
 
