@@ -42,7 +42,6 @@
       PrivateUsers = true;
       DevicePolicy = "closed";
       ProtectSystem = "strict";
-      ProtectHome = true;
       ProtectControlGroups = true;
       ProtectKernelModules = true;
       ProtectKernelTunables = true;
