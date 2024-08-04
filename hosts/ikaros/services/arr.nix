@@ -35,24 +35,6 @@
     };
   };
   systemd.services = {
-    transmission.serviceConfig = {
-      NoNewPrivileges = true;
-      PrivateTmp = true;
-      PrivateDevices = true;
-      PrivateUsers = true;
-      DevicePolicy = "closed";
-      ProtectSystem = "strict";
-      ProtectControlGroups = true;
-      ProtectKernelModules = true;
-      ProtectKernelTunables = true;
-      RestrictAddressFamilies = "AF_UNIX AF_INET AF_INET6 AF_NETLINK";
-      RestrictNamespaces = true;
-      RestrictRealtime = true;
-      RestrictSUIDSGID = true;
-      MemoryDenyWriteExecute = true;
-      LockPersonality = true;
-      ReadWritePaths = "/mnt/data/transmission /mnt/media/torrents";
-    };
     bazarr.serviceConfig = {
       NoNewPrivileges = true;
       PrivateTmp = true;
@@ -71,6 +53,13 @@
       MemoryDenyWriteExecute = true;
       LockPersonality = true;
       ReadWritePaths = "/mnt/data/bazarr /mnt/media/library";
+      ProtectClock = true;
+      ProtectHostname = true;
+      RemoveIPC = true;
+      KeyringMode = "private";
+      SystemCallArchitectures = "native";
+      ProtectProc = "invisible";
+      ProcSubset = "pid";
     };
     prowlarr.serviceConfig = {
       NoNewPrivileges = true;

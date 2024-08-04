@@ -28,16 +28,6 @@
     git
     btop
   ];
-  services.cockpit = {
-    enable = true;
-    port = 9090;
-    openFirewall = true;
-    settings = {
-      WebService = {
-        AllowUnencrypted = true;
-      };
-    };
-  };
   meta.intel = true;
   programs.fish.enable = true;
   #networking.wireguard.enable = true;
