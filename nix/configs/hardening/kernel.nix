@@ -89,7 +89,7 @@
       # Vuln mit
       "spectre_v2=on"
       "spec_store_bypass_disable=on"
-      "tsx=off "
+      "tsx=off"
       "tsx_async_abort=full,nosmt"
       "mds=full,nosmt"
       "l1tf=full,force"
