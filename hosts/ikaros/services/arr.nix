@@ -60,6 +60,9 @@
       SystemCallArchitectures = "native";
       ProtectProc = "invisible";
       ProcSubset = "pid";
+      SystemCallFilter = ["@system-service" "~@privileged" "~@resources"];
+      DeviceAllow = [ "" ];
+      
     };
     prowlarr.serviceConfig = {
       NoNewPrivileges = true;
