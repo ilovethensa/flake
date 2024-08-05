@@ -15,7 +15,7 @@
     ./services/i2p.nix
     ./services/n8n.nix
     #./services/isso.nix
-    ./services/mail.nix
+    #./services/mail.nix
     ../../nix/configs/users/tht.nix
   ];
 
