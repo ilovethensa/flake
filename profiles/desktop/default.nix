@@ -17,7 +17,8 @@
       enable = true;
       mountOnMedia = true;
     };
-    lokinet = {
+    /*
+       lokinet = {
       enable = true;
       useLocally = true;
       settings = {
@@ -29,6 +30,7 @@
         network.exit-node = ["exit.loki"];
       };
     };
+    */
   };
   boot.kernelPackages = pkgs.linuxPackages_latest;
 }
