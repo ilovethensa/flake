@@ -1,8 +1,9 @@
-{...}: {
+{pkgs, ...}: {
   services = {
     libreddit = {
       enable = true;
       port = 5462;
+      package = pkgs.redlib;
     };
     caddy = {
       enable = true;

@@ -14,7 +14,7 @@
     transmission = {
       enable = true;
       peerPort = 32456;
-      #flood.enable = true;
+      flood.enable = true;
       openFirewall = true;
     };
     bazarr = {
@@ -35,23 +35,6 @@
     };
   };
   systemd.services = {
-    transmission.serviceConfig = {
-      NoNewPrivileges = true;
-      PrivateTmp = true;
-      PrivateDevices = true;
-      PrivateUsers = true;
-      DevicePolicy = "closed";
-      ProtectSystem = "strict";
-      ProtectControlGroups = true;
-      ProtectKernelModules = true;
-      ProtectKernelTunables = true;
-      RestrictAddressFamilies = "AF_UNIX AF_INET AF_INET6 AF_NETLINK";
-      RestrictNamespaces = true;
-      RestrictRealtime = true;
-      RestrictSUIDSGID = true;
-      MemoryDenyWriteExecute = true;
-      LockPersonality = true;
-    };
     bazarr.serviceConfig = {
       NoNewPrivileges = true;
       PrivateTmp = true;
@@ -69,6 +52,16 @@
       RestrictSUIDSGID = true;
       MemoryDenyWriteExecute = true;
       LockPersonality = true;
+      ReadWritePaths = "/mnt/data/bazarr /mnt/media/library";
+      ProtectClock = true;
+      ProtectHostname = true;
+      RemoveIPC = true;
+      KeyringMode = "private";
+      SystemCallArchitectures = "native";
+      ProtectProc = "invisible";
+      ProcSubset = "pid";
+      SystemCallFilter = ["@system-service" "~@privileged"];
+      DeviceAllow = [""];
     };
     prowlarr.serviceConfig = {
       NoNewPrivileges = true;
@@ -86,6 +79,16 @@
       RestrictRealtime = true;
       RestrictSUIDSGID = true;
       LockPersonality = true;
+      ReadWritePaths = "/mnt/data/prowlarr";
+      ProtectClock = true;
+      ProtectHostname = true;
+      RemoveIPC = true;
+      KeyringMode = "private";
+      SystemCallArchitectures = "native";
+      ProtectProc = "invisible";
+      ProcSubset = "pid";
+      SystemCallFilter = ["@system-service" "~@privileged"];
+      DeviceAllow = [""];
     };
     radarr.serviceConfig = {
       NoNewPrivileges = true;
@@ -103,11 +106,21 @@
       RestrictRealtime = true;
       RestrictSUIDSGID = true;
       LockPersonality = true;
+      ReadWritePaths = "/mnt/data/radarr /mnt/media";
+      ProtectClock = true;
+      ProtectHostname = true;
+      RemoveIPC = true;
+      KeyringMode = "private";
+      SystemCallArchitectures = "native";
+      ProtectProc = "invisible";
+      ProcSubset = "pid";
+      SystemCallFilter = ["@system-service" "~@privileged"];
+      DeviceAllow = [""];
     };
     sonarr.serviceConfig = {
       NoNewPrivileges = true;
       PrivateTmp = true;
-      #PrivateDevices = true;
+      PrivateDevices = true;
       PrivateUsers = true;
       DevicePolicy = "closed";
       ProtectSystem = "strict";
@@ -120,6 +133,16 @@
       RestrictRealtime = true;
       RestrictSUIDSGID = true;
       LockPersonality = true;
+      ReadWritePaths = "/mnt/data/sonarr /mnt/media";
+      ProtectClock = true;
+      ProtectHostname = true;
+      RemoveIPC = true;
+      KeyringMode = "private";
+      SystemCallArchitectures = "native";
+      ProtectProc = "invisible";
+      ProcSubset = "pid";
+      SystemCallFilter = ["@system-service" "~@privileged"];
+      DeviceAllow = [""];
     };
   };
   networking.firewall.allowedTCPPorts = [

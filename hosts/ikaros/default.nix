@@ -12,11 +12,9 @@
     ./services/minecraft.nix
     ./services/mindustry.nix
     ./services/snowflake.nix
-    #./services/tor.nix
-    #./services/bitmagnet.nix
-    ./services/cockpit.nix
     ./services/i2p.nix
     ./services/n8n.nix
+    ./services/isso.nix
     ../../nix/configs/users/tht.nix
   ];
 
@@ -28,16 +26,6 @@
     git
     btop
   ];
-  services.cockpit = {
-    enable = true;
-    port = 9090;
-    openFirewall = true;
-    settings = {
-      WebService = {
-        AllowUnencrypted = true;
-      };
-    };
-  };
   meta.intel = true;
   programs.fish.enable = true;
   #networking.wireguard.enable = true;

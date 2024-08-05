@@ -1,7 +1,5 @@
-{pkgs, ...}: {
+{...}: {
   boot = {
-    # Use a more optimized kernel
-    kernelPackages = pkgs.linuxPackages_latest;
     # Enable systemd-boot
     loader = {
       systemd-boot = {
