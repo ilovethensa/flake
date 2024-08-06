@@ -65,6 +65,13 @@
           ./hosts/ikaros
         ];
       };
+      ace = nixpkgs-stable.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          comin.nixosModules.comin
+          ./hosts/ace
+        ];
+      };
       mute = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
