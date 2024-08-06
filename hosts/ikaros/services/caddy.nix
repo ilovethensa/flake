@@ -1,13 +1,11 @@
-{
-  config,
-  lib,
-  ...
-}: {
+{...}: {
+  imports = [
+    ../../../nix/services/caddy.nix
+  ];
   # Secrets
   age.secrets.cloudflare_stuff.file = ../../../secrets/cloudflare_stuff.age;
 
   services.caddy = {
-    enable = true;
     virtualHosts = {
       "mc.theholytachanka.com".extraConfig = ''
         reverse_proxy http://localhost:25565
@@ -48,48 +46,26 @@
         root * /var/www/pwned.page
       '';
     };
-    globalConfig = ''
-      auto_https disable_redirects
-    '';
   };
 
-  services.cloudflare-dyndns = {
-    enable = true;
-    apiTokenFile = config.age.secrets.cloudflare_stuff.path;
-    domains = [
-      "mc.theholytachanka.com"
-      "vpn.theholytachanka.com"
-      "mindustry.theholytachanka.com"
-      "test.theholytachanka.com"
-      "theholytachanka.com"
-      "pwned.page"
-      "watch.theholytachanka.com"
-      "request.theholytachanka.com"
-    ];
-  };
-  security.acme = {
-    acceptTerms = true;
-    defaults = {
-      email = lib.mkForce "me@theholytachanka.com";
-      dnsProvider = "cloudflare";
-      environmentFile = config.age.secrets.cloudflare_stuff.path;
-    };
-    certs = {
-      "mc.theholytachanka.com" = {};
-      "vpn.theholytachanka.com" = {};
-      "mindustry.theholytachanka.com" = {};
-      "test.theholytachanka.com" = {};
-      "theholytachanka.com" = {};
-      "pwned.page" = {};
-      "watch.theholytachanka.com" = {};
-      "request.theholytachanka.com" = {};
-    };
-  };
-  networking.firewall.allowedTCPPorts = [
-    443
-    80
+  services.cloudflare-dyndns.domains = [
+    "mc.theholytachanka.com"
+    "vpn.theholytachanka.com"
+    "mindustry.theholytachanka.com"
+    "test.theholytachanka.com"
+    "theholytachanka.com"
+    "pwned.page"
+    "watch.theholytachanka.com"
+    "request.theholytachanka.com"
   ];
-  environment.persistence."/nix/persist".directories = [
-    "/var/www"
-  ];
+  security.acme.certs = {
+    "mc.theholytachanka.com" = {};
+    "vpn.theholytachanka.com" = {};
+    "mindustry.theholytachanka.com" = {};
+    "test.theholytachanka.com" = {};
+    "theholytachanka.com" = {};
+    "pwned.page" = {};
+    "watch.theholytachanka.com" = {};
+    "request.theholytachanka.com" = {};
+  };
 }
