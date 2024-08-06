@@ -15,6 +15,7 @@
     hideMounts = true;
     directories = [
       "/home"
+      "/var/lib"
       {
         directory = "/root";
         user = "root";
