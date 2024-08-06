@@ -17,6 +17,7 @@
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     nixvim.url = "github:nix-community/nixvim";
     nix-flatpak.url = "github:gmodena/nix-flatpak";
+    simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
 
     qutebrowser-catppucin = {
       url = "github:catppuccin/qutebrowser";
@@ -39,6 +40,7 @@
     firefox-addons,
     nixvim,
     nix-flatpak,
+    simple-nixos-mailserver,
     ...
   } @ inputs: let
     inherit (self) outputs;

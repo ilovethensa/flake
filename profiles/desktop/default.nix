@@ -1,6 +1,7 @@
 {
   inputs,
-  outputs, pkgs,
+  outputs,
+  pkgs,
   ...
 }: {
   imports = [
@@ -10,10 +11,26 @@
     inputs.home-manager.nixosModules.home-manager
   ];
   home-manager.extraSpecialArgs = {inherit inputs outputs;};
-  services.udisks2 = {
-    enable = true;
-    mountOnMedia = true;
+  services = {
+    flatpak.enable = true;
+    udisks2 = {
+      enable = true;
+      mountOnMedia = true;
+    };
+    /*
+       lokinet = {
+      enable = true;
+      useLocally = true;
+      settings = {
+        dns = {
+          bind = "127.3.2.1";
+          upstream = ["193.110.81.0" "185.253.5.0"];
+        };
+
+        network.exit-node = ["exit.loki"];
+      };
+    };
+    */
   };
-  services.flatpak.enable = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
 }
