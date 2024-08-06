@@ -5,7 +5,9 @@
 }: {
   imports = [
     inputs.simple-nixos-mailserver.nixosModule
+    ../../../nix/services/caddy.nix
   ];
+
   age.secrets.cloudflare_stuff.file = ../../../secrets/cloudflare_stuff.age;
   mailserver = {
     enable = true;

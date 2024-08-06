@@ -4,7 +4,7 @@
   ...
 }: {
   # Secrets
-  age.secrets.cloudflare_stuff.file = ../../../secrets/cloudflare_stuff.age;
+  age.secrets.cloudflare_stuff.file = ../../secrets/cloudflare_stuff.age;
 
   services.caddy = {
     enable = true;

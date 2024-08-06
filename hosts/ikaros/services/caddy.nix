@@ -2,9 +2,6 @@
   imports = [
     ../../../nix/services/caddy.nix
   ];
-  # Secrets
-  age.secrets.cloudflare_stuff.file = ../../../secrets/cloudflare_stuff.age;
-
   services.caddy = {
     virtualHosts = {
       "mc.theholytachanka.com".extraConfig = ''
