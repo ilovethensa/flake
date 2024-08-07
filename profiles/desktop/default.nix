@@ -17,6 +17,9 @@
       enable = true;
       mountOnMedia = true;
     };
+    devmon.enable = true;
+    gvfs.enable = true;
+    printing.enable = true;
     /*
        lokinet = {
       enable = true;
