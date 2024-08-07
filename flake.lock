@@ -515,6 +515,22 @@
         "type": "github"
       }
     },
+    "morewaita": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1714324684,
+        "narHash": "sha256-E8zkq8Zfn90Qrn5clXquHAQhAI4K4/7JV7fjujf1P7U=",
+        "owner": "somepaulo",
+        "repo": "MoreWaita",
+        "rev": "0f4ed19f51b5ca8f0622c9e154886efb2a5ff59b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "somepaulo",
+        "repo": "MoreWaita",
+        "type": "github"
+      }
+    },
     "nix-colors": {
       "inputs": {
         "base16-schemes": "base16-schemes",
@@ -899,6 +915,7 @@
         "firefox-addons": "firefox-addons",
         "home-manager": "home-manager_2",
         "impermanence": "impermanence",
+        "morewaita": "morewaita",
         "nix-colors": "nix-colors",
         "nix-flatpak": "nix-flatpak",
         "nix-gaming": "nix-gaming",
