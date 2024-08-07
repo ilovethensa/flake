@@ -7,7 +7,6 @@
     ./dconf.nix
   ];
   home.packages = with pkgs; [
-    toilet
     gnome3.adwaita-icon-theme
     gnomeExtensions.blur-my-shell
     gnomeExtensions.appindicator

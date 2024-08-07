@@ -4,7 +4,6 @@
     ./hardware-configuration.nix
     ../../profiles/laptop
     ../../nix/configs/users/tht.nix
-    ../../nix/configs/desktop/sway.nix
     ../../nix/configs/gaming.nix
   ];
   home-manager = {

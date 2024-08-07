@@ -23,6 +23,10 @@
       url = "github:catppuccin/qutebrowser";
       flake = false;
     };
+    morewaita = {
+      url = "github:somepaulo/MoreWaita";
+      flake = false;
+    };
   };
   outputs = {
     self,
@@ -41,6 +45,7 @@
     nixvim,
     nix-flatpak,
     simple-nixos-mailserver,
+    morewaita,
     ...
   } @ inputs: let
     inherit (self) outputs;
