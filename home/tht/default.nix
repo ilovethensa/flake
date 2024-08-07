@@ -25,7 +25,7 @@
     ./apps/neovim
     #./apps/newsboat
     ./apps/yazi
-    ./desktops/gnome
+    ./desktops/sway
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
   ];
 
