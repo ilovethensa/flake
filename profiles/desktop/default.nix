@@ -8,6 +8,7 @@
     ../common
     ../../nix/configs/sound.nix
     ../../nix/configs/nix-ld.nix
+    ../../nix/configs/desktop/gnome.nix
     inputs.home-manager.nixosModules.home-manager
   ];
   home-manager.extraSpecialArgs = {inherit inputs outputs;};
