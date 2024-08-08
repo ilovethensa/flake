@@ -60,6 +60,7 @@
       userEmail = "tht@pwned.page";
       signing = {
         signByDefault = true;
+        key = null;
       };
       extraConfig = {
         core.pager = "bat";
