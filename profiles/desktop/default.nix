@@ -12,6 +12,12 @@
     inputs.home-manager.nixosModules.home-manager
   ];
   home-manager.extraSpecialArgs = {inherit inputs outputs;};
+  programs.gnupg.agent = {
+    enable = true;
+    enableBrowserSocket = true;
+    enableSSHSupport = true;
+    pinentryPackage = pkgs.pinentry-curses;
+  };
   services = {
     flatpak.enable = true;
     udisks2 = {
