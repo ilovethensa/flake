@@ -51,7 +51,8 @@
   home.packages = with pkgs; [hashcat vesktop nixpkgs-fmt signal-desktop thunderbird bitwarden ungoogled-chromium bisq-desktop];
   services.gpg-agent = {
     enable = true;
-    pinentryFlavor = "gnome3";
+    pinentryPackage = pkgs.pinentry-gtk2;
+    enableSshSupport = true;
   };
   programs = {
     gpg.enable = true;
