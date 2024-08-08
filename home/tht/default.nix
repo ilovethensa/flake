@@ -49,7 +49,12 @@
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
   home.packages = with pkgs; [hashcat vesktop nixpkgs-fmt signal-desktop thunderbird bitwarden ungoogled-chromium bisq-desktop];
+  services.gpg-agent = {
+    enable = true;
+    pinentryFlavor = "gnome3";
+  };
   programs = {
+    gpg.enable = true;
     home-manager.enable = true;
     git = {
       enable = true;

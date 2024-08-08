@@ -29,11 +29,6 @@
       pkgs.xdg-desktop-portal-gnome
     ];
   };
-  programs.gpg.enable = true;
-  services.gpg-agent = {
-    enable = true;
-    pinentryFlavor = "gnome3";
-  };
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
       description = "polkit-gnome-authentication-agent-1";
