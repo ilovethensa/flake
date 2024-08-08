@@ -12,10 +12,6 @@
     inputs.home-manager.nixosModules.home-manager
   ];
   home-manager.extraSpecialArgs = {inherit inputs outputs;};
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-  };
   services.pcscd.enable = true;
   services = {
     flatpak.enable = true;
