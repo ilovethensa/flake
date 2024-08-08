@@ -54,7 +54,10 @@
     git = {
       enable = true;
       userName = "Bill Gates";
-      userEmail = "me@theholytachanka.com";
+      userEmail = "tht@pwned.page";
+      signing = {
+        signByDefault = true;
+      };
       extraConfig = {
         core.pager = "bat";
         init.defaultBranch = "main";
