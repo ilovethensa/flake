@@ -21,21 +21,21 @@
     "/" = {
       device = "none";
       fsType = "tmpfs";
+      options = ["defaults" "size=2G" "mode=755"];
     };
     "/boot" = {
       device = "/dev/disk/by-uuid/B297-73FE";
       fsType = "vfat";
-      options = ["fmask=0022" "dmask=0022"];
     };
     "/nix" = {
       device = "/dev/disk/by-uuid/44a375ec-73f9-4ec0-a657-176e091897c3";
       fsType = "btrfs";
-      options = ["subvol=@nix"];
+      options = ["subvol=@nix" "compress-force=zstd:15" "defaults" "noatime"];
     };
     "/home" = {
       device = "/dev/disk/by-uuid/44a375ec-73f9-4ec0-a657-176e091897c3";
       fsType = "btrfs";
-      options = ["subvol=@home"];
+      options = ["subvol=@home" "compress-force=zstd:15" "defaults" "noatime"];
     };
   };
   swapDevices = [];

@@ -49,12 +49,22 @@
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
   home.packages = with pkgs; [hashcat vesktop nixpkgs-fmt signal-desktop thunderbird bitwarden ungoogled-chromium bisq-desktop];
+  services.gpg-agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-gtk2;
+    enableSshSupport = true;
+  };
   programs = {
+    gpg.enable = true;
     home-manager.enable = true;
     git = {
       enable = true;
       userName = "John";
       userEmail = "me@theholytachanka.com";
+      signing = {
+        signByDefault = true;
+        key = null;
+      };
       extraConfig = {
         core.pager = "bat";
         init.defaultBranch = "main";
@@ -84,6 +94,7 @@
   };
   services.flatpak.packages = [
     "com.ultimaker.cura"
+    "net.mkiol.SpeechNote"
   ];
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

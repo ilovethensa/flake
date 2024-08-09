@@ -23,11 +23,11 @@
         "XF86AudioNext" = "exec ${pkgs.playerctl}/bin/playerctl next";
         "XF86AudioPrev" = "exec ${pkgs.playerctl}/bin/playerctl previous";
 
-        # Apps
-        "${modifier}+Shift+s" = "exec --no-startup-id ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp -d)\" - | ${pkgs.wl-clipboard-rs}/bin/wl-copy && ${pkgs.libnotify}/bin/notify-send \"Screenshot taken\" -i camera-photo-symbolic";
         "${modifier}+e" = "exec ${pkgs.foot}/bin/footclient ${pkgs.yazi}/bin/yazi";
 
         "${modifier}+Return" = "exec ${pkgs.foot}/bin/footclient";
+        "${modifier}+Shift+s" = "exec --no-startup-id ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp -d)\" - | ${pkgs.wl-clipboard-rs}/bin/wl-copy && ${pkgs.libnotify}/bin/notify-send \"Screenshot taken\" -i camera-photo-symbolic";
+
         "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun -show-icons | ${pkgs.findutils}/bin/xargs swaymsg exec --";
         "${modifier}+q" = "kill";
         "${modifier}+f" = "fullscreen toggle";

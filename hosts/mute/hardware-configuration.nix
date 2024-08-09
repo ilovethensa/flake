@@ -11,24 +11,12 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
   boot = {
+    kernelModules = ["kvm-intel"];
+    extraModulePackages = [];
     initrd = {
       availableKernelModules = ["xhci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci"];
       kernelModules = [];
-      luks.devices."cryptroot".device = "/dev/disk/by-uuid/8d4c6e8c-6469-4d14-bd0e-abce3076d7b0";
     };
-    kernelModules = [];
-    extraModulePackages = [];
-    kernelParams = [
-      "processor.max_cstate=1"
-      "i915.enable_dc=0"
-      "intel_idle.max_cstate=2"
-      "i915.enable_psr=0"
-      "i915.enable_rc6=0"
-      "i915.preliminary_hw_support=1"
-      "intel_idle.max_cstate=1"
-      "i915.enable_dc=0"
-      "ahci.mobile_lpm_policy=1"
-    ];
   };
   fileSystems = {
     "/" = {
@@ -36,22 +24,21 @@
       fsType = "tmpfs";
       options = ["defaults" "size=2G" "mode=755"];
     };
-    "/nix" = {
-      device = "/dev/disk/by-uuid/1b31ae92-d46e-4efc-853f-488629064453";
-      fsType = "btrfs";
-      options = ["subvol=@nix" "noatime" "compress=zstd" "ssd"];
-    };
-    "/home" = {
-      device = "/dev/disk/by-uuid/1b31ae92-d46e-4efc-853f-488629064453";
-      fsType = "btrfs";
-      options = ["subvol=@home"];
-    };
     "/boot" = {
-      device = "/dev/disk/by-uuid/A07B-CB36";
+      device = "/dev/disk/by-uuid/38C5-F6BA";
       fsType = "vfat";
     };
+    "/nix" = {
+      device = "/dev/disk/by-uuid/b2406943-5c55-4dfd-8ffd-b3cd4d4123e7";
+      fsType = "btrfs";
+      options = ["subvol=@nix" "compress-force=zstd:15" "defaults" "noatime"];
+    };
+    "/home" = {
+      device = "/dev/disk/by-uuid/b2406943-5c55-4dfd-8ffd-b3cd4d4123e7";
+      fsType = "btrfs";
+      options = ["subvol=@home" "compress-force=zstd:15" "defaults" "noatime"];
+    };
   };
-
   swapDevices = [];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
