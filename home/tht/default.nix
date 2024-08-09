@@ -53,7 +53,7 @@
     home-manager.enable = true;
     git = {
       enable = true;
-      userName = "Bill Gates";
+      userName = "John";
       userEmail = "me@theholytachanka.com";
       extraConfig = {
         core.pager = "bat";
