@@ -33,6 +33,10 @@
       enable = true;
       openFirewall = true;
     };
+    lidarr = {
+      enable = true;
+      openFirewall = true;
+    };
   };
   systemd.services = {
     bazarr.serviceConfig = {
