@@ -21,6 +21,7 @@
       ms-python.python
       ms-python.vscode-pylance
       continue.continue
+      astro-build.astro-vscode
     ];
 
     # Define user settings for Visual Studio Code
