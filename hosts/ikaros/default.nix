@@ -25,6 +25,15 @@
     git
     btop
   ];
+  tht = {
+    intel = true;
+    motd = {
+      enable = true;
+      networkInterfaces = [
+        "enp0s31f6"
+      ];
+    };
+  };
   meta.intel = true;
   programs.fish.enable = true;
   #networking.wireguard.enable = true;
