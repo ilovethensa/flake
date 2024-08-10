@@ -91,7 +91,7 @@ in {
       pkgs.lolcat
       pkgs.figlet
     ];
-    programs.zsh.interactiveShellInit = lib.mkIf config.programs.fish.zsh ''
+    programs.zsh.interactiveShellInit = ''
       motd
     '';
   };
