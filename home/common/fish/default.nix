@@ -43,12 +43,18 @@ in {
     just
     wl-clipboard-rs
   ];
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
   programs.zsh = {
     enable = true;
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-
+    completionInit = ''
+      eval "$(${pkgs.zoxide}/bin/zoxide init zsh)"
+    '';
     initExtra = ''
       eval "$(${pkgs.starship}/bin/starship init zsh)"
       ${pkgs.nitch}/bin/nitch'';
@@ -66,6 +72,7 @@ in {
       tree = "${pkgs.eza}/bin/eza --tree";
       ping = "${pkgs.gping}/bin/gping";
       ask = "${pkgs.tgpt}/bin/tgpt";
+      ps = "${pkgs.procs}/bin/procs";
       backup-server = "${backup-server}/bin/backup-server.sh";
       run-gui = "${run-gui}/bin/run-gui";
       reboot = "systemctl reboot";
