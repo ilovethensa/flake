@@ -48,14 +48,12 @@
       printf "$BOLD  * %-20s$ENDCOLOR %s\n" "Memory" "$MEMORY"
       printf "$BOLD  * %-20s$ENDCOLOR %s\n" "System uptime" "$upDays days $upHours hours $upMins minutes $upSecs seconds"
       printf "\n"
-      if ! type "$zpool" &> /dev/null; then
-        printf "$BOLD Zpool status: $ENDCOLOR\n"
-        zpool status -x | sed -e 's/^/  /'
-      fi
-      if ! type "$zpool" &> /dev/null; then
-        printf "$BOLD Zpool usage: $ENDCOLOR\n"
-        zpool list -Ho name,cap,size | awk '{ printf("%-10s%+3s used out of %+5s\n", $1, $2, $3); }' | sed -e 's/^/  /'
-      fi
+      for mnt in data media; do
+        dfout=$(df -BG --output=used,size /mnt/$mnt | tail -1)
+        used=$(echo $dfout | awk '{print $1}' | tr -d 'G')
+        total=$(echo $dfout | awk '{print $2}' | tr -d 'G')
+        echo "$mnt     Used $(bc <<< "scale=2; $used/$total*100")% out of " "$total" "GB"
+      done
       printf "\n"
       printf "$BOLDService status$ENDCOLOR\n"
 
