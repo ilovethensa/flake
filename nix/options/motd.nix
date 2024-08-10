@@ -4,6 +4,25 @@
   pkgs,
   ...
 }: let
+  check-services = pkgs.writeShellScriptBin "check-services" ''
+    # Color codes
+    ACTIVE="\033[0;32m"  # Green
+    INACTIVE="\033[0;31m" # Red
+    RESET="\033[0m"      # Reset
+
+    for svc in "$@"; do
+        status=$(systemctl is-active "$svc" 2>/dev/null)
+        case $status in
+            active)
+                color=$ACTIVE
+                ;;
+            *)
+                color=$INACTIVE
+                ;;
+        esac
+        printf "%-30s [%s%s%s]\n" "$svc" "$color" "$status" "$RESET"
+    done
+  '';
   motd =
     pkgs.writeShellScriptBin "motd"
     ''
@@ -57,20 +76,7 @@
       printf "\n"
       printf "$BOLDService status$ENDCOLOR\n"
 
-      while IFS= read -r line; do
-        if [[ $line =~ ".scope" ]]; then
-          continue
-        fi
-        if echo "$line" | grep -q 'failed'; then
-          service_name=$(echo $line | awk '{print $2;}' | sed 's/podman-//g')
-          printf "$RED• $ENDCOLOR%-50s $RED[failed]$ENDCOLOR\n" "$service_name"
-        elif echo "$line" | grep -q 'running'; then
-          service_name=$(echo $line | awk '{print $1;}' | sed 's/podman-//g')
-          printf "$GREEN• $ENDCOLOR%-50s $GREEN[active]$ENDCOLOR\n" "$service_name"
-        else
-          echo "service status unknown"
-        fi
-      done <<< "$service_status"
+      ${pkgs.check-services}/bin/check-services jellyfin.service sonarr.service radarr.service prowlarr.service transmission.service
     '';
   cfg = config.tht.motd;
 in {
