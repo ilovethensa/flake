@@ -37,7 +37,7 @@
       upSecs=$((uptime%60))
 
       figlet "$(hostname)" | lolcat -f
-      printf "$BOLD    %-20s$ENDCOLOR %s\n" "Role:" "${config.mySystem.purpose}"
+      printf "$BOLD    %-20s$ENDCOLOR %s\n" "Role:" "Server"
       printf "\n"
       ${lib.strings.concatStrings (lib.lists.forEach cfg.networkInterfaces (x: "printf \"$BOLD  * %-20s$ENDCOLOR %s\\n\" \"IPv4 ${x}\" \"$(ip -4 addr show ${x} | grep -oP '(?<=inet\\s)\\d+(\\.\\d+){3}')\"\n"))}
       printf "$BOLD  * %-20s$ENDCOLOR %s\n" "Release" "$PRETTY_NAME"
@@ -76,7 +76,7 @@
     '';
   cfg = config.tht.motd;
 in {
-  options.mySystem.system.motd = {
+  options.tht.motd = {
     enable = lib.mkEnableOption "MOTD";
     networkInterfaces = lib.mkOption {
       description = "Network interfaces to monitor";

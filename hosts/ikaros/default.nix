@@ -34,7 +34,6 @@
       ];
     };
   };
-  meta.intel = true;
   programs.fish.enable = true;
   #networking.wireguard.enable = true;
   # Persistence configuration
