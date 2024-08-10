@@ -25,7 +25,7 @@
     rage
     wl-clipboard
   ];
-  meta = {
+  tht = {
     amd = true;
   };
   virtualisation.waydroid.enable = true;
