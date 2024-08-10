@@ -94,6 +94,7 @@ in {
       motd
       pkgs.lolcat
       pkgs.figlet
+      pkgs.bc
     ];
     programs.zsh.interactiveShellInit = ''
       motd
