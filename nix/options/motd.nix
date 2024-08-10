@@ -51,7 +51,6 @@
     pkgs.writeShellScriptBin "motd"
     ''
       source /etc/os-release
-      service_status=$(systemctl list-units | grep podman-)
       RED="\e[31m"
       GREEN="\e[32m"
       BOLD="\e[1m"
