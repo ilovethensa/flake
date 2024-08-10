@@ -43,13 +43,54 @@ in {
     just
     wl-clipboard-rs
   ];
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+
+    initExtra = ''
+      eval "$(${pkgs.starship}/bin/starship init zsh)"
+      ${pkgs.nitch}/bin/nitch'';
+
+    shellAliases = {
+      ls = "${pkgs.eza}/bin/eza -la";
+      cat = "${pkgs.bat}/bin/bat --paging=never";
+      cp = "${pkgs.xcp}/bin/xcp";
+      rm = "${pkgs.fuc}/bin/rmz";
+      glow = "${pkgs.glow}/bin/glow --pager";
+      htop = "${pkgs.bottom}/bin/btm --basic --tree --hide_table_gap --dot_marker --mem_as_value";
+      ip = "${pkgs.iproute2}/bin/ip --color --brief";
+      less = "${pkgs.bat}/bin/bat";
+      dmesg = "${pkgs.util-linux}/bin/dmesg --human --color=always";
+      tree = "${pkgs.eza}/bin/eza --tree";
+      ping = "${pkgs.gping}/bin/gping";
+      ask = "${pkgs.tgpt}/bin/tgpt";
+      backup-server = "${backup-server}/bin/backup-server.sh";
+      run-gui = "${run-gui}/bin/run-gui";
+      reboot = "systemctl reboot";
+      shutdown = "systemctl poweroff";
+    };
+    plugins = [
+      {
+        name = "grc-zsh";
+        src = pkgs.fetchurl {
+          url = "https://raw.githubusercontent.com/garabik/grc/master/grc.zsh";
+          sha256 = "sha256-c3ObxM6+cm7Ce8T01o7MKPk+r48mbLp8UD1+QUCRxFk=";
+        };
+      }
+    ];
+
+    history.size = 10000;
+    history.ignoreAllDups = true;
+    history.path = "$HOME/.zsh_history";
+    history.ignorePatterns = ["rm *" "pkill *" "cp *"];
+  };
   programs = {
     fish = {
       enable = true;
       interactiveShellInit = ''
         set fish_greeting # Disable greeting
-        ${pkgs.starship}/bin/starship init fish | source
-        ${pkgs.nitch}/bin/nitch
         function help
           ${pkgs.curl}/bin/curl cheat.sh/$argv | ${pkgs.less}/bin/less
         end
@@ -62,24 +103,7 @@ in {
           nix flake init -t ~/Projects/lol/dots/#$lang
         end
       '';
-      shellAliases = {
-        ls = "${pkgs.eza}/bin/eza -la";
-        cat = "${pkgs.bat}/bin/bat --paging=never";
-        cp = "${pkgs.xcp}/bin/xcp";
-        rm = "${pkgs.fuc}/bin/rmz";
-        glow = "${pkgs.glow}/bin/glow --pager";
-        htop = "${pkgs.bottom}/bin/btm --basic --tree --hide_table_gap --dot_marker --mem_as_value";
-        ip = "${pkgs.iproute2}/bin/ip --color --brief";
-        less = "${pkgs.bat}/bin/bat";
-        dmesg = "${pkgs.util-linux}/bin/dmesg --human --color=always";
-        tree = "${pkgs.eza}/bin/eza --tree";
-        ping = "${pkgs.gping}/bin/gping";
-        ask = "${pkgs.tgpt}/bin/tgpt";
-        backup-server = "${backup-server}/bin/backup-server.sh";
-        run-gui = "${run-gui}/bin/run-gui";
-        reboot = "systemctl reboot";
-        shutdown = "systemctl poweroff";
-      };
+
       plugins = [
         # Enable a plugin (here grc for colorized command output) from nixpkgs
         {
