@@ -73,7 +73,7 @@ in {
       ping = "${pkgs.gping}/bin/gping";
       ask = "${pkgs.tgpt}/bin/tgpt";
       ps = "${pkgs.procs}/bin/procs";
-      df = "${pkgs.duf}/bin/duf";
+      df = "${pkgs.duf}/bin/duf --hide local,network,fuse,special,loops";
       backup-server = "${backup-server}/bin/backup-server.sh";
       run-gui = "${run-gui}/bin/run-gui";
       reboot = "systemctl reboot";
