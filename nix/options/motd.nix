@@ -4,6 +4,30 @@
   pkgs,
   ...
 }: let
+  check-space = pkgs.writeShellScriptBin "check-space" ''
+    # Define color codes
+    RED='\033[0;31m'
+    GREEN='\033[0;32m'
+    YELLOW='\033[0;33m'
+    NC='\033[0m' # No Color
+
+    for mnt in data media; do
+        dfout=$(df -BG --output=used,size /mnt/$mnt | tail -1)
+        used=$(echo $dfout | awk '{print $1}' | tr -d 'G')
+        total=$(echo $dfout | awk '{print $2}' | tr -d 'G')
+        percent=$(${pkgs.bc}/bin/bc <<< "scale=2; $used/$total*100")
+
+        # Choose color based on percentage
+        if (( $(echo "$percent > 80" | ${pkgs.bc}/bin/bc -l) )); then
+            color=$RED
+        elif (( $(echo "$percent > 50" | ${pkgs.bc}/bin/bc -l) )); then
+            color=$YELLOW
+        else
+            color=$GREEN
+        fi
+
+        echo -e "$mnt     Used $color$(printf "%.2f" $percent)%$NC out of $color$total GB$NC"
+    done'';
   check-services = pkgs.writeShellScriptBin "check-services" ''
     # Color codes
     ACTIVE="\033[0;32m"  # Green
@@ -67,16 +91,11 @@
       printf "$BOLD  * %-20s$ENDCOLOR %s\n" "Memory" "$MEMORY"
       printf "$BOLD  * %-20s$ENDCOLOR %s\n" "System uptime" "$upDays days $upHours hours $upMins minutes $upSecs seconds"
       printf "\n"
-      for mnt in data media; do
-        dfout=$(df -BG --output=used,size /mnt/$mnt | tail -1)
-        used=$(echo $dfout | awk '{print $1}' | tr -d 'G')
-        total=$(echo $dfout | awk '{print $2}' | tr -d 'G')
-        echo "$mnt     Used $(bc <<< "scale=2; $used/$total*100")% out of " "$total" "GB"
-      done
+      check-space
       printf "\n"
       printf "$BOLDService status$ENDCOLOR\n"
 
-      ${pkgs.check-services}/bin/check-services jellyfin.service sonarr.service radarr.service prowlarr.service transmission.service
+      check-services jellyfin.service sonarr.service radarr.service prowlarr.service transmission.service
     '';
   cfg = config.tht.motd;
 in {
@@ -92,9 +111,10 @@ in {
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [
       motd
+      check-services
+      check-space
       pkgs.lolcat
       pkgs.figlet
-      pkgs.bc
     ];
     programs.zsh.interactiveShellInit = ''
       motd
