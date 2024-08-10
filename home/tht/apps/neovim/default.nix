@@ -5,6 +5,15 @@
   programs.nixvim = {
     enable = true;
 
+    keymaps = [
+      {
+        mode = "n";
+        key = "<leader>e";
+        options.silent = true;
+        action = "<cmd>Neotree";
+      }
+    ];
+
     colorschemes.catppuccin = {
       enable = true;
       settings = {
