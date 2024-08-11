@@ -4,12 +4,16 @@
   ];
   programs.nixvim = {
     enable = true;
-
+    globals.mapleader = ","; # Sets the leader key to comma
     keymaps = [
+          {
+        key = ";";
+        action = ":";
+      }
       {
         mode = "n";
         key = "<leader>e";
-        options.silent = true;
+        #options.silent = true;
         action = "<cmd>Neotree";
       }
     ];
