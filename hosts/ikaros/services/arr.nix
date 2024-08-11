@@ -18,7 +18,7 @@
       openFirewall = true;
     };
     bazarr = {
-      enable = true;
+      #enable = true;
       openFirewall = true;
     };
     prowlarr = {
