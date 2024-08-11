@@ -106,6 +106,9 @@
     "com.ultimaker.cura"
     "net.mkiol.SpeechNote"
     "com.obsproject.Studio"
+    "com.obsproject.Studio.Plugin.Gstreamer"
+    "org.freedesktop.Platform.GStreamer.gstreamer-vaapi"
+    "com.obsproject.Studio.Plugin.OBSVkCapture"
   ];
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
