@@ -38,4 +38,7 @@
     */
   };
   #boot.kernelPackages = pkgs.linuxPackages_latest;
+  networking.firewall.allowedTCPPorts = [
+  4455
+  ];
 }
