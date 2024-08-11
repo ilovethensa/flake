@@ -1,11 +1,9 @@
 {pkgs, ...}: {
-  programs.zsh = {
+  programs.fish = {
     enable = true;
-    enableBashCompletion = true;
-    zsh-autoenv.enable = true;
   };
   users = {
-    defaultUserShell = pkgs.zsh;
+    defaultUserShell = pkgs.fish;
     mutableUsers = false;
     users = {
       root = {
