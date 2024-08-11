@@ -21,7 +21,6 @@
   networking.hostName = "ikaros"; # Define hostname
 
   environment.systemPackages = with pkgs; [
-    jdk17
     git
     btop
   ];
