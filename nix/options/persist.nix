@@ -4,7 +4,7 @@
   inputs,
   ...
 }: let
-  service = "meta";
+  service = "tht";
   cfg = config.${service};
 in {
   options.${service} = {

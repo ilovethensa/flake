@@ -25,7 +25,15 @@
     git
     btop
   ];
-  meta.intel = true;
+  tht = {
+    intel = true;
+    motd = {
+      enable = true;
+      networkInterfaces = [
+        "enp0s31f6"
+      ];
+    };
+  };
   programs.fish.enable = true;
   #networking.wireguard.enable = true;
   # Persistence configuration

@@ -31,12 +31,12 @@
     "/nix" = {
       device = "/dev/disk/by-uuid/b2406943-5c55-4dfd-8ffd-b3cd4d4123e7";
       fsType = "btrfs";
-      options = ["subvol=@nix" "compress-force=zstd:15" "defaults" "noatime"];
+      options = ["subvol=@nix" "compress=zstd:15" "defaults" "noatime"];
     };
     "/home" = {
       device = "/dev/disk/by-uuid/b2406943-5c55-4dfd-8ffd-b3cd4d4123e7";
       fsType = "btrfs";
-      options = ["subvol=@home" "compress-force=zstd:15" "defaults" "noatime"];
+      options = ["subvol=@home" "compress=zstd:15" "defaults" "noatime"];
     };
   };
   swapDevices = [];
