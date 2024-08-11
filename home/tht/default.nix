@@ -92,23 +92,23 @@
         nvram = [ "/run/libvirt/nix-ovmf/AAVMF_CODE.fd:/run/libvirt/nix-ovmf/AAVMF_VARS.fd", "/run/libvirt/nix-ovmf/OVMF_CODE.fd:/run/libvirt/nix-ovmf/OVMF_VARS.fd" ]'';
     };
   };
-  #  programs.obs-studio = {
-  #  enable = true;
-  #  plugins = with pkgs.obs-studio-plugins; [
-  #    wlrobs
-  #    obs-vkcapture
-  #    obs-pipewire-audio-capture
-  #    obs-vaapi
-  #    obs-gstreamer
-  #  ];
-  #};
+    programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+      obs-vkcapture
+      obs-pipewire-audio-capture
+      obs-vaapi
+      obs-gstreamer
+    ];
+  };
   services.flatpak.packages = [
     "com.ultimaker.cura"
     "net.mkiol.SpeechNote"
-    "com.obsproject.Studio"
-    "com.obsproject.Studio.Plugin.Gstreamer"
-    "org.freedesktop.Platform.GStreamer.gstreamer-vaapi/x86_64/23.08"
-    "com.obsproject.Studio.Plugin.OBSVkCapture"
+    #"com.obsproject.Studio"
+    #"com.obsproject.Studio.Plugin.Gstreamer"
+    #"org.freedesktop.Platform.GStreamer.gstreamer-vaapi/x86_64/23.08"
+    #"com.obsproject.Studio.Plugin.OBSVkCapture"
   ];
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
