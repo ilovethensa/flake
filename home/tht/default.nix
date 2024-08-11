@@ -98,6 +98,7 @@
       wlrobs
       obs-vkcapture
       obs-pipewire-audio-capture
+      obs-vaapi
     ];
   };
   services.flatpak.packages = [
