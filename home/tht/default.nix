@@ -99,6 +99,7 @@
       obs-vkcapture
       obs-pipewire-audio-capture
       obs-vaapi
+      obs-gstreamer
     ];
   };
   services.flatpak.packages = [
