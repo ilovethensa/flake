@@ -107,7 +107,7 @@
     "net.mkiol.SpeechNote"
     "com.obsproject.Studio"
     "com.obsproject.Studio.Plugin.Gstreamer"
-    "org.freedesktop.Platform.GStreamer.gstreamer-vaapi"
+    "org.freedesktop.Platform.GStreamer.gstreamer-vaapi/x86_64/23.08"
     "com.obsproject.Studio.Plugin.OBSVkCapture"
   ];
   # Nicely reload system units when changing configs
