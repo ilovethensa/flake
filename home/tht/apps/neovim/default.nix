@@ -14,7 +14,7 @@
         mode = "n";
         key = "<leader>e";
         #options.silent = true;
-        action = "<cmd>Neotree";
+        action = "<cmd>Neotree<CR>";
       }
     ];
 
