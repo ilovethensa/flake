@@ -42,7 +42,7 @@
         file_server
         root * /var/www/pwned.page
       '';
-      "home.theholytachanka.com" = ''
+      "home.theholytachanka.com".extraConfig = ''
         reverse_proxy http://renegade.local:8123
       '';
     };
