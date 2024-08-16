@@ -1,5 +1,6 @@
 {pkgs, ...}: {
-  services.greetd = {
+  /*
+     services.greetd = {
     enable = true;
     settings = {
       default_session = {
@@ -8,9 +9,11 @@
       };
     };
   };
+  */
   environment.systemPackages = with pkgs; [
     wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
   ];
+  services.xserver.displayManager.startx.enable = true;
 
   # Enable the gnome-keyring secrets vault.
   # Will be exposed through DBus to programs willing to store secrets.
