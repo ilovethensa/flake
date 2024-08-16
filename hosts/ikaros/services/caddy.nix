@@ -42,6 +42,9 @@
         file_server
         root * /var/www/pwned.page
       '';
+      "home.theholytachanka.com" = ''
+        reverse_proxy http://renegade.local:8123
+      '';
     };
   };
 
@@ -54,6 +57,7 @@
     "pwned.page"
     "watch.theholytachanka.com"
     "request.theholytachanka.com"
+    "home.theholytachanka.com"
   ];
   security.acme.certs = {
     "mc.theholytachanka.com" = {};
@@ -64,5 +68,6 @@
     "pwned.page" = {};
     "watch.theholytachanka.com" = {};
     "request.theholytachanka.com" = {};
+    "home.theholytachanka.com" = {};
   };
 }
