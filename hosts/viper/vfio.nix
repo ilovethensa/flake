@@ -7,8 +7,8 @@
         set -x
 
         # Re-Bind GPU to Nvidia Driver
-        virsh nodedev-reattach pci_0000_09_00_1
-        virsh nodedev-reattach pci_0000_09_00_0
+        virsh nodedev-reattach pci_0000_07_00_1
+        virsh nodedev-reattach pci_0000_07_00_0
 
         # Reload nvidia modules
         modprobe amdgpu
@@ -37,6 +37,7 @@
         ## Uncomment the following line if you use GDM
         #killall gdm-x-session
         ${pkgs.killall}/bin/killall sway
+        pkill -u tht
 
         # Unbind VTconsoles
         echo 0 > /sys/class/vtconsole/vtcon0/bind
@@ -49,8 +50,8 @@
         sleep 2
 
         # Unbind the GPU from display driver
-        virsh nodedev-detach pci_0000_09_00_0
-        virsh nodedev-detach pci_0000_09_00_1
+        virsh nodedev-detach pci_0000_07_00_0
+        virsh nodedev-detach pci_0000_07_00_1
 
         # Load VFIO Kernel Module
         modprobe vfio-pci
