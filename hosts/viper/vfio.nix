@@ -1,18 +1,12 @@
 {pkgs, ...}: {
-  networking.useDHCP = false;
-  networking.bridges = {
-    "br0" = {
-      interfaces = ["enp4s0"];
-    };
+  networking.interfaces.enp4s0 = {
+    ipv4.addresses = [
+      {
+        address = "192.168.1.247";
+        prefixLength = 24;
+      }
+    ];
   };
-  networking.interfaces.br0.ipv4.addresses = [
-    {
-      address = "10.10.10.10";
-      prefixLength = 24;
-    }
-  ];
-  networking.defaultGateway = "192.168.1.1";
-  networking.nameservers = ["192.168.1.1"];
   environment.etc = {
     "libvirt/hooks/qemu.d/win10-gpu/release/end/revert.sh" = {
       mode = "0777";
