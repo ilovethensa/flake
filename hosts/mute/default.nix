@@ -50,6 +50,7 @@
   };
   hardware.xone.enable = true;
   boot.extraModprobeConfig = ''options bluetooth disable_ertm=1 '';
+  # Please work
   # System state version
   system.stateVersion = "23.05";
 }
