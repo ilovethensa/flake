@@ -1,12 +1,4 @@
 {pkgs, ...}: {
-  networking.interfaces.enp4s0 = {
-    ipv4.addresses = [
-      {
-        address = "192.168.1.247";
-        prefixLength = 24;
-      }
-    ];
-  };
   environment.etc = {
     "libvirt/hooks/qemu.d/win10-gpu/release/end/revert.sh" = {
       mode = "0777";
