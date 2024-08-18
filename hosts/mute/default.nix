@@ -23,6 +23,7 @@
     tor-browser
     rage
     wl-clipboard
+    linuxKernel.packages.linux_zen.xone
   ];
   tht.intel = true;
   virtualisation.waydroid.enable = true;
@@ -47,6 +48,8 @@
       };
     };
   };
+  hardware.xone.enable = true;
+  boot.extraModprobeConfig = ''options bluetooth disable_ertm=1 '';
   # System state version
   system.stateVersion = "23.05";
 }
