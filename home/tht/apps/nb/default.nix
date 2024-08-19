@@ -9,8 +9,6 @@
 in {
   home.packages = with pkgs; [
     nb
-  ];
-  environment.systemPackages = [
     bookmark-add
   ];
 }
