@@ -11,6 +11,7 @@
       terminal = "${pkgs.foot}/bin/footclient";
       keybindings = {
         "control+shift+escape" = "exec $term ${pkgs.btop}/bin/btop";
+        "${modifier}+b" = "exec bookmark-add";
         # Brightness
         "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%-";
         "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set +10%";
