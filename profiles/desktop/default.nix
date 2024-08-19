@@ -12,14 +12,9 @@
     inputs.home-manager.nixosModules.home-manager
   ];
   home-manager.extraSpecialArgs = {inherit inputs outputs;};
-  environment.systemPackages = with pkgs; [
-    nb
-    btop
-  ];
-  
-  services.pcscd.enable = true;
   services = {
     flatpak.enable = true;
+    pcscd.enable = true;
     udisks2 = {
       enable = true;
       mountOnMedia = true;
@@ -44,6 +39,6 @@
   };
   #boot.kernelPackages = pkgs.linuxPackages_latest;
   networking.firewall.allowedTCPPorts = [
-  4455
+    4455
   ];
 }

@@ -18,6 +18,7 @@
     #inputs.nix-colors.homeManagerModules.default
     ./apps/vscode
     ./apps/spotify
+    ./apps/nb
     #./apps/qutebrowser
     ./apps/firefox
     ../common/fish
@@ -48,7 +49,7 @@
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
-  home.packages = with pkgs; [hashcat vesktop nixpkgs-fmt signal-desktop thunderbird bitwarden ungoogled-chromium bisq-desktop];
+  home.packages = with pkgs; [hashcat vesktop nixpkgs-fmt signal-desktop thunderbird bitwarden ungoogled-chromium bisq-desktop btop];
   services.gpg-agent = {
     enable = true;
     pinentryPackage = pkgs.pinentry-gtk2;
@@ -92,7 +93,7 @@
         nvram = [ "/run/libvirt/nix-ovmf/AAVMF_CODE.fd:/run/libvirt/nix-ovmf/AAVMF_VARS.fd", "/run/libvirt/nix-ovmf/OVMF_CODE.fd:/run/libvirt/nix-ovmf/OVMF_VARS.fd" ]'';
     };
   };
-    programs.obs-studio = {
+  programs.obs-studio = {
     enable = true;
     plugins = with pkgs.obs-studio-plugins; [
       wlrobs
