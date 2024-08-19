@@ -4,7 +4,7 @@
     URL=$(${pkgs.rofi-wayland}/bin/rofi -dmenu -p "Enter Bookmark URL:")
 
     # Add the bookmark if URL is not empty
-    [ -n "$URL" ] && nb "$URL" && ${pkgs.rofi-wayland}/bin/rofi -e "Bookmark added!"
+    [ -n "$URL" ] && nb "$URL" && ${pkgs.libnotify}/bin/notify-send "Bookmark added!"
   '';
 in {
   home.packages = with pkgs; [

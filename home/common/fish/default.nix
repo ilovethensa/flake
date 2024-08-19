@@ -79,6 +79,8 @@ in {
         run-gui = "${run-gui}/bin/run-gui";
         reboot = "systemctl reboot";
         shutdown = "systemctl poweroff";
+        gc = "git add . && git commit -m";
+        gp = "git push";
       };
       plugins = [
         # Enable a plugin (here grc for colorized command output) from nixpkgs
