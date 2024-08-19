@@ -1,11 +1,10 @@
-{
-  pkgs,
-  inputs,
-  ...
+{ pkgs
+, inputs
+, ...
 }: {
   programs.firefox = {
     enable = true;
-    package = pkgs.wrapFirefox (pkgs.firefox-unwrapped.override {pipewireSupport = true;}) {};
+    package = pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true; }) { };
     profiles.default = {
       id = 0;
       name = "Default";
@@ -25,7 +24,6 @@
         "extensions.autoDisableScopes" = 0;
         "extensions.enabledScopes" = 15;
         "privacy.resistFingerprinting" = true;
-        "privacy.resistFingerprinting.letterboxing" = true;
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         "browser.uidensity" = 0;
         "svg.context-properties.content.enabled" = true;
@@ -180,7 +178,7 @@
         default = "DuckDuckGo";
         privateDefault = "DuckDuckGo";
         force = true;
-        order = ["DuckDuckGo" "NixOS Wiki" "Nix Packages"];
+        order = [ "DuckDuckGo" "NixOS Wiki" "Nix Packages" ];
         engines = {
           "Nix Packages" = {
             urls = [
@@ -200,7 +198,7 @@
             ];
 
             icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-            definedAliases = ["np"];
+            definedAliases = [ "np" ];
           };
 
           "NixOS Wiki" = {
@@ -211,7 +209,7 @@
             ];
             iconUpdateURL = "https://nixos.wiki/favicon.png";
             updateInterval = 24 * 60 * 60 * 1000; # every day
-            definedAliases = ["nw"];
+            definedAliases = [ "nw" ];
           };
           "Mynixos" = {
             urls = [
@@ -221,7 +219,7 @@
             ];
             iconUpdateURL = "https://nixos.wiki/favicon.png";
             updateInterval = 24 * 60 * 60 * 1000; # every day
-            definedAliases = ["ns"];
+            definedAliases = [ "ns" ];
           };
           "DuckDuckGo" = {
             urls = [
@@ -231,7 +229,7 @@
             ];
             #iconUpdateURL = "https://brave.com/static-assets/images/brave-logo-sans-text.svg";
             updateInterval = 24 * 60 * 60 * 1000; # every day
-            definedAliases = ["br"];
+            definedAliases = [ "br" ];
           };
           "Bing".metaData.hidden = true;
           "Google".metaData.hidden = true;

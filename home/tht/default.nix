@@ -1,9 +1,8 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{
-  pkgs,
-  inputs,
-  ...
+{ pkgs
+, inputs
+, ...
 }: {
   # You can import other home-manager modules here
   imports = [
@@ -49,7 +48,7 @@
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
-  home.packages = with pkgs; [hashcat vesktop nixpkgs-fmt signal-desktop thunderbird bitwarden ungoogled-chromium bisq-desktop btop zed-editor nixd];
+  home.packages = with pkgs; [ hashcat vesktop nixpkgs-fmt signal-desktop thunderbird bitwarden bisq-desktop btop zed-editor nixd ];
   services.gpg-agent = {
     enable = true;
     pinentryPackage = pkgs.pinentry-gtk2;
