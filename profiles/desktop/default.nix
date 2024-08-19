@@ -12,6 +12,11 @@
     inputs.home-manager.nixosModules.home-manager
   ];
   home-manager.extraSpecialArgs = {inherit inputs outputs;};
+  environment.systemPackages = with pkgs; [
+    nb
+    btop
+  ];
+  
   services.pcscd.enable = true;
   services = {
     flatpak.enable = true;
