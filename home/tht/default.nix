@@ -16,7 +16,7 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
     #inputs.nix-colors.homeManagerModules.default
-    ./apps/vscode
+    #./apps/vscode
     ./apps/spotify
     ./apps/nb
     #./apps/qutebrowser
@@ -49,7 +49,7 @@
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   # home.packages = with pkgs; [ steam ];
-  home.packages = with pkgs; [hashcat vesktop nixpkgs-fmt signal-desktop thunderbird bitwarden ungoogled-chromium bisq-desktop btop];
+  home.packages = with pkgs; [hashcat vesktop nixpkgs-fmt signal-desktop thunderbird bitwarden ungoogled-chromium bisq-desktop btop zed-editor];
   services.gpg-agent = {
     enable = true;
     pinentryPackage = pkgs.pinentry-gtk2;
