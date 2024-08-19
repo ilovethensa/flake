@@ -23,6 +23,7 @@
     tor-browser
     rage
     wl-clipboard
+    linuxKernel.packages.linux_zen.xone
   ];
   tht.intel = true;
   virtualisation.waydroid.enable = true;
@@ -37,6 +38,19 @@
   environment.persistence."/nix/persist".directories = [
     "/var/lib/waydroid"
   ];
+  services.blueman.enable = true;
+  hardware.bluetooth = {
+    enable = true; # enables support for Bluetooth
+    powerOnBoot = true; # powers up the default Bluetooth controller on boot
+    settings = {
+      General = {
+        Experimental = true;
+      };
+    };
+  };
+  hardware.xone.enable = true;
+  boot.extraModprobeConfig = ''options bluetooth disable_ertm=1 '';
+  # Please work
   # System state version
   system.stateVersion = "23.05";
 }
