@@ -19,7 +19,7 @@
     ./apps/spotify
     ./apps/nb
     #./apps/qutebrowser
-    ./apps/firefox
+    #./apps/firefox
     ../common/fish
     #./apps/yt-dlp
     ./apps/neovim
@@ -105,6 +105,7 @@
   services.flatpak.packages = [
     "com.ultimaker.cura"
     "net.mkiol.SpeechNote"
+    "io.github.zen_browser.zen"
   ];
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
