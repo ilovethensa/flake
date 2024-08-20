@@ -22,7 +22,7 @@
     #./apps/firefox
     ../common/fish
     #./apps/yt-dlp
-    ./apps/neovim
+    #./apps/neovim
     #./apps/newsboat
     ./apps/yazi
     ./desktops/sway
