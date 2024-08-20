@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   /*
      services.greetd = {
     enable = true;
@@ -8,7 +8,7 @@
         user = "greeter";
       };
     };
-  };
+    };
   */
   environment.systemPackages = with pkgs; [
     wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
@@ -27,17 +27,16 @@
   xdg.portal = {
     xdgOpenUsePortal = true;
     enable = true;
-    wlr.enable = true;
     extraPortals = [
-      pkgs.xdg-desktop-portal-gnome
+      pkgs.xdg-desktop-portal-gtk
     ];
   };
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
       description = "polkit-gnome-authentication-agent-1";
-      wantedBy = ["graphical-session.target"];
-      wants = ["graphical-session.target"];
-      after = ["graphical-session.target"];
+      wantedBy = [ "graphical-session.target" ];
+      wants = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
       serviceConfig = {
         Type = "simple";
         ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
