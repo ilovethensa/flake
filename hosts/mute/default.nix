@@ -1,10 +1,10 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   # Import modules and configuration pieces
   imports = [
     ./hardware-configuration.nix
     ../../profiles/laptop
     ../../nix/configs/users/tht.nix
-    ../../nix/configs/gaming.nix
+    #../../nix/configs/gaming.nix
   ];
   home-manager = {
     users = {
