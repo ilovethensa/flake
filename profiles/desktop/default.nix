@@ -1,8 +1,7 @@
-{
-  inputs,
-  outputs,
-  pkgs,
-  ...
+{ inputs
+, outputs
+, pkgs
+, ...
 }: {
   imports = [
     ../common
@@ -11,7 +10,7 @@
     ../../nix/configs/desktop/sway.nix
     inputs.home-manager.nixosModules.home-manager
   ];
-  home-manager.extraSpecialArgs = {inherit inputs outputs;};
+  home-manager.extraSpecialArgs = { inherit inputs outputs; };
   services = {
     flatpak.enable = true;
     pcscd.enable = true;
@@ -34,10 +33,10 @@
 
         network.exit-node = ["exit.loki"];
       };
-    };
+      };
     */
   };
-  #boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   networking.firewall.allowedTCPPorts = [
     4455
   ];
