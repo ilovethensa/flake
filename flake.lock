@@ -353,11 +353,11 @@
     "morewaita": {
       "flake": false,
       "locked": {
-        "lastModified": 1765447213,
-        "narHash": "sha256-DxZ7XnIIF3EKGMPXahD+aHp6lCLRmrnywn7+qWCVflo=",
+        "lastModified": 1771318193,
+        "narHash": "sha256-MLjjlVsCMPaTC9546EueNoG2cYmpPsEN8XjVmir1VYs=",
         "owner": "somepaulo",
         "repo": "MoreWaita",
-        "rev": "7415d0e7664027d1294235cb96041e9cfacfca8a",
+        "rev": "61486fbe1dd6a66d45e6f420a08c05c4efb2dd1d",
         "type": "github"
       },
       "original": {
@@ -406,11 +406,11 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1771295873,
-        "narHash": "sha256-BbzfAGRrEgvSn5p1k8G3FtBNte50JQ+YiBmy/zC/3NE=",
+        "lastModified": 1771382527,
+        "narHash": "sha256-Foh3EICQDI3Q9XI0lnTh3EceVAYUJP4Gan7oluieqC4=",
         "owner": "fufexan",
         "repo": "nix-gaming",
-        "rev": "d39046b43da919faf235170f9cb321712468f907",
+        "rev": "43b1d5711e81761bb2152cfc0920f465d3edd9b0",
         "type": "github"
       },
       "original": {
