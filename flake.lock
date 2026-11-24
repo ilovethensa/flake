@@ -96,11 +96,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1795320161,
-        "narHash": "sha256-1cVr0CyXUbvjSA6awXv3B9UNn38/s2jri1yqQH3LDCY=",
+        "lastModified": 1795492993,
+        "narHash": "sha256-ahWady3zaDLyXbXZMMzzyw6eKdXlCJ1DBrShCCHjMB8=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "c83f1fa2548ad34b88ad7ebc0dff52be8c909ebd",
+        "rev": "d30aafe71a6b68888bec56a1ec030494b69da61e",
         "type": "gitlab"
       },
       "original": {
@@ -250,11 +250,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1787424939,
-        "narHash": "sha256-O2tBn84NNuHrnqNVxx/XqsXwfYvS1YwBh+7CBnbCYsk=",
+        "lastModified": 1793686154,
+        "narHash": "sha256-Zb/0L3soxrkfcrywpfp0J++0WFLB3tzh0Xtx9up+VNc=",
         "owner": "cachix",
         "repo": "git-hooks.nix",
-        "rev": "809414f0cdadf82cf11b06c2b29ba9b3168b3297",
+        "rev": "204b6977e00caac19e2313015a598543ca7be150",
         "type": "github"
       },
       "original": {
@@ -495,11 +495,11 @@
     },
     "nixpkgs_11": {
       "locked": {
-        "lastModified": 1787948808,
-        "narHash": "sha256-eGTDlxFCHGX/SI9ygF48RWTg5u88ikF0O3KRLA7i3+w=",
+        "lastModified": 1795439858,
+        "narHash": "sha256-uRBNlJWqI5kxovbdMgHynFthg6E8OSIaeKHVMWzNkj4=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "66b643c7d4e3f50124081b60845fd07a8455d263",
+        "rev": "91e8120f66d9b1e913e53d97ac4b20974f2cf196",
         "type": "github"
       },
       "original": {
@@ -735,11 +735,11 @@
         "nixpkgs": "nixpkgs_11"
       },
       "locked": {
-        "lastModified": 1795384903,
-        "narHash": "sha256-DiY4DqpgvcX2G1N7z5v0sg1V8xsH9PDkojqK8jju2Sc=",
+        "lastModified": 1795468537,
+        "narHash": "sha256-kHzf0kyHE7gkUId06urKZyi0i8f4xoxNsnnH60wODgQ=",
         "owner": "simple-nixos-mailserver",
         "repo": "nixos-mailserver",
-        "rev": "57a9c04fc080f60367b440ad21139bee1d50bcbb",
+        "rev": "3f3461ae8e2720430bcc1ac3c188061aacf13b4e",
         "type": "gitlab"
       },
       "original": {
